@@ -10,22 +10,18 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            int num = 1;
-            Increment(num);
-            Console.WriteLine(num);
 
-            var per = new Person1() { age = 21 };
-            AgeIncrement(per);
-            Console.WriteLine(per.age);
-        }
-             public static void Increment(int num)
-            {
-                num += 10;
-            }
+            var arr = new int[5] { 1, 20, 3, 2, 78 };
+            var arr2 = new int[9] { 2, 3, 2, 4, 5, 6, 7, 8, 9 };
+            Array.Sort(arr);
+            Array.Reverse(arr);
+            Array.Clear(arr, 0, 2);
+            Array.Copy(arr, arr2, 5);
+            foreach(var i in arr2)
+                Console.WriteLine(i);
 
-            public static void AgeIncrement(Person1 per)
-            {
-                per.age += 20;
-            }
+
         }
+    }
+
 }
