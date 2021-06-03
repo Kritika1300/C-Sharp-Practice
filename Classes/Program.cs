@@ -2,28 +2,24 @@
 namespace Classes
 {
   
+    public enum ShippingMethod { 
+        RegularAirMail = 1,
+        RegisteredAirMail = 2,
+        Express = 3
+    }
     class Program
     {
         static void Main(string[] args)
         {
-            string firstName = "Kritika";
-            string lastName = "Kaur";
+            var method = ShippingMethod.Express;
+            Console.WriteLine((int)method);
 
-            string fullName = firstName + lastName;
-            Console.WriteLine(fullName);
+            var methodId = 2;
+            Console.WriteLine((ShippingMethod)methodId);
 
-            string fullName2 = string.Format("Hey {1} {0}", firstName, lastName);
-            Console.WriteLine(fullName2);
-
-            var numbers = new int[5] { 1, 2, 3, 4, 5 };
-            string list = string.Join("-", numbers);
-            Console.WriteLine(list);
-
-            string verbatim = @"Hey
-            Kritika
-            checkout this path : c:\Desktop\Practice";
-            Console.WriteLine(verbatim);
-
+            var methodName = "RegularAirMail";
+            var str = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
+            Console.WriteLine(str);
         }
     }
 }
