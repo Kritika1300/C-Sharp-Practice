@@ -3,17 +3,17 @@
 namespace HelloWorld
 
 {
-    class Introduce {
+    class Introduce
+    {
 
         public string firstName;
         public string lastName;
-        public  void Name()
+        public void Name()
         {
-            Console.WriteLine("Hey " + firstName + " " + lastName); 
+            Console.WriteLine("Hey " + firstName + " " + lastName);
         }
 
     }
-
     class Program
     {
         static void Main(string[] args)
