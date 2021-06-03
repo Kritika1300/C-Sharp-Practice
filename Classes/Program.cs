@@ -2,24 +2,30 @@
 namespace Classes
 {
   
-    public enum ShippingMethod { 
-        RegularAirMail = 1,
-        RegisteredAirMail = 2,
-        Express = 3
+    public class Person1{
+
+        public int age;
     }
     class Program
     {
         static void Main(string[] args)
         {
-            var method = ShippingMethod.Express;
-            Console.WriteLine((int)method);
+            int num = 1;
+            Increment(num);
+            Console.WriteLine(num);
 
-            var methodId = 2;
-            Console.WriteLine((ShippingMethod)methodId);
-
-            var methodName = "RegularAirMail";
-            var str = (ShippingMethod)Enum.Parse(typeof(ShippingMethod), methodName);
-            Console.WriteLine(str);
+            var per = new Person1() { age = 21 };
+            AgeIncrement(per);
+            Console.WriteLine(per.age);
         }
-    }
+             public static void Increment(int num)
+            {
+                num += 10;
+            }
+
+            public static void AgeIncrement(Person1 per)
+            {
+                per.age += 20;
+            }
+        }
 }
