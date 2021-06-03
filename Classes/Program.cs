@@ -6,20 +6,24 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            int[] arr = new int[3];
-            arr[0] = 1;
+            string firstName = "Kritika";
+            string lastName = "Kaur";
 
-            Console.WriteLine(arr[0]);
-            Console.WriteLine(arr[1]);
-            Console.WriteLine(arr[2]);
+            string fullName = firstName + lastName;
+            Console.WriteLine(fullName);
 
+            string fullName2 = string.Format("Hey {1} {0}", firstName, lastName);
+            Console.WriteLine(fullName2);
 
-            bool[] arr1 = new bool[3];
-            arr1[0] = true;
+            var numbers = new int[5] { 1, 2, 3, 4, 5 };
+            string list = string.Join("-", numbers);
+            Console.WriteLine(list);
 
-            Console.WriteLine(arr1[0]);
-            Console.WriteLine(arr1[1]);
-            Console.WriteLine(arr1[2]);
+            string verbatim = @"Hey
+            Kritika
+            checkout this path : c:\Desktop\Practice";
+            Console.WriteLine(verbatim);
+
         }
     }
 }
