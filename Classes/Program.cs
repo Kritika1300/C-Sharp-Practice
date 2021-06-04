@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Text;
+using System;
 
 namespace Classes
 {
@@ -7,9 +8,12 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            string sentence = "hi how are you this is a long long very long sentence which has to be shortened";
-            string summary = StringUtility.SummarizeText(sentence, 12);
-            Console.WriteLine(summary);
+            var str = new StringBuilder();
+            str.Append('-', 10).AppendLine().Append("Heyyyyy").AppendLine().Append('-', 10);
+            str.Replace('-', '#');
+            str.Remove(0, 2);
+            str.Insert(0, new string('$', 2));
+            Console.WriteLine(str);
         }
     }
 
