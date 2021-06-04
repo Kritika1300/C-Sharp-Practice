@@ -8,12 +8,20 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            var str = new StringBuilder();
-            str.Append('-', 10).AppendLine().Append("Heyyyyy").AppendLine().Append('-', 10);
-            str.Replace('-', '#');
-            str.Remove(0, 2);
-            str.Insert(0, new string('$', 2));
-            Console.WriteLine(str);
+            var str = "Kritika";
+            var reversed = ReverseName(str);
+            Console.WriteLine(reversed);
+        }
+
+        static string ReverseName(string str)
+        {
+            var arr = new char[str.Length];
+            for(var i = arr.Length; i > 0; i--)
+            {
+                arr[arr.Length - i] = str[i - 1];
+            }
+
+            return new string(arr);
         }
     }
 
