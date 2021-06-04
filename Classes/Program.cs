@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.IO;
 using System;
 
 namespace Classes
@@ -8,41 +8,12 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number (or type Quit and exit):\n");
-            var list = new List<int>();
-            var unique = new List<int>();
-            while (true)
-            {
-                var input = Console.ReadLine();
-
-                if(input == "Quit")
-                {
-                    break;
-                }
-                else
-                {
-                    list.Add(Convert.ToInt32(input));
-                }
-            }
-
-            foreach(var input in list)
-            {
-                if (!unique.Contains(input))
-                {
-                    unique.Add(input);
-                }
-            }
-
-            foreach(var i in unique)
-            {
-                Console.Write(i + " ");
-            }
-            
-
-
-
-
+            var path = @"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\someFile.txt";
+            File.Copy(@"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\fileSource.txt", @"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\fileDestination.txt", true);
+            var content = File.ReadAllText(path);
+            Console.WriteLine(content);
         }
+
     }
 
 }
