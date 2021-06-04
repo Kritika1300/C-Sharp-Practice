@@ -8,10 +8,15 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            Directory.CreateDirectory(@"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Temp");
-            var files = Directory.GetFiles(@"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Temp", "*.c", SearchOption.AllDirectories);
-            foreach(var file in files)
-                Console.WriteLine(file);
+            var path = @"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Classes\Classes.sln";
+            var extension = Path.GetExtension(path);
+            Console.WriteLine(extension);
+            var filename = Path.GetFileName(path);
+            Console.WriteLine(filename);
+            var file = Path.GetFileNameWithoutExtension(path);
+            Console.WriteLine(file);
+            var dir = Path.GetDirectoryName(path);
+            Console.WriteLine(dir);
         }
 
     }
