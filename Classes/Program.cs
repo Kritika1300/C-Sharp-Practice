@@ -1,4 +1,4 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
 using System;
 
 namespace Classes
@@ -8,20 +8,40 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            var str = "Kritika";
-            var reversed = ReverseName(str);
-            Console.WriteLine(reversed);
-        }
-
-        static string ReverseName(string str)
-        {
-            var arr = new char[str.Length];
-            for(var i = arr.Length; i > 0; i--)
+            Console.WriteLine("Enter a number (or type Quit and exit):\n");
+            var list = new List<int>();
+            var unique = new List<int>();
+            while (true)
             {
-                arr[arr.Length - i] = str[i - 1];
+                var input = Console.ReadLine();
+
+                if(input == "Quit")
+                {
+                    break;
+                }
+                else
+                {
+                    list.Add(Convert.ToInt32(input));
+                }
             }
 
-            return new string(arr);
+            foreach(var input in list)
+            {
+                if (!unique.Contains(input))
+                {
+                    unique.Add(input);
+                }
+            }
+
+            foreach(var i in unique)
+            {
+                Console.Write(i + " ");
+            }
+            
+
+
+
+
         }
     }
 
