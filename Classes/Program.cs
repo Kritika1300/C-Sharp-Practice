@@ -1,24 +1,31 @@
 ﻿using System;
+
 namespace Classes
 {
   
-    public class Person1{
-
-        public int age;
-    }
     class Program
     {
         static void Main(string[] args)
         {
+            string fullName = "Kritika Kaur      ";
+            Console.WriteLine("My name is '{0}'",fullName.Trim());
+            Console.WriteLine("My name is '{0}'", fullName.Trim().ToUpper());
 
-            var arr = new int[5] { 1, 20, 3, 2, 78 };
-            var arr2 = new int[9] { 2, 3, 2, 4, 5, 6, 7, 8, 9 };
-            Array.Sort(arr);
-            Array.Reverse(arr);
-            Array.Clear(arr, 0, 2);
-            Array.Copy(arr, arr2, 5);
-            foreach(var i in arr2)
-                Console.WriteLine(i);
+            var index = fullName.IndexOf(' ');
+            var firstName = fullName.Substring(0, index);
+            var lastName = fullName.Substring(index + 1);
+            Console.WriteLine(firstName+ "\n" + lastName);
+
+            var arr = fullName.Split(' ');
+           
+            Console.WriteLine(arr[0] + arr[1]);
+           
+
+            int num = 1234;
+            string str = num.ToString("C0");
+            Console.WriteLine(str);
+
+
 
 
         }
