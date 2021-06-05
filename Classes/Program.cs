@@ -1,4 +1,4 @@
-﻿using System.IO;
+﻿using System.Linq;
 using System;
 
 namespace Classes
@@ -9,16 +9,14 @@ namespace Classes
         static void Main(string[] args)
         {
 
-            var input = Console.ReadLine();
-            int n = Convert.ToInt32(input);
-            int fact = 1;
-            for(int i = 1; i <= n; i++)
-            {
-                fact = fact * i;
-            }
-            Console.WriteLine(fact);
-         
+            string[] input = Console.ReadLine().Split(",");
+            int[] arr = Array.ConvertAll(input, int.Parse);
+            int sum = 0;
+            int max = arr.Max();
+
+            Console.WriteLine(max);
         }
+      
 
     }
 
