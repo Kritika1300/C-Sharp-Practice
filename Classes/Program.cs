@@ -8,13 +8,23 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-           int count = 0;
-            for(int i = 1; i <= 100; i++)
+            int sum = 0;
+            while (true)
             {
-                if(i % 3 == 0)
-                    count++;
+                Console.WriteLine("Enter a number or type 'Ok' to exit ");
+                var input = Console.ReadLine();
+
+               
+                if (input == "Ok")
+                {
+                    break;
+                }
+                else
+                {
+                    sum += Convert.ToInt32(input);
+                }
             }
-            Console.WriteLine(count);
+            Console.WriteLine(sum);
         }
 
     }
