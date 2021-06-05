@@ -9,12 +9,23 @@ namespace Classes
         static void Main(string[] args)
         {
 
-            string[] input = Console.ReadLine().Split(",");
-            int[] arr = Array.ConvertAll(input, int.Parse);
-            int sum = 0;
-            int max = arr.Max();
+            var input = Console.ReadLine();
+            char[] arr = new char[input.Length];
 
-            Console.WriteLine(max);
+            for(var i = 0; i < input.Length; i++)
+            {
+                arr[i] = input[i];
+            }
+            int k = arr.Length - 1;
+            for(var j = 0; j < arr.Length && j < k ; j++)
+            {
+                var temp = arr[j];
+                arr[j] = arr[k];
+                arr[k] = temp;
+                k--;
+            }
+            Console.WriteLine(string.Join("",arr));
+            
         }
       
 
