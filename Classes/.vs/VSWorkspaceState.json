@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\New",
+    "\\obj"
   ],
-  "SelectedNode": "\\Program.cs",
+  "SelectedNode": "\\Classes.sln",
   "PreviewInSolutionExplorer": false
 }

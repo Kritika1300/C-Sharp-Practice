@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace Classes
 {
@@ -8,23 +9,26 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-
-            var input = Console.ReadLine();
-            char[] arr = new char[input.Length];
-
-            for(var i = 0; i < input.Length; i++)
+            var number = new List<int>();
+          
+            while(number.Count < 5)
             {
-                arr[i] = input[i];
+                var input = Convert.ToInt32(Console.ReadLine());
+                var currNumberIndex = number.IndexOf(input);
+                if (currNumberIndex >= 0)
+                {
+                    Console.WriteLine("Number already exists");
+                }
+                else
+                {
+                    number.Add(input);
+                }
+
             }
-            int k = arr.Length - 1;
-            for(var j = 0; j < arr.Length && j < k ; j++)
-            {
-                var temp = arr[j];
-                arr[j] = arr[k];
-                arr[k] = temp;
-                k--;
-            }
-            Console.WriteLine(string.Join("",arr));
+              
+            number.Sort();
+            foreach(var j in number)
+               Console.Write(j + " ");
             
         }
       
