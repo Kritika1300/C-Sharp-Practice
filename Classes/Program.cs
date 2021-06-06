@@ -9,27 +9,21 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            var number = new List<int>();
-          
-            while(number.Count < 5)
-            {
-                var input = Convert.ToInt32(Console.ReadLine());
-                var currNumberIndex = number.IndexOf(input);
-                if (currNumberIndex >= 0)
-                {
-                    Console.WriteLine("Number already exists");
-                }
-                else
-                {
-                    number.Add(input);
-                }
 
+            string[] input = Console.ReadLine().Split(",");
+            int[] arr = Array.ConvertAll(input, int.Parse);
+            bool flag = false;
+            for(int i = 0; i < arr.Length -1 ; i++)
+            {
+                if (arr[i + 1] != arr[i] + 1)
+                {
+                    
+                    flag = true;
+                    break;
+                }
             }
-              
-            number.Sort();
-            foreach(var j in number)
-               Console.Write(j + " ");
-            
+            if(flag) Console.WriteLine("Non-consecutive");
+            else Console.WriteLine("Consecutive");
         }
       
 
