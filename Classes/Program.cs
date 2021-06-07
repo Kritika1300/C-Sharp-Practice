@@ -6,11 +6,18 @@ namespace Classes {
     {
         static void Main(string[] args)
         {
-            unsafe
+        eligible:
+            Console.WriteLine("You are not eligible to vote");
+
+            Console.WriteLine("Enter your age:");
+            var input = Convert.ToInt32(Console.ReadLine());
+            if(input < 18)
             {
-                int x = 101;
-                int* ptr = &x;
-                Console.WriteLine((int)ptr);
+                goto eligible;
+            }
+            else
+            {
+                Console.WriteLine("You are eligible!");
             }
             
 
