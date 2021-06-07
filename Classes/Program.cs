@@ -1,25 +1,20 @@
 ﻿using System;
+using System.Linq;
 
 namespace Classes {
 
     class Program
     {
+        public static int MaxNumber(int[] arr)
+        {
+            return arr.Max();
+        }
         static void Main(string[] args)
         {
-        eligible:
-            Console.WriteLine("You are not eligible to vote");
-
-            Console.WriteLine("Enter your age:");
-            var input = Convert.ToInt32(Console.ReadLine());
-            if(input < 18)
-            {
-                goto eligible;
-            }
-            else
-            {
-                Console.WriteLine("You are eligible!");
-            }
+            int[] arr = { 1, 2, 30, 4, 5 };
             
+            Console.WriteLine(MaxNumber(arr));
+
 
         }
     }
