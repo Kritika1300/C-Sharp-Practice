@@ -11,9 +11,20 @@ namespace Classes {
         }
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 30, 4, 5 };
+            int[][] arr = new int[2][];
+            arr[0] = new int[3] { 1, 2, 3 };
+            arr[1] = new int[2] { 1, 2 };
+
+            for(var i = 0; i < arr.Length; i++)
+            {
+                for(var j = 0; j < arr[i].Length; j++)
+                {
+                    Console.Write(arr[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
             
-            Console.WriteLine(MaxNumber(arr));
+       
 
 
         }
