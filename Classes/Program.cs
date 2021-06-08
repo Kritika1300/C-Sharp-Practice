@@ -4,27 +4,24 @@ namespace Classes
 {
     class Program
     {
-        public static bool PalindromeCheck(string str)
+        public static int SumOfDigits(int str)
         {
-            bool flag = true;
-            var j = str.Length - 1;
-            for(var i = 0; i < str.Length && j > i; i++)
+            int sum = 0;
+            int n = str;
+            while( n != 0)
             {
-                if(str[i] != str[j])
-                {
-                    flag = false;
-                    break;
-                }
-                j--;
+                int rem = n % 10;
+                sum = sum + rem;
+                n = n / 10;
             }
-            return flag;
+            return sum;
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a string for palindrome check : \n ");
-            var str = Console.ReadLine();
-            Console.WriteLine(PalindromeCheck(str));
+            Console.WriteLine("Enter a number to find Sum Of The Digits : \n ");
+            var str = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(SumOfDigits(str));
             
         }
     }
