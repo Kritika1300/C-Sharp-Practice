@@ -4,35 +4,24 @@ namespace Classes
 {
     class Program
     {
-        public static void IsPrime(int num1)
+
+        static void Main(string[] args)
         {
-            int i;
-            int n = num1;
-            for( i = 2; i < num1; i++)
+            int n, i;
+            int[] a = new int[10];
+            Console.Write("Enter the number to convert: ");
+            n = int.Parse(Console.ReadLine());
+            for (i = 0; n > 0; i++)
             {
-                if(n % i == 0)
-                {
-                    break;
-                }
+                a[i] = n % 2;
+                n = n / 2;
             }
-            if (i == n)
+            Console.Write("Binary of the given number= ");
+            for (i = i - 1; i >= 0; i--)
             {
-                Console.WriteLine("Prime");
-            }
-
-            else
-            {
-                Console.WriteLine("Not prime");
-            }
+                Console.Write(a[i]);
 
             }
-
-            static void Main(string[] args)
-        {
-            Console.WriteLine("Enter a number: \n ");
-            var num1 = Convert.ToInt32(Console.ReadLine());
-            IsPrime(num1);
-
         }
     }
 }
