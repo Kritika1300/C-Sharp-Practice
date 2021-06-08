@@ -1,20 +1,31 @@
 ﻿using System;
-using System.Linq;
 
-namespace Classes {
-
+namespace Classes
+{
     class Program
     {
-        public static  int MaxNumber(params int[] arr)
+        public static bool PalindromeCheck(string str)
         {
-            return arr.Max();
+            bool flag = true;
+            var j = str.Length - 1;
+            for(var i = 0; i < str.Length && j > i; i++)
+            {
+                if(str[i] != str[j])
+                {
+                    flag = false;
+                    break;
+                }
+                j--;
+            }
+            return flag;
         }
+
         static void Main(string[] args)
         {
-        
-            Console.WriteLine(MaxNumber(1,3,4,5,89,90,65));
-
+            Console.WriteLine("Enter a string for palindrome check : \n ");
+            var str = Console.ReadLine();
+            Console.WriteLine(PalindromeCheck(str));
+            
         }
     }
-
 }
