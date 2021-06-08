@@ -4,24 +4,22 @@ namespace Classes
 {
     class Program
     {
-        public static int ReverseNumber(int str)
+        public static void SwapNumbers(int num1, int num2)
         {
-            int n = str;
-            int rev = 0;
-            while(n != 0)
-            {
-                int rem = n % 10;
-                rev = rev * 10 + rem;
-                n = n / 10;
-            }
-            return rev;
+            num1 = num1 + num2;
+            num2 = num1 - num2;
+            num1 = num1 - num2;
+
+            Console.WriteLine("Numbers after swapping {0} {1}", num1, num2);
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number to Reverse it : \n ");
-            var str = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(ReverseNumber(str));
+            Console.WriteLine("Enter two numbers to swap them : \n ");
+            var num1 = Convert.ToInt32(Console.ReadLine());
+            var num2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Numbers before swapping {0} {1}",num1,num2);
+            SwapNumbers(num1, num2);
             
         }
     }
