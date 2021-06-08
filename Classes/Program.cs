@@ -4,23 +4,33 @@ namespace Classes
 {
     class Program
     {
-        public static void SwapNumbers(int num1, int num2)
+        public static void ArmstrongNumber(int num1)
         {
-            num1 = num1 + num2;
-            num2 = num1 - num2;
-            num1 = num1 - num2;
-
-            Console.WriteLine("Numbers after swapping {0} {1}", num1, num2);
+            int n = num1;
+            int sum = 0;
+            while(n != 0)
+            {
+                int rem = n % 10;
+                sum = sum +( rem * rem * rem);
+                n = n / 10;
+            }
+            if(sum == num1)
+            {
+                Console.WriteLine("Armstrong number");
+            }
+            else
+            {
+                Console.WriteLine("Not an Armstrong number");
+            }
+            
         }
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter two numbers to swap them : \n ");
+            Console.WriteLine("Enter a number: \n ");
             var num1 = Convert.ToInt32(Console.ReadLine());
-            var num2 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Numbers before swapping {0} {1}",num1,num2);
-            SwapNumbers(num1, num2);
-            
+            ArmstrongNumber(num1);
+
         }
     }
 }
