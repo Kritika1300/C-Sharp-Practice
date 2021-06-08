@@ -4,32 +4,34 @@ namespace Classes
 {
     class Program
     {
-        public static void ArmstrongNumber(int num1)
+        public static void IsPrime(int num1)
         {
+            int i;
             int n = num1;
-            int sum = 0;
-            while(n != 0)
+            for( i = 2; i < num1; i++)
             {
-                int rem = n % 10;
-                sum = sum +( rem * rem * rem);
-                n = n / 10;
+                if(n % i == 0)
+                {
+                    break;
+                }
             }
-            if(sum == num1)
+            if (i == n)
             {
-                Console.WriteLine("Armstrong number");
+                Console.WriteLine("Prime");
             }
+
             else
             {
-                Console.WriteLine("Not an Armstrong number");
+                Console.WriteLine("Not prime");
             }
-            
-        }
 
-        static void Main(string[] args)
+            }
+
+            static void Main(string[] args)
         {
             Console.WriteLine("Enter a number: \n ");
             var num1 = Convert.ToInt32(Console.ReadLine());
-            ArmstrongNumber(num1);
+            IsPrime(num1);
 
         }
     }
