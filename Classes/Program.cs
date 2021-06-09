@@ -5,21 +5,23 @@ namespace Classes
     class Program
     {
 
-        static public int Fib(int n)
+        static public void Calculate(int a,int b,out int sum,out int product)
         {
-            if (n == 1 || n == 2) return 1;
-            else
-            {
-                return Fib(n - 2) + Fib(n - 1);
-            }
+            sum = a + b;
+            product = a * b;
+
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number");
-            int n = Convert.ToInt32(Console.ReadLine());
-             
-            for(int i = 1; i <= n; i++)
-               Console.WriteLine(Fib(i));
+            Console.WriteLine("Enter 2 numbers");
+            int a = Convert.ToInt32(Console.ReadLine());
+            int b = Convert.ToInt32(Console.ReadLine());
+            int addition = 0;
+            int multiplication = 0;
+
+            Calculate(a, b, out addition, out multiplication);
+
+            Console.WriteLine("Sum is = {0} , Product is = {1}",addition,multiplication);
         }
     }
 }
