@@ -4,25 +4,21 @@ namespace Classes
 {
     class Employee
     {
-        public static  string firstName;
-        public static string lastName;
+        public  string firstName;
+        public string lastName;
 
-        static Employee()
+        public Employee(string fname, string lname)
         {
-            firstName = "Kritika";
-            lastName = "Kaur";
+            firstName = fname;
+            lastName = lname;
         }
         public void FullName() //instance method
         {
-            Greeting();
+        
             Console.WriteLine(firstName + " " + lastName);
 
         }
 
-        public static void Greeting()
-        {
-            Console.WriteLine($"Hey {firstName} {lastName}");
-        }
 
     }
     class Program
@@ -30,9 +26,8 @@ namespace Classes
         
         static void Main(string[] args)
         {
-            Employee emp1 = new Employee();
+            Employee emp1 = new Employee("Kritika","Kaur");
             emp1.FullName();
-            Employee.Greeting();
 
         }
     }
