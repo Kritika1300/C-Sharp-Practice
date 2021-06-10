@@ -1,39 +1,35 @@
 ﻿using System;
-
-namespace Classes
+public class Employee
 {
-    class Employee
+    public string firstName;
+    public string lastName;
+    public string email;
+
+    public void fullName()
     {
-        public  string firstName;
-        public string lastName;
-
-        public Employee() : this("Not specified","Not specified")
-        {
-            
-        }
-        public Employee(string fname, string lname)
-        {
-            firstName = fname;
-            lastName = lname;
-        }
-
-        public void FullName() //instance method
-        {
-        
-            Console.WriteLine("Hey {0} {1} ",firstName,lastName);
-
-        }
-
-
+        Console.WriteLine($"{firstName} {lastName}");
     }
-    class Program
+}
+class FullTimeEmployee : Employee {
+    public float YearlySalary;
+    public new void fullName()
     {
-        
-        static void Main(string[] args)
-        {
-            Employee emp1 = new Employee();
-            emp1.FullName();
+        Console.WriteLine($"{firstName} {YearlySalary} :- Method hiding");
+    }
 
-        }
+}
+class PartTimeEmployee : Employee {
+    public float HourlySalary;
+}
+class Test
+{
+    public static void Main(string[] args)
+    {
+        FullTimeEmployee FTE = new FullTimeEmployee();
+        FTE.firstName = "Kritika";
+        FTE.lastName = "Kaur";
+        FTE.email = "k@gmail.com";
+        FTE.YearlySalary = 45000.50f;
+        FTE.fullName();
     }
 }
