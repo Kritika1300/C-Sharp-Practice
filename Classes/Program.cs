@@ -7,14 +7,14 @@ public class Employee
 
     public void fullName()
     {
-        Console.WriteLine($"Base class : {firstName} {lastName}");
+        Console.WriteLine($"Base class: {firstName} {lastName}");
     }
 }
 class FullTimeEmployee : Employee {
     public float YearlySalary;
     public new void fullName()
     {
-        base.fullName();
+        Console.WriteLine($"{firstName} {YearlySalary} - Method hiding");
     }
 
 }
@@ -30,6 +30,6 @@ class Test
         FTE.lastName = "Kaur";
         FTE.email = "k@gmail.com";
         FTE.YearlySalary = 45000.50f;
-        FTE.fullName();
+        ((Employee)FTE).fullName();
     }
 }
