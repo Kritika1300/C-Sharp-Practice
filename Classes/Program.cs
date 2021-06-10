@@ -7,9 +7,9 @@ namespace Classes
         public  string firstName;
         public string lastName;
 
-        public Employee()
+        public Employee() : this("Not specified","Not specified")
         {
-            Console.WriteLine("Defual constructor");
+            
         }
         public Employee(string fname, string lname)
         {
@@ -20,7 +20,7 @@ namespace Classes
         public void FullName() //instance method
         {
         
-            Console.WriteLine(firstName + " " + lastName);
+            Console.WriteLine("Hey {0} {1} ",firstName,lastName);
 
         }
 
