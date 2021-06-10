@@ -7,9 +7,16 @@ namespace Classes
         public static  string firstName;
         public static string lastName;
 
+        static Employee()
+        {
+            firstName = "Kritika";
+            lastName = "Kaur";
+        }
         public void FullName() //instance method
         {
+            Greeting();
             Console.WriteLine(firstName + " " + lastName);
+
         }
 
         public static void Greeting()
@@ -24,8 +31,6 @@ namespace Classes
         static void Main(string[] args)
         {
             Employee emp1 = new Employee();
-            Employee.firstName = "Kritika";
-            Employee.lastName = "Kaur";
             emp1.FullName();
             Employee.Greeting();
 
