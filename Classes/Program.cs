@@ -5,16 +5,16 @@ public class Employee
     public string lastName;
     public string email;
 
-    public void fullName()
+    public virtual void fullName()
     {
         Console.WriteLine($"Base class: {firstName} {lastName}");
     }
 }
 class FullTimeEmployee : Employee {
     public float YearlySalary;
-    public new void fullName()
+    public override void fullName()
     {
-        Console.WriteLine($"{firstName} {YearlySalary} - Method hiding");
+        Console.WriteLine($"{firstName} Method overriding");
     }
 
 }
@@ -25,11 +25,10 @@ class Test
 {
     public static void Main(string[] args)
     {
-        FullTimeEmployee FTE = new FullTimeEmployee();
+        Employee FTE = new FullTimeEmployee();
         FTE.firstName = "Kritika";
         FTE.lastName = "Kaur";
         FTE.email = "k@gmail.com";
-        FTE.YearlySalary = 45000.50f;
-        ((Employee)FTE).fullName();
+        FTE.fullName();
     }
 }
