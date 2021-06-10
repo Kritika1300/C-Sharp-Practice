@@ -7,14 +7,14 @@ public class Employee
 
     public void fullName()
     {
-        Console.WriteLine($"{firstName} {lastName}");
+        Console.WriteLine($"Base class : {firstName} {lastName}");
     }
 }
 class FullTimeEmployee : Employee {
     public float YearlySalary;
     public new void fullName()
     {
-        Console.WriteLine($"{firstName} {YearlySalary} :- Method hiding");
+        base.fullName();
     }
 
 }
