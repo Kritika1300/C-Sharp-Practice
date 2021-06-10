@@ -9,10 +9,14 @@ public class Employee
     {
         Console.WriteLine("Base class constructor"); 
     }
+    public Employee(string message)
+    {
+        Console.WriteLine(message);
+    }
 }
 class FullTimeEmployee : Employee {
    
-    public FullTimeEmployee()
+    public FullTimeEmployee() : base("Derived class constructor controlling base class constructor")
     {
         Console.WriteLine("Child class constructor");
     }
