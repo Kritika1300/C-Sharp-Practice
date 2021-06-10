@@ -7,11 +7,16 @@ namespace Classes
         public  string firstName;
         public string lastName;
 
+        public Employee()
+        {
+            Console.WriteLine("Defual constructor");
+        }
         public Employee(string fname, string lname)
         {
             firstName = fname;
             lastName = lname;
         }
+
         public void FullName() //instance method
         {
         
@@ -26,7 +31,7 @@ namespace Classes
         
         static void Main(string[] args)
         {
-            Employee emp1 = new Employee("Kritika","Kaur");
+            Employee emp1 = new Employee();
             emp1.FullName();
 
         }
