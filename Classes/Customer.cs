@@ -22,19 +22,16 @@ namespace Classes
 
         //All of this can be avoided using params keyword
 
-        public int Add(params int[] numbers)
+        public void Demo(ref int i)
         {
-            int sum = 0;
-            foreach (var i in numbers)
-            {
-                sum += i;
-            }
-            return sum;
+            i += 550;
         }
         public static void Main()
         {
+            int i = 10;
             Customer c = new Customer();
-            Console.WriteLine(c.Add( 1, 2, 3, 4, 5 ));
+            c.Demo(ref i);
+            Console.WriteLine(i);
 
         }
 
