@@ -1,27 +1,19 @@
 ﻿using System;
-using System.Linq;
-using System.IO;
-using System.Collections.Generic;
-class Person
-{
-    public string fname;
 
-    public void Introduce(string name)
+namespace Classes {
+    class Program
     {
-        Console.WriteLine("Hi {0}, I am {1}",fname,name);
+
+        public static void Main(string[] args)
+        {
+            Customer c = new Customer();
+            Order o = new Order();
+            c.list.Add(o);
+            Console.WriteLine(c.id);
+            Console.WriteLine(c.name);
+
+        }
     }
 
-    public static Person Parse(string s)
-    {
-        var person = new Person();
-        person.fname = s;
-
-        return person;
-    } 
-    public static void Main(string[] args)
-    {
-        var p = Person.Parse("Krika");
-        p.Introduce("Lolo");
-
-    } 
 }
+

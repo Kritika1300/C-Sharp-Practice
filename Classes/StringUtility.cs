@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
+
     class StringUtility
     {
         public static string SummarizeText(string text, int len = 20)
