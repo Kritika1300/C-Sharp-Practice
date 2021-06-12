@@ -4,35 +4,30 @@ namespace Classes
 {
     class Customer
     {
-        //public int Add(int[] numbers)
-        //{
-        //    int sum = 0;
-        //    foreach(var i in numbers)
-        //    {
-        //        sum += i;
-        //    }
-        //    return sum;
-        //}
-        //public static void Main()
-        //{
-        //    Customer c = new Customer();
-        //    Console.WriteLine(c.Add(new int[3] { 1, 2, 3 })); 
-
-        //}
-
-        //All of this can be avoided using params keyword
-
-        public void Demo(ref int i)
-        {
-            i += 550;
-        }
+  
         public static void Main()
         {
-            int i = 10;
-            Customer c = new Customer();
-            c.Demo(ref i);
-            Console.WriteLine(i);
+            //int num = int.Parse("abcdd"); this will throw an exception (there are 2 ways to avoid this : 1 use try,catch block 2 using out keyword)
 
+            //use of try-catch
+
+            //try
+            //{
+            //    int num = int.Parse("abcdd");
+            //}
+            //catch (Exception)
+            //{
+
+            //    Console.WriteLine("Invalid conversion");
+            //}
+
+            int result;
+            bool answer = int.TryParse("124", out result);
+
+            if(answer)
+              Console.WriteLine(result);
+            else
+                Console.WriteLine("Invalid Conversion");
         }
 
 
