@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace Classes
 {
@@ -6,22 +6,20 @@ namespace Classes
     {
         public string name;
         public int id;
-        public List<Order> list;
 
-        public Customer()
+        public static void Main()
         {
+            Customer c = new Customer
+            {
+                name = "Kritika",
+                id = 1
+            };
 
-        }
+            Console.WriteLine(c.id);
+            Console.WriteLine(c.name);
 
-        public Customer(int id)
-        {
-            this.id = id;
-        }
 
-        public Customer(string name, int id)
-        {
-            this.name = name;
-            this.id = id;
         }
     }
+
 }
