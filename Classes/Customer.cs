@@ -5,34 +5,21 @@ namespace Classes
 {
     class Customer {
 
-        public string name;
-        public int id;
-        public readonly List<Orders> list = new List<Orders>();
+        private DateTime _birthdate;
 
-        public Customer(int id)
+        public void SetBirthDate(DateTime _birthdate)
         {
-            this.id = id;
+            this._birthdate = _birthdate;
         }
-
-        public Customer(int id,string name) : this(id)
+        public DateTime GetBirthDate()
         {
-            this.name = name;
+            return _birthdate;
         }
-
-        public void Promote()
-        {
-            list = new List<Orders>(); // this will give an error as we are trying to assign something to a READONLY FIELD
-        }
-
         public static void Main()
         {
-            Customer c = new Customer(1);
-            c.list.Add(new Orders());
-            c.list.Add(new Orders());
-            c.list.Add(new Orders());
-            c.list.Add(new Orders());
-            c.Promote();
-            Console.WriteLine(c.list.Count);
+            Customer c = new Customer();
+            c.SetBirthDate(new DateTime(2000, 1, 11));
+            Console.WriteLine(c.GetBirthDate());
 
 
         }
