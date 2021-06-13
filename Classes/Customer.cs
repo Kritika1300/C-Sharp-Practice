@@ -1,36 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Classes
 {
-    class Customer
-    {
-  
+    class Customer {
+
+        public string name;
+        public int id;
+        public readonly List<Orders> list = new List<Orders>();
+
+        public Customer(int id)
+        {
+            this.id = id;
+        }
+
+        public Customer(int id,string name) : this(id)
+        {
+            this.name = name;
+        }
+
+        public void Promote()
+        {
+            list = new List<Orders>(); // this will give an error as we are trying to assign something to a READONLY FIELD
+        }
+
         public static void Main()
         {
-            //int num = int.Parse("abcdd"); this will throw an exception (there are 2 ways to avoid this : 1 use try,catch block 2 using out keyword)
+            Customer c = new Customer(1);
+            c.list.Add(new Orders());
+            c.list.Add(new Orders());
+            c.list.Add(new Orders());
+            c.list.Add(new Orders());
+            c.Promote();
+            Console.WriteLine(c.list.Count);
 
-            //use of try-catch
 
-            //try
-            //{
-            //    int num = int.Parse("abcdd");
-            //}
-            //catch (Exception)
-            //{
-
-            //    Console.WriteLine("Invalid conversion");
-            //}
-
-            int result;
-            bool answer = int.TryParse("124", out result);
-
-            if(answer)
-              Console.WriteLine(result);
-            else
-                Console.WriteLine("Invalid Conversion");
         }
 
 
-    }
 
+    }
 }
