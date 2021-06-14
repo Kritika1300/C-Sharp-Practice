@@ -7,29 +7,28 @@ namespace Classes
         public int width { get; set; }
         public int height { get; set;}
 
-        public void Draw()
+        public virtual void Draw()
         {
-            Console.WriteLine("Drawing a shape");
+
         }
-     
+
     }
 
-    public class Text : Shape
+    public class Circle : Shape
     {
-        public int fontSize { get; set; }
-        public int fontWeight { get; set; }
-    }
-
-    public class Program {
-        public static void Main()
+        public override void Draw()
         {
-            Shape shape = new Text(); // eventhough at compile time shape object is of type Shape, at runtime it is actually of type Text
-           /* shape.*/  // -> // here shape will  provide limited view (i.e. no Text class fields/properties)
-            Text text = (Text)shape; //downcasting
-       
-
+            Console.WriteLine("Circle drawn");
         }
     }
+    public class Rectangle : Shape 
+    {
+        public override void Draw()
+        {
+            Console.WriteLine("Rectangle drawn");
+        }
+    }
+
 
 
 }
