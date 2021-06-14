@@ -23,14 +23,10 @@ namespace Classes
     public class Program {
         public static void Main()
         {
-           Text text = new Text();
-           Shape shape = text; // upcasting
-
-            //text and shape both are references to same object in the memory but they have different views.
-
-            text.width = 100;
-            shape.width = 300; 
-            Console.WriteLine(text.width); // text.width = 300 as both shape and text point to same object in memory
+            Shape shape = new Text(); // eventhough at compile time shape object is of type Shape, at runtime it is actually of type Text
+           /* shape.*/  // -> // here shape will  provide limited view (i.e. no Text class fields/properties)
+            Text text = (Text)shape; //downcasting
+       
 
         }
     }
