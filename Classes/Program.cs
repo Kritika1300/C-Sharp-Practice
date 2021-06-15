@@ -1,22 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Classes
 {
-    class Program {
-
+    class Program
+    {
         public static void Main()
         {
-            List<Shape> listofshapes = new List<Shape>();
-            Shape shape = new Shape();
-            listofshapes.Add(new Circle());
-            listofshapes.Add(new Rectangle());
-
-            var canvas = new Canvas();
-            canvas.DrawShapes(listofshapes);
+            DbMigrator dbmigrator = new DbMigrator(new FileLogger(@"C:\Users\Hp\Desktop\C#\C-Sharp-Practice\someFile.txt"));
+            dbmigrator.Migrate();
 
         }
-
-
     }
 }
