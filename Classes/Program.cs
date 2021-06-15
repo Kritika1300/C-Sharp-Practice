@@ -1,67 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Classes
 {
 
-    public class Employee
+    public interface ICustomer1
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Gender { get; set; }
+        void Print1();
     }
-    
-    public class Company
+
+    public interface ICustomer2
     {
-        List<Employee> listofemployees;
-
-        public Company()
+        void Print2();
+    }
+    public class Customer : ICustomer1,ICustomer2
+    {
+        public void Print1()
         {
-             listofemployees = new List<Employee>();
-             listofemployees.Add(new Employee(){ Id = 1, Gender = "Female", Name = "Kritika"});
-             listofemployees.Add(new Employee() { Id = 2, Gender = "Male", Name = "Raj" });
-             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
-             listofemployees.Add(new Employee() { Id = 4, Gender = "Male", Name = "Rahul" });
-             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
-             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
-             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
-
+            Console.WriteLine("Print1");
         }
 
-        public string this[int id] //indexer
+        public void Print2()
         {
-            get { return listofemployees.FirstOrDefault(emp => emp.Id == id).Name;  }
-
-            set { listofemployees.FirstOrDefault(emp => emp.Id == id).Name = value; }
-        
+            Console.WriteLine("Print2");
         }
+    }
 
-        public string this[string gender]
-        {
-            get { return listofemployees.Count(emp => emp.Gender == gender).ToString(); }
-
-            set 
-            {
-                 foreach(var employee in listofemployees)
-                {
-                    if (employee.Gender == gender)
-                        employee.Gender = value;
-                }
-            }
-        }
-
+    class Program
+    {
         public static void Main()
         {
-            Company c = new Company();
-            c[2] = "Neha";
-            Console.WriteLine(c["Female"] = "Male");
-            Console.WriteLine(c["Male"]);
+            Customer c = new Customer();
+            c.Print1();
+            c.Print2();
+
         }
-
-
-
     }
+    
 }
+
