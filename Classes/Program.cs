@@ -14,7 +14,7 @@ namespace Classes
     }
     public class Customer : ICustomer2, ICustomer1
     {
-        void ICustomer1.InterfaceMethod()
+        public void InterfaceMethod()
         {
             Console.WriteLine("1");
         }
@@ -31,16 +31,7 @@ namespace Classes
         public static void Main()
         {
             Customer c = new Customer();
-            //((ICustomer1)c).InterfaceMethod(); Explicitly implemented members are accessed using INTERFACE REF. VARIABLES
-
-            //((ICustomer2)c).InterfaceMethod();
-
-            // ------------OR------------------
-            ICustomer1 i1 = new Customer();
-            i1.InterfaceMethod();
-
-            ICustomer2 i2 = new Customer();
-            i2.InterfaceMethod();
+            c.InterfaceMethod();
 
         }
     }
