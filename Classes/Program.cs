@@ -25,6 +25,10 @@ namespace Classes
              listofemployees.Add(new Employee() { Id = 2, Gender = "Male", Name = "Raj" });
              listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
              listofemployees.Add(new Employee() { Id = 4, Gender = "Male", Name = "Rahul" });
+             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
+             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
+             listofemployees.Add(new Employee() { Id = 3, Gender = "Female", Name = "Kriti" });
+
         }
 
         public string this[int id] //indexer
@@ -35,11 +39,26 @@ namespace Classes
         
         }
 
+        public string this[string gender]
+        {
+            get { return listofemployees.Count(emp => emp.Gender == gender).ToString(); }
+
+            set 
+            {
+                 foreach(var employee in listofemployees)
+                {
+                    if (employee.Gender == gender)
+                        employee.Gender = value;
+                }
+            }
+        }
+
         public static void Main()
         {
             Company c = new Company();
             c[2] = "Neha";
-            Console.WriteLine(c[3]);
+            Console.WriteLine(c["Female"] = "Male");
+            Console.WriteLine(c["Male"]);
         }
 
 
