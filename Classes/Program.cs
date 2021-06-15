@@ -5,24 +5,25 @@ namespace Classes
 
     public interface ICustomer1
     {
-        void Print1();
+        void InterfaceMethod();
     }
 
-    public interface ICustomer2: ICustomer1
+    public interface ICustomer2
     {
-        void Print2();
+        void InterfaceMethod();
     }
-    public class Customer : ICustomer2
+    public class Customer : ICustomer2, ICustomer1
     {
-        public void Print1()
+        void ICustomer1.InterfaceMethod()
         {
-            Console.WriteLine("Print1");
+            Console.WriteLine("1");
         }
 
-        public void Print2()
+        void ICustomer2.InterfaceMethod()
         {
-            Console.WriteLine("Print2");
+            Console.WriteLine("2");
         }
+
     }
 
     class Program
@@ -30,12 +31,16 @@ namespace Classes
         public static void Main()
         {
             Customer c = new Customer();
-            ICustomer1 c1 = new Customer();
-            ICustomer2 c2 = new Customer(); 
-            c1.Print1(); // c1 is of type ICustomer1 so it has access to only Print1()
-            c2.Print1(); c2.Print2(); // ICustomer2 is inheriting from interface ICustomer1 thus c2 which is of type ICustomer2 can access both Print1() and Print2()
-            c.Print1();
-            c.Print2();
+            //((ICustomer1)c).InterfaceMethod(); Explicitly implemented members are accessed using INTERFACE REF. VARIABLES
+
+            //((ICustomer2)c).InterfaceMethod();
+
+            // ------------OR------------------
+            ICustomer1 i1 = new Customer();
+            i1.InterfaceMethod();
+
+            ICustomer2 i2 = new Customer();
+            i2.InterfaceMethod();
 
         }
     }
