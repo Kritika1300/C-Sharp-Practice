@@ -3,35 +3,31 @@
 namespace Classes
 {
 
-    public interface ICustomer1
+   
+    public class Base
     {
-        void InterfaceMethod();
-    }
-
-    public interface ICustomer2
-    {
-        void InterfaceMethod();
-    }
-    public class Customer : ICustomer2, ICustomer1
-    {
-        public void InterfaceMethod()
+        public void Method1()
         {
             Console.WriteLine("1");
         }
 
-        void ICustomer2.InterfaceMethod()
+    }
+
+    public class Derived : Base
+    {
+        public void Method2()
         {
             Console.WriteLine("2");
         }
-
     }
 
     class Program
     {
         public static void Main()
         {
-            Customer c = new Customer();
-            c.InterfaceMethod();
+           Base b = new Derived();
+           Derived d = (Derived)b;
+            d.Method1();
 
         }
     }
