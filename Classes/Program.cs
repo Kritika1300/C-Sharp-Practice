@@ -1,35 +1,49 @@
-﻿using System;
+﻿
+using System;
 
 namespace Classes
 {
+     
+    class Test
+    {
+       public static float _PI;
+       public int radius;
 
-    
-    public class A 
-    {
-        protected int id;
-        
-    }
-    class B : A
-    {
-    
-        public void setId()
+        static Test()
         {
-            B a = new B();
-            a.id = 2300;
-            id = 101;
-            base.id = 200;
-            this.id = 900;
-            Console.WriteLine(id);
+            Console.WriteLine("Static class constructor");
+            _PI = 3.14f;
+        }
+        public Test(int radius)
+        {
+            Console.WriteLine("Instance class constructor");
+            this.radius = radius;
         }
 
+        public float Area()
+        {
+            return _PI * this.radius * this.radius;
+        }
     }
+    
+   
+    
     class Program
     {
+
         public static void Main()
         {
-            B b1 = new B();
-            b1.setId();
-          
+
+            Console.WriteLine(Test._PI);
+
+            Test t = new Test(5);
+            Console.WriteLine(t.Area());
+
+  
+
+            Test t1 = new Test(6);
+            Console.WriteLine(t1.Area());
+
         }
     }
 
