@@ -29,7 +29,7 @@ namespace Classes
         {
 
         }
-        public override void Draw()
+        public new void Draw() // this will not override the base class method just hide it.
         {
             Console.WriteLine($"RECTANGLE coordinates : {x} {y}");
         }
