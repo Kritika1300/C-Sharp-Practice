@@ -3,7 +3,6 @@
 namespace Classes
 {
 
-   
     public class Shape
     {
         protected int x;
@@ -46,19 +45,22 @@ namespace Classes
         {
             Console.WriteLine($"CIRCLE coordinates : {x} {y}");
         }
+        public void FillCircle()
+        {
+            Console.WriteLine($"Filling circle with coordiantes : {x} {y}");
+        }
     }
 
     class Program
     {
         public static void Main()
         {
-            Shape[] shapes = new Shape[3];
-            shapes[0] = new Circle(23, 34);
-            shapes[1] = new Rectangle(90, 80);
-            shapes[2] = new Shape(87, 89);
+            Shape shape = new Circle(3,4);
+            shape. // we can't use FillCircle method using this object
 
-            foreach (var shape in shapes)
-                shape.Draw(); //Polymorphism
+            Circle c = ((Circle)shape).FillCircle; //so we downcast it to Circle type
+         
+            
  
         }
     }
