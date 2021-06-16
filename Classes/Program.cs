@@ -21,16 +21,16 @@ namespace Classes
         }
     }
 
-    class Program
-    {
-        public static void Main()
-        {
-           Base b = new Derived();
-           Derived d = (Derived)b;
-            d.Method1();
+    //class Program
+    //{
+    //    public static void Main()
+    //    {
+    //       Base b = new Derived();
+    //       Derived d = (Derived)b;
+    //        d.Method1();
 
-        }
-    }
+    //    }
+    //}
     
 }
 
