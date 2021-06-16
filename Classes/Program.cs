@@ -4,33 +4,64 @@ namespace Classes
 {
 
    
-    public class Base
+    public class Shape
     {
-        public void Method1()
+        protected int x;
+        protected int y;
+
+        public Shape(int xpos, int ypos)
         {
-            Console.WriteLine("1");
+            this.x = xpos;
+            this.y = ypos;
+        }
+
+        public virtual void Draw()
+        {
+            Console.WriteLine($"SHAPE coordinates : {x} {y}");
         }
 
     }
 
-    public class Derived : Base
+    public class Rectangle : Shape
     {
-        public void Method2()
+
+        public Rectangle(int xpos, int ypos) : base(xpos,ypos)
         {
-            Console.WriteLine("2");
+
+        }
+        public override void Draw()
+        {
+            Console.WriteLine($"RECTANGLE coordinates : {x} {y}");
         }
     }
 
-    //class Program
-    //{
-    //    public static void Main()
-    //    {
-    //       Base b = new Derived();
-    //       Derived d = (Derived)b;
-    //        d.Method1();
 
-    //    }
-    //}
-    
+    public class Circle : Shape
+    {
+        public Circle(int xpos, int ypos) : base(xpos, ypos)
+        {
+
+        }
+        public override void Draw()
+        {
+            Console.WriteLine($"CIRCLE coordinates : {x} {y}");
+        }
+    }
+
+    class Program
+    {
+        public static void Main()
+        {
+            Shape[] shapes = new Shape[3];
+            shapes[0] = new Circle(23, 34);
+            shapes[1] = new Rectangle(90, 80);
+            shapes[2] = new Shape(87, 89);
+
+            foreach (var shape in shapes)
+                shape.Draw(); //Polymorphism
+ 
+        }
+    }
+
 }
 
