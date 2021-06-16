@@ -3,63 +3,56 @@
 namespace Classes
 {
 
-    public class Shape
+     public interface IA
     {
-        protected int x;
-        protected int y;
-
-        public Shape(int xpos, int ypos)
-        {
-            this.x = xpos;
-            this.y = ypos;
-        }
-
-        public virtual void Draw()
-        {
-            Console.WriteLine($"SHAPE coordinates : {x} {y}");
-        }
-
+        void MethodA();
     }
 
-    public class Rectangle : Shape
+    class A : IA
     {
-
-        public Rectangle(int xpos, int ypos) : base(xpos,ypos)
+        public void MethodA()
         {
-
-        }
-        public new void Draw() // this will not override the base class method just hide it.
-        {
-            Console.WriteLine($"RECTANGLE coordinates : {x} {y}");
+            Console.WriteLine("A");
         }
     }
 
-
-    public class Circle : Shape
+    public interface IB
     {
-        public Circle(int xpos, int ypos) : base(xpos, ypos)
-        {
+        void MethodB();
+    }
 
-        }
-        public override void Draw()
+    class B : IB
+    {
+        public void MethodB()
         {
-            Console.WriteLine($"CIRCLE coordinates : {x} {y}");
-        }
-        public void FillCircle()
-        {
-            Console.WriteLine($"Filling circle with coordiantes : {x} {y}");
+            Console.WriteLine("B");
         }
     }
+
+    class C : IA, IB
+    {
+        A a = new A();
+        B b = new B();
+        public void MethodA()
+        {
+            a.MethodA();
+        }
+
+        public void MethodB()
+        {
+            b.MethodB();
+        }
+    }
+
 
     class Program
     {
         public static void Main()
         {
-            Shape shape = new Circle(3,4);
-            shape. // we can't use FillCircle method using this object
 
-            Circle c = ((Circle)shape).FillCircle; //so we downcast it to Circle type
-         
+            C c = new C();
+            c.MethodA();
+            c.MethodB();
             
  
         }
