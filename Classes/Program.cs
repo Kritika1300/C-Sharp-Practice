@@ -3,58 +3,33 @@
 namespace Classes
 {
 
-     public interface IA
+    
+    public class A 
     {
-        void MethodA();
+        protected int id;
+        
     }
-
-    class A : IA
+    class B : A
     {
-        public void MethodA()
+    
+        public void setId()
         {
-            Console.WriteLine("A");
-        }
-    }
-
-    public interface IB
-    {
-        void MethodB();
-    }
-
-    class B : IB
-    {
-        public void MethodB()
-        {
-            Console.WriteLine("B");
-        }
-    }
-
-    class C : IA, IB
-    {
-        A a = new A();
-        B b = new B();
-        public void MethodA()
-        {
-            a.MethodA();
+            B a = new B();
+            a.id = 2300;
+            id = 101;
+            base.id = 200;
+            this.id = 900;
+            Console.WriteLine(id);
         }
 
-        public void MethodB()
-        {
-            b.MethodB();
-        }
     }
-
-
     class Program
     {
         public static void Main()
         {
-
-            C c = new C();
-            c.MethodA();
-            c.MethodB();
-            
- 
+            B b1 = new B();
+            b1.setId();
+          
         }
     }
 
