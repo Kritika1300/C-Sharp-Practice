@@ -1,51 +1,37 @@
-﻿
-using System;
+﻿using System;
 
 namespace Classes
 {
-     
-    class Test
+    public abstract class Shape
     {
-       public static float _PI;
-       public int radius;
+      public abstract void Draw(); //abstract methods can reside only in abstract classes.
 
-        static Test()
-        {
-            Console.WriteLine("Static class constructor");
-            _PI = 3.14f;
-        }
-        public Test(int radius)
-        {
-            Console.WriteLine("Instance class constructor");
-            this.radius = radius;
-        }
+    }
 
-        public float Area()
+    public class Text : Shape
+    {
+        public override void Draw()
         {
-            return _PI * this.radius * this.radius;
+            Console.WriteLine("Drawing shape"); // implementation of abstract method
         }
     }
-    
-   
-    
-    class Program
+
+    public abstract class Text1 : Shape // making derived class abstract allows us to NOT implement the base class abstract method
     {
 
+    }
+
+
+    public class Program
+    {
         public static void Main()
         {
+            /*Shape s = new Shape();*/ //abstract class can't be instantiated
 
-            Console.WriteLine(Test._PI);
-
-            Test t = new Test(5);
-            Console.WriteLine(t.Area());
-
-  
-
-            Test t1 = new Test(6);
-            Console.WriteLine(t1.Area());
-
+            Text t = new Text();
+            t.Draw();
         }
     }
 
-}
 
+}
