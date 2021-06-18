@@ -2,34 +2,40 @@
 
 namespace Classes
 {
-    public abstract class Shape
+     interface IA
     {
-      public abstract void Draw(); //abstract methods can reside only in abstract classes.
-
+        public void Method()
+        {
+            Console.WriteLine("DEFAULT IMPLEMENTATION");
+        }
+    }
+    
+    interface IB
+    {
+        public void Method();
     }
 
-    public class Text : Shape
+    class C : IA, IB
     {
-        public override void Draw()
+      
+
+        void IB.Method()
         {
-            Console.WriteLine("Drawing shape"); // implementation of abstract method
+            Console.WriteLine("Byeeee");
         }
     }
 
-    public abstract class Text1 : Shape // making derived class abstract allows us to NOT implement the base class abstract method
-    {
-
-    }
-
-
-    public class Program
+    class Program
     {
         public static void Main()
         {
-            /*Shape s = new Shape();*/ //abstract class can't be instantiated
+            C c = new C();
+            IA c1 = new C();
+            c1.Method();
+            ((IB)c).Method();
 
-            Text t = new Text();
-            t.Draw();
+
+
         }
     }
 
