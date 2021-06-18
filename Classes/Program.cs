@@ -2,37 +2,32 @@
 
 namespace Classes
 {
-     interface IA
+    class Customer
     {
-        public void Method()
+        private Customer()
         {
-            Console.WriteLine("DEFAULT IMPLEMENTATION");
+
         }
+        public static string fname;
+        public static string lname;
+
+        public static void FullName()
+        {
+            Console.WriteLine(fname + " " + lname);
+        }
+
     }
     
-    interface IB
-    {
-        public void Method();
-    }
-
-    class C : IA, IB
-    {
-      
-
-        void IB.Method()
-        {
-            Console.WriteLine("Byeeee");
-        }
-    }
-
     class Program
     {
         public static void Main()
         {
-            C c = new C();
-            IA c1 = new C();
-            c1.Method();
-            ((IB)c).Method();
+
+            //Customer c = new Customer(); //compile time error
+
+            Customer.fname = "Kritika";
+            Customer.lname = "Kaur";
+            Customer.FullName();
 
 
 
