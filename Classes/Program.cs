@@ -2,35 +2,42 @@
 
 namespace Classes
 {
-    class Customer
+    class Manager
     {
-        private Customer()
+        public void Enter(SwipeCard obj)
         {
-
-        }
-        public static string fname;
-        public static string lname;
-
-        public static void FullName()
-        {
-            Console.WriteLine(fname + " " + lname);
+            obj.Swipe(this);
         }
 
+        public void GetManagerName()
+        {
+            Console.WriteLine("Manager name");
+        }
+
+    }
+
+    class SwipeCard
+    {
+        public void Swipe(Manager obj)
+        {
+      
+        }
+
+        public void MakeofSwipeCard()
+        {
+            Console.WriteLine("Company name");
+        }
     }
     
     class Program
     {
         public static void Main()
         {
+            Manager objManager = new Manager();
+         
+            SwipeCard objSwipe = new SwipeCard();
 
-            //Customer c = new Customer(); //compile time error
-
-            Customer.fname = "Kritika";
-            Customer.lname = "Kaur";
-            Customer.FullName();
-
-
-
+         
         }
     }
 
