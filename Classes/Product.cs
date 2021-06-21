@@ -3,31 +3,12 @@ using System.Collections.Generic;
 
 namespace Classes
 {
-    public class BookList
+    public class Product
     {
-        public void Add(Book book)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Book this[int index]
-        {
-            get { throw new NotImplementedException(); }
-        }
-
+        public float price { get; set; }
+        public string name { get; set; }
+     
     }
 
-    public class GenericList<T> //GENERIC LIST
-    {
-        public void Add(T value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public T this[int index]
-        {
-            get { throw new NotImplementedException(); }
-        }
-    }
-
+   
 }
