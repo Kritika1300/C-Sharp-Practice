@@ -14,3 +14,11 @@ C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\ref\Classes.dll
 C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.pdb
 C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.genruntimeconfig.cache
 C:\Users\Hp\Desktop\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.csproj.AssemblyReference.cache
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.csproj.AssemblyReference.cache
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.GeneratedMSBuildEditorConfig.editorconfig
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.AssemblyInfoInputs.cache
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.AssemblyInfo.cs
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.csproj.CoreCompileInputs.cache
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.dll
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\ref\Classes.dll
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.pdb

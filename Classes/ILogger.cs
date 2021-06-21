@@ -10,3 +10,26 @@ namespace Classes
 
     }
 }
+
+//class Manager
+//{
+
+//    private string _name;
+//    public Manager(string name)
+//    {
+//        this._name = name;
+//    }
+
+//    public string Name { get; private set; }
+//}
+
+//class Program
+//{
+//    public static void Main()
+//    {
+//        Manager m = new Manager("Kritika");
+//        Console.WriteLine(m.Name);
+
+
+//    }
+//}

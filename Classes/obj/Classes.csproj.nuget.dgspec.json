@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj": {}
+    "D:\\Persnal\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj": {
+    "D:\\Persnal\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj",
+        "projectUniqueName": "D:\\Persnal\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj",
         "projectName": "Classes",
-        "projectPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj",
+        "projectPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\Classes\\Classes.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\Classes\\obj\\",
+        "outputPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\Classes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
