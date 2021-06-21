@@ -3,26 +3,31 @@ using System.Collections.Generic;
 
 namespace Classes
 {
-    class Manager
+    public class BookList
     {
-
-        private string name;
-        public Manager(string name)
+        public void Add(Book book)
         {
-            this.name = name;
+            throw new NotImplementedException();
         }
-    }
-    
-    class Program
-    {
-        public static void Main()
-        {
-            Manager m = new Manager("Kritika");
-            Console.WriteLine(value: m.name);
 
-         
+        public Book this[int index]
+        {
+            get { throw new NotImplementedException(); }
         }
+
     }
 
+    public class GenericList<T> //GENERIC LIST
+    {
+        public void Add(T value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T this[int index]
+        {
+            get { throw new NotImplementedException(); }
+        }
+    }
 
 }
