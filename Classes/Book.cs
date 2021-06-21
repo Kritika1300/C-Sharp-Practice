@@ -2,9 +2,10 @@
 
 namespace Classes
 {
-    public class Book : Product
+    public class Book 
     {
-        public string Authorname { get; set; }
-      
+        public string Title { get; set; }
+        public int Price { get; set; }
+
     }
 }
