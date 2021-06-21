@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Classes
 {
 
-    public class Utilities
+    public class Utilities<T> where T : IComparable
     {
         public int Max(int a, int b)
         {
@@ -24,7 +24,7 @@ namespace Classes
 
         //}
 
-        public T Max<T>(T a, T b) where T : IComparable // Generic method in Non generic Class
+        public T Max(T a, T b) // Generic method in Non generic Class
         {
             return a.CompareTo(b) > 0 ? a : b;
         }
@@ -36,8 +36,8 @@ namespace Classes
     {
         public static void Main()
         {
-            Utilities u = new Utilities();
-         Console.WriteLine(u.Max(30,4));
+            Utilities<int> u = new Utilities<int>();
+         Console.WriteLine(u.Max(20,67));
         }
     }
 }
