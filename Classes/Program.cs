@@ -2,19 +2,17 @@
 
 namespace Classes
 {
-  
+
     class Program
     {
         public static void Main()
         {
-            Func<int, int> Square = num => num * num; // lamba exp
-            // 1st int for return type, 2nd for arg type
-            Console.WriteLine(Square(11));
+            int factor = 70;
+            Func<int, int> Multiplier = n => n * factor;
+            Console.WriteLine(Multiplier(4));
         }
-
-        //public static int Square(int number)
-        //{
-        //    return number * number;
-        //}
     }
+
+        
 }
+
