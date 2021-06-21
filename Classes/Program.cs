@@ -7,16 +7,28 @@ using System.Threading.Tasks;
 namespace Classes
 {
 
-    
-       public class GenericDictionary<TKey, TValue> //Multiple parameters in Generics
-        { 
-            public void Add(TKey key, TValue value)
-            {
-
-
-            }
-        
+    public class Utilities
+    {
+        public int Max(int a, int b)
+        {
+            return a > b ? a : b;
         }
+
+        //public T Max<T>(T a, T b)
+        //{
+
+        //    /*return a > b ? a : b;*/ // We can't do this because compiler doesn't know type of T and considers both a and b as objects.
+        //    // for this we assume that both a and b implement the IComparable Interface which provides a method class CompareTo
+
+        
+
+        //}
+
+        public T Max<T>(T a, T b) where T : IComparable // Generic method in Non generic Class
+        {
+            return a.CompareTo(b) > 0 ? a : b;
+        }
+    }
 
 
    
@@ -24,23 +36,8 @@ namespace Classes
     {
         public static void Main()
         {
-            var book = new Book() { Authorname = "J.K. Rowling", Title = "Harry Potter" };
-
-            //var numbers = new List();
-            //numbers.Add(10);
-
-            //var books = new BookList();  WIHOUT USE OF GENERIC LIST
-            //books.Add(book);
-
-            var numbers = new GenericList<int>();
-            numbers.Add(10);
-
-            var books = new GenericList<Book>();
-            books.Add(book);
-
-            var dict = new GenericDictionary<string,Book>();
-
-      
+            Utilities u = new Utilities();
+         Console.WriteLine(u.Max(30,4));
         }
     }
 }

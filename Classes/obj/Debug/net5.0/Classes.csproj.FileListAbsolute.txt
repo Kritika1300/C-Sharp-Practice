@@ -22,3 +22,11 @@ D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.csproj.CoreCompi
 D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.dll
 D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\ref\Classes.dll
 D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.pdb
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.exe
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.deps.json
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.runtimeconfig.json
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.runtimeconfig.dev.json
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.dll
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\ref\Classes.dll
+D:\Persnal\C#\C-Sharp-Practice\Classes\bin\Debug\net5.0\Classes.pdb
+D:\Persnal\C#\C-Sharp-Practice\Classes\obj\Debug\net5.0\Classes.genruntimeconfig.cache
