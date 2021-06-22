@@ -7,37 +7,23 @@ namespace Classes
     class Program
     {
 
-        public class BookRepository
-        {
-            public List<Book> GetBooks()
-            {
-                return new List<Book>
-                {
-                    new Book() { Title = "Title 1", Price = 7},
-                    new Book() { Title = "Title 2", Price = 94},
-                    new Book() { Title = "Title 3", Price = 1},
+        public delegate void HelloFunctionDelegate(string message); //A delegate that can point to a function with the same signature i.e. return type void and string parameter
 
-                };
-            }
-        }
         public static void Main()
         {
-            var books = new BookRepository().GetBooks();
+            HelloFunctionDelegate del = new HelloFunctionDelegate(Hello); // creating instance of the delegate to make it point to a fnc.
 
-            var number = books.FindAll(b => b.Price < 10); //lambda expression Or var number = books.FindAll(IsCheaperThanTen);
-
-            foreach (var i in number)
-            {
-                Console.WriteLine(i.Title);
-            }
+            del("Hello from delegate"); // under the hood it calls the Hello function and passes it this string
         }
 
-        static bool IsCheaperThanTen(Book book)
+        public static void Hello(string message)
         {
-            return book.Price < 10;
+            Console.WriteLine(message);
         }
     }
 
-        
 }
+
+    
+        
 
