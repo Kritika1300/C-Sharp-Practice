@@ -7,40 +7,34 @@ namespace Classes
     {
         public static void Main()
         {
-            List<Employee> listofemployees = new List<Employee>() 
-            { 
-                new Employee() {Id = 1, Name = "Kritika", Salary = 50000, Experience = 2},
-                new Employee() {Id = 2, Name = "Kriti", Salary = 90000, Experience = 7},
-                new Employee() {Id = 3, Name = "Roy", Salary = 30000, Experience = 1},
-                new Employee() {Id = 4, Name = "Karan", Salary = 60000, Experience = 6},
-            };
-          
-            Employee.PromoteEmployee(listofemployees, emp => emp.Experience >= 5);
-
+            SampleDelegate del1, del2, del3, del4;
+            del1 = new SampleDelegate(Test.SampleMethodOne);
+            del2 = new SampleDelegate(Test.SampleMethodTwo);
+            del3 = new SampleDelegate(Test.SampleMethodThree);
+            del4 = del1 + del2 + del3 - del1;
+            del4();
         }
     }
 
-    delegate bool IsPromotable(Employee employee);
-    class Employee
+    delegate void SampleDelegate();
+    class Test
     {
-        public int Id { set; get; }
-        public string Name { get; set; }
-        public int Salary { get; set; }
-        public int Experience { get; set; }
+       public static void SampleMethodOne()
+       {
+            Console.WriteLine("SampleMethodOne Invoked");
+       }
 
-        public static void PromoteEmployee(List<Employee> listofemployees, IsPromotable IsEligibleToPromote)
-        {
-            foreach(var employee in listofemployees)
-            {
-                if(IsEligibleToPromote(employee))
-                {
-                    Console.WriteLine(employee.Name + " promoted");
-                }
-            }
+       public static void SampleMethodTwo()
+       {
+            Console.WriteLine("SampleMethodTwo Invoked");
+       }
 
-        }
+       public static void SampleMethodThree()
+       {
+            Console.WriteLine("SampleMethodThree Invoked");
+       }
 
-      
+
     }
 
 
