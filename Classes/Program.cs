@@ -7,14 +7,20 @@ namespace Classes
     class Program
     {
 
-        public static  void Add(int x, float y, double z)
-        {
-            Console.WriteLine(x+y+z);
-        }
+        //public static bool CheckLength(string str)
+        //{
+        //    if (str.Length > 5) return true;
+        //    else return false;
+        //}
         public static void Main()
         {
-            Action<int, float, double> del1 = Add;
-            del1.Invoke(3, 4, 5);
+            Predicate<string> del2 = (str) =>
+            {
+                if (str.Length > 5) return true;
+                else return false;
+            };
+            //Predicate<string> del1 = CheckLength;
+            Console.WriteLine(del2.Invoke("This is a string")); 
         }
     }
    
