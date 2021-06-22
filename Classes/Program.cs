@@ -9,19 +9,14 @@ namespace Classes
         {
             List<Employee> listofemployees = new List<Employee>() 
             { 
-                new Employee() {Id = 1, Name = "Kritika", Salary = 50000, Experience = 5},
+                new Employee() {Id = 1, Name = "Kritika", Salary = 50000, Experience = 2},
                 new Employee() {Id = 2, Name = "Kriti", Salary = 90000, Experience = 7},
-                new Employee() {Id = 3, Name = "Roy", Salary = 70000, Experience = 8},
-                new Employee() {Id = 4, Name = "Karan", Salary = 60000, Experience = 4},
+                new Employee() {Id = 3, Name = "Roy", Salary = 30000, Experience = 1},
+                new Employee() {Id = 4, Name = "Karan", Salary = 60000, Experience = 6},
             };
-            IsPromotable isPromotable = new IsPromotable(Promotion);
-            Employee.PromoteEmployee(listofemployees,isPromotable);
+          
+            Employee.PromoteEmployee(listofemployees, emp => emp.Experience >= 5);
 
-             bool Promotion(Employee employee)
-            {
-                if (employee.Experience >= 5) return true;
-                else return false;
-            }
         }
     }
 
