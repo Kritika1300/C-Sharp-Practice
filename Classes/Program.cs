@@ -7,12 +7,12 @@ namespace Classes
     {
         public static void Main()
         {
-            SampleDelegate del1, del2, del3, del4;
-            del1 = new SampleDelegate(Test.SampleMethodOne);
-            del2 = new SampleDelegate(Test.SampleMethodTwo);
-            del3 = new SampleDelegate(Test.SampleMethodThree);
-            del4 = del1 + del2 + del3 - del1;
-            del4();
+            SampleDelegate del = new SampleDelegate(Test.SampleMethodOne);
+          
+            del += Test.SampleMethodTwo;
+            del += Test.SampleMethodThree;
+            del -= Test.SampleMethodTwo;
+            del();
         }
     }
 
