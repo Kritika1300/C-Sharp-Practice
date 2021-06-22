@@ -8,31 +8,34 @@ namespace Classes
         public static void Main()
         {
             SampleDelegate del = new SampleDelegate(Test.SampleMethodOne);
-          
-            del += Test.SampleMethodTwo;
             del += Test.SampleMethodThree;
-            del -= Test.SampleMethodTwo;
-            del();
+            del += Test.SampleMethodTwo;
+           
+            int defaultval = -1;
+            del(out defaultval);
+            Console.WriteLine(defaultval);
         }
     }
 
-    delegate void SampleDelegate();
+    delegate void SampleDelegate(out int Number);
     class Test
     {
-       public static void SampleMethodOne()
+       public static void SampleMethodOne(out int Number)
        {
-            Console.WriteLine("SampleMethodOne Invoked");
+            Number = 1;
        }
 
-       public static void SampleMethodTwo()
-       {
-            Console.WriteLine("SampleMethodTwo Invoked");
-       }
+        public static void SampleMethodTwo(out int Number)
+        {
+            Number = 5;
+        }
 
-       public static void SampleMethodThree()
-       {
-            Console.WriteLine("SampleMethodThree Invoked");
-       }
+        public static void SampleMethodThree(out int Number)
+        {
+            Number = 6;
+        }
+
+
 
 
     }
