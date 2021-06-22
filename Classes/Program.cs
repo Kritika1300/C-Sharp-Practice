@@ -7,15 +7,14 @@ namespace Classes
     class Program
     {
 
-        public static double Add(int x, float y, double z)
+        public static  void Add(int x, float y, double z)
         {
-            return x + y + z;
+            Console.WriteLine(x+y+z);
         }
         public static void Main()
         {
-            Func<int, float, double, double> del1 = Add;
-            double res = del1.Invoke(3, 2, 5); //double res = del1(3, 2, 5); 
-            Console.WriteLine(res);
+            Action<int, float, double> del1 = Add;
+            del1.Invoke(3, 4, 5);
         }
     }
    
