@@ -29,27 +29,33 @@ namespace Classes
         public string Title { get; set; }
     }
 
+    public class VideoEventArgs : EventArgs
+    {
+        public Video Video { get; set; }
+    }
+
     public class VideoEncoder 
     {
-        public delegate void VideoEncodedEventHnadler(object source, EventArgs args); //define delegate
 
-        public event VideoEncodedEventHnadler VideoEncoded; //define event
+
+        public event EventHandler<VideoEventArgs> VideoEncoded;
+
 
         public void Encode(Video video)
         {
             Console.WriteLine("Encoding video.....");
             Thread.Sleep(3000);
 
-            OnVideoEncoded(); // to notify subscribers
+            OnVideoEncoded(video); // to notify subscribers
             
         }
 
         // to raise an event we need a method -> Publisher Method
-        protected virtual void OnVideoEncoded()
+        protected virtual void OnVideoEncoded(Video video)
         {
             if(VideoEncoded != null) //checks if there are subscribers
             {
-                VideoEncoded(this, EventArgs.Empty);
+                VideoEncoded(this, new VideoEventArgs(){ Video = video});
                            //who is publishing, additional info to be passed 
             }
 
@@ -58,17 +64,17 @@ namespace Classes
 
     public class MailService
     {
-        public void OnVideoEncoded(object source, EventArgs e) //Event Handler
+        public void OnVideoEncoded(object source, VideoEventArgs e) //Event Handler
         {
-            Console.WriteLine("Sending Mail.....");
+            Console.WriteLine("Sending Mail....." + e.Video.Title);
         }
     }
 
     public class MessageService
     {
-        public void OnVideoEncoded(object source, EventArgs e) //Event Handler
+        public void OnVideoEncoded(object source, VideoEventArgs e) //Event Handler
         {
-            Console.WriteLine("Sending Message.....");
+            Console.WriteLine("Sending Message....."+ e.Video.Title);
         }
     }
 
