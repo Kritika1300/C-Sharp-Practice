@@ -9,53 +9,22 @@ namespace Classes
     {
         public static void Main()
         {
+            //DateTime date = null; value types can't be assigned null value
 
-            var newlist = new BookRepository().GetBooks();
+            Nullable<DateTime> date = null;  //Nullable type or DateTime? date = null
+            Console.WriteLine(date.GetValueOrDefault());
+            Console.WriteLine(date.HasValue);
+            //Console.WriteLine(date.Value); will throw Exception as value is NULL in this case
 
+            DateTime date1 = date.GetValueOrDefault();
 
-            var count = newlist.Count();
-            Console.WriteLine(count);
-
-            var maxPrice = newlist.Max(b => b.Price);
-            Console.WriteLine(maxPrice);
-
-            var minPrice = newlist.Min(b => b.Price);
-            Console.WriteLine(minPrice);
-
-            var sum = newlist.Sum(b => b.Price);
-            Console.WriteLine(sum);
-
-            var average = newlist.Average(b => b.Price);
-            Console.WriteLine(average);
-
-
-
+            DateTime? date3 = date1;
 
 
         }
     }
 
-    public class BookRepository
-    {
-
-        public IEnumerable<Book> GetBooks() 
-        {
-           return new List<Book>()
-        {
-            new Book() {Title = "NCERT" , Price = 200},
-            new Book() {Title = "NCERT" , Price = 230},
-            new Book() {Title = "NCERT" , Price = 600},
-            new Book() {Title = "SCARLET" , Price = 300},
-            new Book() {Title = "FLAMINGO" , Price = 200},
-            new Book() {Title = "HARRY POTTER" , Price = 700},
-            new Book() {Title = "RS AGGARWAL" , Price = 800},
-            new Book() {Title = "CD" , Price = 600},
-        };
-
-        }
-      
-    }
-      
+    
 
 }
 
