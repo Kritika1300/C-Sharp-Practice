@@ -11,14 +11,20 @@ namespace Classes
         {
 
             var newlist = new BookRepository().GetBooks();
-            var price = newlist.Where(b => b.Price > 500).OrderBy(b => b.Title);
+            var price = newlist                                  //LINQ Extension method
+                               .Where(b => b.Price > 500)
+                               .OrderBy(b => b.Title)
+                               .Select(b => b.Title);
 
-            foreach(var book in price)
+            var price1 = from b in newlist
+                         where b.Price > 800
+                         orderby b.Title
+                         select b.Title;
+
+            foreach(var book in price1)
             {
-                Console.WriteLine(book.Price + " " + book.Title);
+                Console.WriteLine(book);
             }
-
-
 
         }
     }
