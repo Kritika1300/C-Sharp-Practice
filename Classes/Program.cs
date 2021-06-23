@@ -11,12 +11,26 @@ namespace Classes
         {
 
             var newlist = new BookRepository().GetBooks();
-            /*var books1 = newlist.SingleOrDefault(b => b.Title == "R.D. SHARMA");*/ //returns reqd value only if there is single instance of object else returns default i.e. null
-                                                                                     //var books1 = newlist.First(b => b.Title == "NCERT"); // Variation : FirstOrDefault
-            /* var books1 = newlist.Last(b => b.Title == "NCERT"); /*/ /*Variation : LastOrDefault*/
-            //var books = newlist.Skip(3).Take(2);
-            //foreach (var book in books)
-            //  Console.WriteLine(book.Title + " " + book.Price);
+
+
+            var count = newlist.Count();
+            Console.WriteLine(count);
+
+            var maxPrice = newlist.Max(b => b.Price);
+            Console.WriteLine(maxPrice);
+
+            var minPrice = newlist.Min(b => b.Price);
+            Console.WriteLine(minPrice);
+
+            var sum = newlist.Sum(b => b.Price);
+            Console.WriteLine(sum);
+
+            var average = newlist.Average(b => b.Price);
+            Console.WriteLine(average);
+
+
+
+
 
         }
     }
