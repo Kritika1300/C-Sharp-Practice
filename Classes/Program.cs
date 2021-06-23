@@ -9,16 +9,22 @@ namespace Classes
     {
         public static void Main()
         {
-            //DateTime date = null; value types can't be assigned null value
+          
 
-            Nullable<DateTime> date = null;  //Nullable type or DateTime? date = null
-            Console.WriteLine(date.GetValueOrDefault());
-            Console.WriteLine(date.HasValue);
-            //Console.WriteLine(date.Value); will throw Exception as value is NULL in this case
+            DateTime? date = new DateTime(2000,1,11);
 
-            DateTime date1 = date.GetValueOrDefault();
+            DateTime date1; // to convert Nullable value to DateTime 
 
-            DateTime? date3 = date1;
+            if(date == null)
+            {
+                date1 = date.GetValueOrDefault();
+            }
+            else
+            {
+                date1 = DateTime.Today;
+            }
+
+            Console.WriteLine(date1);
 
 
         }
