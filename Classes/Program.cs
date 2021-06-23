@@ -11,20 +11,12 @@ namespace Classes
         {
 
             var newlist = new BookRepository().GetBooks();
-            var price = newlist                                  //LINQ Extension method
-                               .Where(b => b.Price > 500)
-                               .OrderBy(b => b.Title)
-                               .Select(b => b.Title);
-
-            var price1 = from b in newlist
-                         where b.Price > 800
-                         orderby b.Title
-                         select b.Title;
-
-            foreach(var book in price1)
-            {
-                Console.WriteLine(book);
-            }
+            /*var books1 = newlist.SingleOrDefault(b => b.Title == "R.D. SHARMA");*/ //returns reqd value only if there is single instance of object else returns default i.e. null
+                                                                                     //var books1 = newlist.First(b => b.Title == "NCERT"); // Variation : FirstOrDefault
+            /* var books1 = newlist.Last(b => b.Title == "NCERT"); /*/ /*Variation : LastOrDefault*/
+            //var books = newlist.Skip(3).Take(2);
+            //foreach (var book in books)
+            //  Console.WriteLine(book.Title + " " + book.Price);
 
         }
     }
@@ -37,10 +29,11 @@ namespace Classes
            return new List<Book>()
         {
             new Book() {Title = "NCERT" , Price = 200},
+            new Book() {Title = "NCERT" , Price = 230},
+            new Book() {Title = "NCERT" , Price = 600},
             new Book() {Title = "SCARLET" , Price = 300},
             new Book() {Title = "FLAMINGO" , Price = 200},
             new Book() {Title = "HARRY POTTER" , Price = 700},
-            new Book() {Title = "R.D. SHARMA" , Price = 900},
             new Book() {Title = "RS AGGARWAL" , Price = 800},
             new Book() {Title = "CD" , Price = 600},
         };
