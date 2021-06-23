@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace Classes
 {
@@ -9,13 +8,21 @@ namespace Classes
     {
         public static void Main()
         {
-            IEnumerable<int> numbers = new List<int>() { 1, 28, 6, 5, 67, 0 };
-            int max = numbers.Max();
-            Console.WriteLine(max);
+            int i = 2;
+            Console.WriteLine(i.Factorial()); 
+            
         }
     }
 
-  
+    public static class Int32Extensions
+    {
+        public static int Factorial(this Int32 x)
+        {
+            if (x == 0) return 1;
+            else if (x == 1 || x == 2) return x;
+            else return x * Factorial(x - 1);
+        }
+    }
 
 }
 
