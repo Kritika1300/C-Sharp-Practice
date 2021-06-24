@@ -9,20 +9,13 @@ namespace Classes
     {
         public static void Main()
         {
-          
 
-            DateTime? date = new DateTime(2000,1,11);
+
+            DateTime? date = null;
 
             DateTime date1; // to convert Nullable value to DateTime 
 
-            if(date == null)
-            {
-                date1 = date.GetValueOrDefault();
-            }
-            else
-            {
-                date1 = DateTime.Today;
-            }
+            date1 = date ?? DateTime.Today;
 
             Console.WriteLine(date1);
 
