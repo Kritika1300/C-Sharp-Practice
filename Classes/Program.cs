@@ -1,24 +1,16 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
+using System.IO;
 
 namespace Classes
 {
 
-    class Program
+    class ExceptionHandling
     {
         public static void Main()
         {
-
-
-            DateTime? date = null;
-
-            DateTime date1; // to convert Nullable value to DateTime 
-
-            date1 = date ?? DateTime.Today;
-
-            Console.WriteLine(date1);
-
+        //    StreamReader streamReader = new StreamReader(@"D:\Persnal\C#\C-Sharp-Practice\someFile.txt");
+        //    Console.WriteLine(streamReader.ReadToEnd()); 
+        Console.WriteLine("hi");
 
         }
     }
