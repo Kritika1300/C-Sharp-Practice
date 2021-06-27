@@ -7,34 +7,40 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            StreamReader streamReader = null;
             try
             {
-                streamReader = new StreamReader(@"D:\Persnal\C#\C-Sharp-Practice\ile.txt");
-                Console.WriteLine(streamReader.ReadToEnd());
-            }
-            catch(FileNotFoundException ex) //specific exception
-            {
-             
-                Console.WriteLine("File not found");
-                Console.WriteLine(ex.FileName + " not found");
-            }  
-            catch(Exception ex) //base / general
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally // to release resources held by the class finallly block is used,
-                    // finally block is reqd because an exception may even occur in one the catch blocks
-                    // therefore any statements after that wouldn't be executed, so it's always better to realease resources using FINALLY (as it is guaranteed to execute)
-            {
-                if(streamReader != null)
+                try
                 {
-                    streamReader.Close();
+                    Console.WriteLine("Enter first number");
+                    int fn = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("Enter second number");
+                    int sn = Convert.ToInt32(Console.ReadLine());
+                    int result = fn / sn;
+                    Console.WriteLine(result);
                 }
-           
-                Console.WriteLine("Entered finally block");
+                catch (Exception ex)
+                {
+                    string path = @"D:\Persnal\C#\C-Sharp-Practice\lo.txt";
+                    if (File.Exists(path))
+                    {
+                        StreamWriter sw = new StreamWriter(path);
+                        sw.Write(ex.GetType().Name);
+                        sw.Close();
+                        Console.WriteLine("Some error occured");
+
+                    }
+                    else
+                    {
+                        throw new FileNotFoundException("File not found", ex);
+                    }
+                }
             }
+            catch(Exception e)
+            {
+                Console.WriteLine("Current exception = " + e.GetType().Name);
+                Console.WriteLine("Inner Exception = " + e.InnerException.GetType().Name);
+            }
+            
         }
     }
 }

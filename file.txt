@@ -1,2 +1,0 @@
-We are migrating on 15-06-2021 00:00:00 INFO
-We are migrating till 15-06-2021 02:00:00 INFO
