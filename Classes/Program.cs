@@ -17,16 +17,13 @@ namespace Classes
             t1.Join(); t2.Join(); t3.Join();
             Console.WriteLine(total);
         }
-        static object _lock = new object();
+    
         public static void AddTen()
         {
            
             for(int i = 1; i <= 50; i++)
             {
-                lock (_lock)
-                {
-                    total++;
-                }
+                Interlocked.Increment(ref total);
             }
         }
     }
