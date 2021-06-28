@@ -24,14 +24,16 @@ namespace Classes
            
             for(int i = 1; i <= 50; i++)
             {
-                Monitor.Enter(_lock);
+                bool isLockAcquired = false;
+                Monitor.Enter(_lock, ref isLockAcquired);
                 try
                 {
                     total++;
                 }
                 finally
                 {
-                    Monitor.Exit(_lock);
+                    if(isLockAcquired)
+                       Monitor.Exit(_lock);
                 }
             }
         }
