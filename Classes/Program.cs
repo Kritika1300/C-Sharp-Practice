@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading;
 
 namespace Classes
 {
@@ -7,21 +7,27 @@ namespace Classes
     class Program
     {
 
-        //public static string Print(string message)
-        //{
-        //   return "Hey your message is : " + message ;
-        //}
         public static void Main()
         {
-            PrintHandler obj = delegate(string message)           //ANONYMOUS METHOD
-            {
-                return "Hey check this message : " + message;
-            };
-            string str = obj.Invoke("Test message");
-            Console.WriteLine(str);
+            //Thread t1 = new Thread(Numbers.PrintNumbers);  || under the hood threadstart delegate is being used by the framework
+            //Thread t1 = new Thread(new ThreadStart(Numbers.PrintNumbers)); ||using ThreadStart
+            //Thread t1 = new Thread(delegate () { Numbers.PrintNumbers(); }); || using dleegate keyword
+            Thread t1 = new Thread(() => Numbers.PrintNumbers()); //using lambda functions
+            t1.Start();
 
         }
 
+    }
+
+    class Numbers
+    {
+        public static void PrintNumbers()
+        {
+            for(int i = 1; i <= 40; i++)
+            {
+                Console.WriteLine(i);
+            }
+        }
     }
 }
 
