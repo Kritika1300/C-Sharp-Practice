@@ -9,29 +9,29 @@ namespace Classes
 
         public static void Main()
         {
-            Console.WriteLine("Enter a number");
-            object target = Console.ReadLine();
-            //ParameterizedThreadStart pt = new ParameterizedThreadStart(Numbers.PrintNumbers);
-            //Thread t1 = new Thread(pt);
-            Thread t1 = new Thread(Numbers.PrintNumbers);
-            t1.Start(target);
+            Console.WriteLine("Enter target number");
+            int target = Convert.ToInt32(Console.ReadLine());
+            Numbers n = new Numbers(target);
+            Thread t1 = new Thread(n.PrintNumbers);
+            t1.Start();
         }
 
     }
 
-    class Numbers
+    class Numbers //helper class encapsulating the thread function + data to be passed to the thread
     {
-        public static void PrintNumbers(object target)
+        private int _target; //data to be passed to the thread
+        public Numbers(int target) 
         {
-            int num = 0;
-            if(int.TryParse(target.ToString(),out num))
-            {
-                for (int i = 1; i <= num; i++)
+            _target = target;
+        }
+        public void PrintNumbers() //thread function
+        {
+           
+                for (int i = 1; i <= _target; i++)
                 {
                     Console.WriteLine(i);
                 }
-
-            }
             
         }
     }
