@@ -13,7 +13,7 @@ namespace Classes
         //}
         public static void Main()
         {
-            PrintHandler obj = delegate (string message)
+            PrintHandler obj = delegate(string message)           //ANONYMOUS METHOD
             {
                 return "Hey check this message : " + message;
             };
