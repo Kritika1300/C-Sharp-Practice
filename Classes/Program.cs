@@ -7,34 +7,30 @@ namespace Classes
     class Program
     {
 
+        static int total = 0;
         public static void Main()
         {
-            Console.WriteLine("Enter target number");
-            int target = Convert.ToInt32(Console.ReadLine());
-            Numbers n = new Numbers(target);
-            Thread t1 = new Thread(n.PrintNumbers);
-            t1.Start();
+            Thread t1 = new Thread(Program.AddTen);
+            Thread t2 = new Thread(Program.AddTen);
+            Thread t3 = new Thread(Program.AddTen);
+            t1.Start(); t2.Start(); t3.Start();
+            t1.Join(); t2.Join(); t3.Join();
+            Console.WriteLine(total);
         }
-
-    }
-
-    class Numbers //helper class encapsulating the thread function + data to be passed to the thread
-    {
-        private int _target; //data to be passed to the thread
-        public Numbers(int target) 
-        {
-            _target = target;
-        }
-        public void PrintNumbers() //thread function
+        static object _lock = new object();
+        public static void AddTen()
         {
            
-                for (int i = 1; i <= _target; i++)
+            for(int i = 1; i <= 50; i++)
+            {
+                lock (_lock)
                 {
-                    Console.WriteLine(i);
+                    total++;
                 }
-            
+            }
         }
     }
+   
 }
 
 
