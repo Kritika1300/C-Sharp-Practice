@@ -1,42 +1,45 @@
 ﻿using System;
-using System.Threading;
+using System.Collections.Generic;
 
 namespace Classes
 {
-    public delegate string PrintHandler(string message);
+    class Employee
+    {
+        private int _id;
+        private string _name;
+    
+        public int ID
+        {
+            get; set;
+        }
+        public string Name { get; set; }
+
+
+    }
     class Program
     {
 
-        static int total = 0;
+        
         public static void Main()
         {
-            Thread t1 = new Thread(Program.AddTen);
-            Thread t2 = new Thread(Program.AddTen);
-            Thread t3 = new Thread(Program.AddTen);
-            t1.Start(); t2.Start(); t3.Start();
-            t1.Join(); t2.Join(); t3.Join();
-            Console.WriteLine(total);
+            List<Employee> listofemployees = new List<Employee>()
+            {
+                new Employee(){ID = 101, Name = "Kritika"},
+                new Employee(){ID = 102, Name = "Kritz"},
+                new Employee(){ID = 103, Name = "Kriti"},
+
+
+            };
+            Employee employee = listofemployees.Find(emp => emp.ID == 102);
+            Console.WriteLine(employee.Name);
+
         }
 
-        public static object _lock = new object();
-        public static void AddTen()
-        {
-           
-            for(int i = 1; i <= 50; i++)
-            {
-                bool isLockAcquired = false;
-                Monitor.Enter(_lock, ref isLockAcquired);
-                try
-                {
-                    total++;
-                }
-                finally
-                {
-                    if(isLockAcquired)
-                       Monitor.Exit(_lock);
-                }
-            }
-        }
+        
+        
+        
+
+      
     }
    
 }
