@@ -19,19 +19,16 @@ namespace Classes
                 return Calculate1();
             });
 
-            var task2 = Task.Run(() =>
-            {
-                return Calculate2();
-            });
-
-            Task.WaitAll(task1, task2);
+           
 
             var awaiter1 = task1.GetAwaiter();
-            var awaiter2 = task2.GetAwaiter();
-            var result1 = awaiter1.GetResult();
-            var result2 = awaiter2.GetResult();
-
-            Calculate3(result1,result2);
+            awaiter1.OnCompleted(() =>
+            {
+                var result1 = awaiter1.GetResult();
+                Calculate2(result1);
+            });
+            
+            Calculate3();
   
         }
 
@@ -42,16 +39,16 @@ namespace Classes
             return 100;
         }
 
-        public static int Calculate2()
+        public static int Calculate2(int result1)
         {
             Console.WriteLine("Calculate2");
-            return 200;
+            return result1*200;
         }
 
-        public static int Calculate3(int result1,int result2)
+        public static int Calculate3()
         {
             Console.WriteLine("Calculate3");
-            return result1 + result2;
+            return 300;
         }
     }
    
