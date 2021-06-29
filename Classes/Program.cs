@@ -1,45 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading;
 
 namespace Classes
 {
-    class Employee
-    {
-        private int _id;
-        private string _name;
-    
-        public int ID
-        {
-            get; set;
-        }
-        public string Name { get; set; }
-
-
-    }
     class Program
     {
 
         
         public static void Main()
         {
-            List<Employee> listofemployees = new List<Employee>()
-            {
-                new Employee(){ID = 101, Name = "Kritika"},
-                new Employee(){ID = 102, Name = "Kritz"},
-                new Employee(){ID = 103, Name = "Kriti"},
-
-
-            };
-            Employee employee = listofemployees.Find(delegate(Employee emp) { return emp.ID == 103; });
-            Console.WriteLine(employee.Name);
-
+            Calculate();
         }
 
-        
-        
-        
+        public static void Calculate()
+        {
+            Calculate1();
+            Calculate2();
+            Calculate3();
+        }
+        public static int Calculate1()
+        {
+            Thread.Sleep(5000);
+            Console.WriteLine("Calculate1");
+            return 100;
+        }
+        public static int Calculate2()
+        {
+            Console.WriteLine("Calculate2");
+            return 200;
+        }
+        public static int Calculate3()
+        {
+            Console.WriteLine("Calculate3");
+            return 300;
+        }
 
-      
+
+
+
+
     }
    
 }
