@@ -14,20 +14,25 @@ namespace Classes
 
         public static void Calculate()
         {
-            Task.Run(() =>
+            var task1 = Task.Run(() =>
             {
-                Calculate1();
+                return Calculate1();
             });
 
-            Task.Run(() =>
+            var task2 = Task.Run(() =>
             {
-                Calculate2();
+                return Calculate2();
             });
 
-            Task.Run(() =>
-            {
-                Calculate3();
-            });
+            Task.WaitAll(task1, task2);
+
+            var awaiter1 = task1.GetAwaiter();
+            var awaiter2 = task2.GetAwaiter();
+            var result1 = awaiter1.GetResult();
+            var result2 = awaiter2.GetResult();
+
+            Calculate3(result1,result2);
+  
         }
 
         public static int Calculate1()
@@ -43,10 +48,10 @@ namespace Classes
             return 200;
         }
 
-        public static int Calculate3()
+        public static int Calculate3(int result1,int result2)
         {
             Console.WriteLine("Calculate3");
-            return 300;
+            return result1 + result2;
         }
     }
    
