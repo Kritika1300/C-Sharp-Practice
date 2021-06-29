@@ -30,7 +30,7 @@ namespace Classes
 
 
             };
-            Employee employee = listofemployees.Find(emp => emp.ID == 102);
+            Employee employee = listofemployees.Find(delegate(Employee emp) { return emp.ID == 103; });
             Console.WriteLine(employee.Name);
 
         }

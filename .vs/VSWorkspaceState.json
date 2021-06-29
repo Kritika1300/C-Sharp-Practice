@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AssemblyOne"
+    "\\AssemblyOne",
+    "\\Classes",
+    "\\WindowsFormsApp1"
   ],
-  "SelectedNode": "\\AssemblyOne",
+  "SelectedNode": "\\WindowsFormsApp1\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
