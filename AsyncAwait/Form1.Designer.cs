@@ -52,14 +52,18 @@ namespace AsyncAwait
             this.lblCount.Size = new System.Drawing.Size(0, 15);
             this.lblCount.TabIndex = 1;
             // 
-           
-           
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
             // 
             // CountFileCharacters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(792, 439);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.ProcessFile);

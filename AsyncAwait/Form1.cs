@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,24 +20,24 @@ namespace AsyncAwait
             InitializeComponent();
         }
 
-        private int CountCharacters()
+        private async Task<int> CountCharacters()
         {
             int count = 0;
             using (StreamReader streamReader = new StreamReader(@"D:\Persnal\C#\C-Sharp-Practice\data.txt"))
             {
-                string content = streamReader.ReadToEnd();
+              
+                string content = await streamReader.ReadToEndAsync();
                 count = content.Length;
-                Thread.Sleep(5000);
+                await Task.Delay(5000);
             }
             return count;
         }
         private async void ProcessFile_Click(object sender, EventArgs e)
         {
-            Task<int> task = new Task<int>(CountCharacters);
-            task.Start();
+            
             lblCount.Text = "Processing the file, please wait .................................";
-            int count = await task;
-            lblCount.Text = "Number of characters in the file : " + count;
+            var count = await CountCharacters();
+            lblCount.Text = "Number of characters in the file : " + count ;
         }
 
         private void CountFileCharacters_Load(object sender, EventArgs e)
@@ -44,6 +45,6 @@ namespace AsyncAwait
 
         }
 
-        
+
     }
 }
