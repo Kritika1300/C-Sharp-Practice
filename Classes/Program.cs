@@ -6,52 +6,76 @@ namespace Classes
 {
     class Program
     {
+
+
         public static void Main(string[] args)
         {
-            Calculate();
-            Console.Read();
+            Text text = new Text(); //subscriber
+            Email email = new Email(); //subscriber
+            Authentication auth = new Authentication();
+
+            Authentication.AuthenticationEvent += text.SendText;
+            Authentication.AuthenticationEvent += email.SendEmail;
+            Authentication.AuthenticationEvent -= email.SendEmail;
+
+            Console.WriteLine("Enter username");
+            string uname = Console.ReadLine();
+
+            Console.WriteLine("Enter email");
+            string mail = Console.ReadLine();
+
+            Console.WriteLine("Enter password");
+            string password = Console.ReadLine();
+
+            Console.WriteLine("Checking credentials......");
+
+            auth.AuthenticationProcess(uname, mail, password);
+
         }
 
-        public static void Calculate()
+
+    }
+
+    class PersonArgs : EventArgs //arguements
+    {
+        public string Username { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+
+    }
+
+    class Authentication
+    {
+        public static event EventHandler<PersonArgs> AuthenticationEvent;
+
+        public void AuthenticationProcess(string uname,string mail, string pass) //subscriber
         {
-            var task1 = Task.Run(() =>
-            {
-                return Calculate1();
-            });
 
-           
+            OnAuthenticationEvent(uname,mail,pass);
 
-            var awaiter1 = task1.GetAwaiter();
-            awaiter1.OnCompleted(() =>
-            {
-                var result1 = awaiter1.GetResult();
-                Calculate2(result1);
-            });
-            
-            Calculate3();
-  
         }
-
-        public static int Calculate1()
+        protected virtual void OnAuthenticationEvent(string uname, string mail, string pass)
         {
-            Thread.Sleep(5000);
-            Console.WriteLine("Calculate1");
-            return 100;
-        }
-
-        public static int Calculate2(int result1)
-        {
-            Console.WriteLine("Calculate2");
-            return result1*200;
-        }
-
-        public static int Calculate3()
-        {
-            Console.WriteLine("Calculate3");
-            return 300;
+            AuthenticationEvent?.Invoke(this, new PersonArgs() { Username = uname, Email = mail, Password = pass});
         }
     }
-   
+
+    public class Email //subscriber
+    {
+        public void SendEmail(object sender, EventArgs e)
+        {
+            Console.WriteLine("Sending Email.....");
+        }
+    }
+
+    public class Text //subscriber
+    {
+        public void SendText(object sender, EventArgs e)
+        {
+            Console.WriteLine("Sending Text.....");
+        }
+    }
+
 }
 
 
