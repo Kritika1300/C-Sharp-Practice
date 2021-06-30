@@ -10,70 +10,36 @@ namespace Classes
 
         public static void Main(string[] args)
         {
-            Text text = new Text(); //subscriber
-            Email email = new Email(); //subscriber
-            Authentication auth = new Authentication();
-
-            Authentication.AuthenticationEvent += text.SendText;
-            Authentication.AuthenticationEvent += email.SendEmail;
-            Authentication.AuthenticationEvent -= email.SendEmail;
-
-            Console.WriteLine("Enter username");
-            string uname = Console.ReadLine();
-
-            Console.WriteLine("Enter email");
-            string mail = Console.ReadLine();
-
-            Console.WriteLine("Enter password");
-            string password = Console.ReadLine();
-
-            Console.WriteLine("Checking credentials......");
-
-            auth.AuthenticationProcess(uname, mail, password);
-
+            method2();
+            method4();
         }
 
-
-    }
-
-    class PersonArgs : EventArgs //arguements
-    {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-
-    }
-
-    class Authentication
-    {
-        public static event EventHandler<PersonArgs> AuthenticationEvent;
-
-        public void AuthenticationProcess(string uname,string mail, string pass) //subscriber
+        public static async void  method2()
+        {
+            await method3();
+            Console.WriteLine("Done");
+        }
+        public static async Task method3()
         {
 
-            OnAuthenticationEvent(uname,mail,pass);
+             for (int i = 0; i <= 1000; i++)
+            {
+                Console.WriteLine("ABC");
 
-        }
-        protected virtual void OnAuthenticationEvent(string uname, string mail, string pass)
-        {
-            AuthenticationEvent?.Invoke(this, new PersonArgs() { Username = uname, Email = mail, Password = pass});
-        }
-    }
 
-    public class Email //subscriber
-    {
-        public void SendEmail(object sender, EventArgs e)
-        {
-            Console.WriteLine("Sending Email.....");
+            }
+            
         }
-    }
+        public static async Task method4()
+        {
+            for(int i = 0; i <= 123; i++)
+            {
+                Console.WriteLine("1000");
 
-    public class Text //subscriber
-    {
-        public void SendText(object sender, EventArgs e)
-        {
-            Console.WriteLine("Sending Text.....");
+            }
+            
         }
+
     }
 
 }
