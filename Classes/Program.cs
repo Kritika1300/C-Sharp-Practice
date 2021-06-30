@@ -9,13 +9,13 @@ namespace Classes
 
         public static void Main(string[] args)
         {
-            int[] numbers = { 1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14 };
+            int[] numbers = { 3, 9, 2, 8, 6, 5 };
 
-            var positive = from num in numbers where num >= 1 && num <= 11 select num;
+            var sqaures = from num in numbers let square = num * num where square > 20  select new { num, square };
 
-            foreach(var p in positive)
+            foreach(var s in sqaures)
             {
-                System.Console.WriteLine(p);
+                System.Console.WriteLine(s);
             }
         }
 
