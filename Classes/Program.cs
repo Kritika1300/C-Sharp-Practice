@@ -1,46 +1,35 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using System;
+﻿using System;
 
 namespace Classes
 {
+
+   
+    public delegate int MyDelegate(int a,int b);
+
+    public delegate void MyDelegate1(string message);
     class Program
     {
-
-        public delegate T GenericDelegate<T>(T a, T b);
-        public static void Main(string[] args)
+        public static void Main()
         {
-            GenericDelegate<int> del1 = new GenericDelegate<int>(AddInt);
-            int res1 = del1(3,4);
-            Console.WriteLine(res1);
+        
 
-            GenericDelegate<float> del2 = new GenericDelegate<float>(AddFloat);
-            float res2 = del2(3.4f, 4);
-            Console.WriteLine(res2);
+            MyDelegate del = (int a, int b) => { return a + b; };
+            int res = del(3,43);
+            Console.WriteLine(res);
 
-            GenericDelegate<double> del3 = new GenericDelegate<double>(AddDouble);
-            double res3 = del3(3.5, 4.5);
-            Console.WriteLine(res3);
-        }
+            MyDelegate1 del1 = delegate (string name)
+            {
+                Console.WriteLine(name);
+            };
+            del1("Kritika");
 
-        public static int AddInt(int a,int b)
-        {
-            return a + b;
-        }
-
-        public static float AddFloat(float a, float b)
-        {
-            return a + b;
-        }
-
-        public static double AddDouble(double a, double b)
-        {
-            return a + b;
+          
         }
 
     }
 
-   
+
+
 
 
 }
