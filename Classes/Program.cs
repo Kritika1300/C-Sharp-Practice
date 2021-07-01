@@ -1,44 +1,46 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
-//www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-1.php
+using System;
+
 namespace Classes
 {
     class Program
     {
 
-
+        public delegate T GenericDelegate<T>(T a, T b);
         public static void Main(string[] args)
         {
-            int[] numbers = { 3, 9, 2, 8, 6, 5 };
+            GenericDelegate<int> del1 = new GenericDelegate<int>(AddInt);
+            int res1 = del1(3,4);
+            Console.WriteLine(res1);
 
-            var sqaures = from num in numbers let square = num * num where square > 20  select new { num, square };
+            GenericDelegate<float> del2 = new GenericDelegate<float>(AddFloat);
+            float res2 = del2(3.4f, 4);
+            Console.WriteLine(res2);
 
-            foreach(var s in sqaures)
-            {
-                System.Console.WriteLine(s);
-            }
+            GenericDelegate<double> del3 = new GenericDelegate<double>(AddDouble);
+            double res3 = del3(3.5, 4.5);
+            Console.WriteLine(res3);
         }
 
-
-
-    }
-
-    public class BookList
-    {
-        public static IEnumerable<Book> GetBooks()
+        public static int AddInt(int a,int b)
         {
-            return new List<Book>() 
-            { 
-               new Book() {Title = "NCERT" , Price = 300},
-               new Book() {Title = "ULLMAN" , Price = 500},
-               new Book() {Title = "R.S. AGGARWAL" , Price = 700},
-               new Book() {Title = "R.D. SHARMA" , Price = 600},
-               new Book() {Title = "SCARLETT" , Price = 400},
-            };
+            return a + b;
+        }
 
+        public static float AddFloat(float a, float b)
+        {
+            return a + b;
+        }
+
+        public static double AddDouble(double a, double b)
+        {
+            return a + b;
         }
 
     }
+
+   
 
 
 }
