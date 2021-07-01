@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace Classes
 {
 
-  
+  //www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-4.php
     class Program
     {
 
@@ -13,12 +13,13 @@ namespace Classes
         {
             
 
-            int[] arr1 = new int[] { 1,2,3,4,5 };
-            var res1 = arr1.Select((num, index) => new { Number = num, Index = index }).Where(x => x.Number % 2 == 0).Select(x => x.Index);
-            foreach(var i in res1)
+            int[] arr1 = new int[] { 1,2,3,4,5,2,3,4,5,5,6,1 };
+            var res = arr1.GroupBy(num => num);
+            foreach(var i in res)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i.Key + " " + i.Count());
             }
+            
            
         }
 
