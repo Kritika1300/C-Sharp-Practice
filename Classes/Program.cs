@@ -9,26 +9,24 @@ namespace Classes
     }
     public class OnlineAttendance
     {
+        public delegate void AttendanceEventHandler(object sender, UserArgs e);
      
-        public static event EventHandler<UserArgs> AttendanceEvent;
+        public static event AttendanceEventHandler AttendanceEvent;
 
         public void MarkAttendance(string name)
         {
-            OnAttendanceEvent(name);
+            if (AttendanceEvent != null)
+                AttendanceEvent(this, new UserArgs() { Name = name });
         }
 
-        protected virtual void OnAttendanceEvent(string name)
-        {
-            AttendanceEvent?.Invoke(this, new UserArgs() { Name = name });
-        }
 
     }
 
     public class FireAlarm
     {
-        public void FireAlarmRinging(object sender, EventArgs e)
+        public void FireAlarmRinging(object sender, UserArgs e)
         {
-            Console.WriteLine("Ringing the fire alarm...");
+            Console.WriteLine("Ringing the fire alarm... " + e.Name);
         }
     }
 
@@ -59,7 +57,7 @@ namespace Classes
             }
             else
             {
-                Console.WriteLine("hi" + name);
+                Console.WriteLine("Welcome " + name);
             }
 
             oa.MarkAttendance(name);
