@@ -11,18 +11,15 @@ namespace Classes
 
         static void Main(string[] args)
         {
-            string[] arr = new string[] {"abc", "def", "ghi" };
-            string res = arr.Aggregate((a, b) => a + ","+ b);
-            Console.WriteLine(res);
+            
 
             int[] arr1 = new int[] { 1,2,3,4,5 };
-            int res1 = arr1.Aggregate((a, b) => a * b);
-            Console.WriteLine(res1);
-
-            int[] arr2 = new int[] { 1, 2, 3, 4, 5 }; 
-            int res2 = arr1.Aggregate(10,(a, b) => a * b);// seed parameter
-            Console.WriteLine(res2);
-
+            var res1 = arr1.Select((num, index) => new { Number = num, Index = index }).Where(x => x.Number % 2 == 0).Select(x => x.Index);
+            foreach(var i in res1)
+            {
+                Console.WriteLine(i);
+            }
+           
         }
 
     }
