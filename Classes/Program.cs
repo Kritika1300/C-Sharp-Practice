@@ -6,29 +6,29 @@ namespace Classes
 {
 
 
-  //www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-10.php
+  //www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-13.php
     class Program
     {
         static void Main(string[] args)
         {
-            List<int> templist = new List<int>();
-            templist.Add(5);
-            templist.Add(7);
-            templist.Add(13);
-            templist.Add(24);
-            templist.Add(6);
-            templist.Add(9);
-            templist.Add(8);
-            templist.Add(7);
+            string[] arr1;
+            int n, i;
 
-            var result = templist.Take(3);
-
-            foreach(var num in result)
+          
+            Console.Write("Input number of strings to  store in the array");
+            n = Convert.ToInt32(Console.ReadLine());
+            arr1 = new string[n];
+            Console.Write("Input {0} strings for the array  :\n", n);
+            for (i = 0; i < n; i++)
             {
-                Console.WriteLine(num);
+                Console.Write("Element[{0}] : ", i);
+                arr1[i] = Console.ReadLine();
             }
 
+            var result = arr1.Aggregate((a, b) => a + "," + b);
 
+           
+            Console.WriteLine(result);
 
         }
 
