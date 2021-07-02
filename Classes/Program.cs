@@ -10,12 +10,21 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            int[] nums = new int[] { 5, 1, 9, 2, 3, 7, 4, 5, 6, 8, 7, 6, 3, 4, 5, 2 };
-            var res = nums.GroupBy(num => num);
-            foreach(var num in res)
+            string[] cities =
             {
-                Console.WriteLine(num.Key + " " + num.Key * num.Count() + " " + num.Count());
-            }
+                "ROME","LONDON","NAIROBI","CALIFORNIA","ZURICH","NEW DELHI","AMSTERDAM","ABU DHABI", "PARIS"
+            };
+
+            Console.WriteLine("Enter starting char");
+            char first =(char)Console.Read();
+            Console.ReadLine();
+            Console.WriteLine("Enter last char");
+            char last = (char)Console.Read();
+
+            var res = cities.Where(x => x.StartsWith(first) && x.EndsWith(last));
+            foreach(var city in res)
+                Console.WriteLine(city);
+
 
         }
 
