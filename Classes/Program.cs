@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Classes
@@ -11,24 +11,26 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            string[] arr1;
-            int n, i;
+            List<int> myList = new List<int>();
+            myList.Add(2);
+            myList.Add(3);
+            myList.Add(1);
+            myList.Add(4);
+            myList.Add(7);
+            myList.Add(5);
 
-          
-            Console.Write("Input number of strings to  store in the array");
-            n = Convert.ToInt32(Console.ReadLine());
-            arr1 = new string[n];
-            Console.Write("Input {0} strings for the array  :\n", n);
-            for (i = 0; i < n; i++)
+            IEnumerable<int> ienum = myList;
+
+            foreach(int i in ienum)
+                Console.WriteLine(i);
+
+            IEnumerator<int> enumerator = myList.GetEnumerator();
+            while (enumerator.MoveNext())
             {
-                Console.Write("Element[{0}] : ", i);
-                arr1[i] = Console.ReadLine();
+                Console.WriteLine(enumerator.Current.ToString());
             }
 
-            var result = arr1.Aggregate((a, b) => a + "," + b);
 
-           
-            Console.WriteLine(result);
 
         }
 
