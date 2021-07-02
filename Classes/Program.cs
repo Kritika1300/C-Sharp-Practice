@@ -18,31 +18,29 @@ namespace Classes
             myList.Add(4);
             myList.Add(7);
             myList.Add(5);
-
-            IEnumerator<int> enumerator = myList.GetEnumerator();
-            LessThanthree(enumerator);
-
+            LessThanthree(myList);
      
 
-              void LessThanthree(IEnumerator<int> enumerator)
+             void LessThanthree(IEnumerable<int> ienum)
             {
-                
-                
-                while (enumerator.MoveNext())
+                foreach (int i in ienum)
                 {
-                    Console.WriteLine(enumerator.Current.ToString());
-                    if (enumerator.Current > 3)
-                        MoreThanthree(enumerator);
+                    Console.WriteLine(i + "func1 ");
+                    if (i > 3)
+                       MoreThanthree(ienum);
+
                 }
 
             }
 
-             void MoreThanthree(IEnumerator<int> enumerator)
+             void MoreThanthree(IEnumerable<int> ienum)
             {
-                while (enumerator.MoveNext())
+                foreach (int i in ienum)
                 {
-                    Console.WriteLine(enumerator.Current.ToString());
+                    Console.WriteLine(i + "func2 ");
+
                 }
+
 
             }
 
