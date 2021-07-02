@@ -18,7 +18,8 @@ namespace Classes
             myList.Add(4);
             myList.Add(7);
             myList.Add(5);
-            LessThanthree(myList);
+            IEnumerable<int> ienum = (IEnumerable<int>)myList;
+            LessThanthree(ienum);
      
 
              void LessThanthree(IEnumerable<int> ienum)
