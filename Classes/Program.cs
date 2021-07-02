@@ -19,16 +19,40 @@ namespace Classes
             myList.Add(7);
             myList.Add(5);
 
-            IEnumerable<int> ienum = myList;
-
-            foreach(int i in ienum)
-                Console.WriteLine(i);
-
             IEnumerator<int> enumerator = myList.GetEnumerator();
-            while (enumerator.MoveNext())
+            LessThanthree(enumerator);
+
+     
+
+              void LessThanthree(IEnumerator<int> enumerator)
             {
-                Console.WriteLine(enumerator.Current.ToString());
+                
+                
+                while (enumerator.MoveNext())
+                {
+                    Console.WriteLine(enumerator.Current.ToString());
+                    if (enumerator.Current > 3)
+                        MoreThanthree(enumerator);
+                }
+
             }
+
+             void MoreThanthree(IEnumerator<int> enumerator)
+            {
+                while (enumerator.MoveNext())
+                {
+                    Console.WriteLine(enumerator.Current.ToString());
+                }
+
+            }
+
+
+
+            //IEnumerator<int> enumerator = myList.GetEnumerator();
+            //while (enumerator.MoveNext())
+            //{
+            //    Console.WriteLine(enumerator.Current.ToString());
+            //}
 
 
 
