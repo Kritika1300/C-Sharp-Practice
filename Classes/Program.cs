@@ -5,21 +5,16 @@ using System.Threading.Tasks;
 namespace Classes
 {
 
-  //www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-4.php
+  //www.w3resource.com/csharp-exercises/linq/csharp-linq-exercise-6.php
     class Program
     {
         static void Main(string[] args)
         {
-            
+            string[] arr = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            var res = arr.Select(days => days);
+            foreach(var day in res)
+                Console.WriteLine(day);
 
-            string str;
-            Console.WriteLine("Enter a string");
-            str = Console.ReadLine().ToLower();
-            var res = str.GroupBy(c => c);
-            foreach(var character in res) {
-                Console.WriteLine(character.Key + " " + character.Count());
-            }
-           
         }
 
     }
