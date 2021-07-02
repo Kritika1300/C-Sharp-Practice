@@ -12,13 +12,13 @@ namespace Classes
         {
             
 
-            int[] arr1 = new int[] { 1,2,3,4,5,2,3,4,5,5,6,1 };
-            var res = arr1.Where(num => num%2 ==0).Select((num, index) => new { Number = num, Index = index });
-            foreach(var i in res)
-            {
-                Console.WriteLine(i.Number + " " + i.Index);
+            string str;
+            Console.WriteLine("Enter a string");
+            str = Console.ReadLine().ToLower();
+            var res = str.GroupBy(c => c);
+            foreach(var character in res) {
+                Console.WriteLine(character.Key + " " + character.Count());
             }
-            
            
         }
 
