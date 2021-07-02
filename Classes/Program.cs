@@ -25,7 +25,7 @@ namespace Classes
 
             Console.WriteLine();
 
-            var res = templist.FindAll(x => x > 200);
+            var res = templist.FindAll(x => x > 200 ? true : false);
             foreach(var number in res)
                 Console.WriteLine(number);
 
