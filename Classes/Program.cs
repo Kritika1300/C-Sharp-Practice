@@ -10,16 +10,21 @@ namespace Classes
     {
         private static int counter = 0;
         private static Singleton instance = null;
+        private static object obj = new object();
 
         public static Singleton GetInstance
         {
             get
             {
-                if(instance == null)
+                lock (obj)
                 {
-                    instance = new Singleton(); 
+                    if (instance == null)
+                    {
+                        instance = new Singleton();
+                    }
+                    return instance;
                 }
-                return instance;
+             
             }
         }
         private Singleton()
