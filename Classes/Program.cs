@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Classes
 {
@@ -31,27 +32,30 @@ namespace Classes
             Console.WriteLine(message);
         }
 
-        public class DerivedSingleton : Singleton
-        {
-            // DerivedSingleton cannot derive from Singleton class
-        }
     }
 
     class Program
     {
         public static void Main(string[] args)
         {
-            Singleton fromEmployee = Singleton.GetInstance;
-            fromEmployee.PrintDetails("Employee dets");
-
-            Singleton fromStudent = Singleton.GetInstance;
-            fromStudent.PrintDetails("Student dets");
-
-            Singleton.DerivedSingleton derived = new Singleton.DerivedSingleton();
-            derived.PrintDetails("Derived dets");
+            Parallel.Invoke(
+                () => EmployeeDetails(),
+                () => StudenDetails()
+            );
 
         }
 
+        private static void StudenDetails()
+        {
+            Singleton fromStudent = Singleton.GetInstance;
+            fromStudent.PrintDetails("Student dets");
+        }
+
+        private static void EmployeeDetails()
+        {
+            Singleton fromEmployee = Singleton.GetInstance;
+            fromEmployee.PrintDetails("Employee dets");
+        }
     }
 }
 
