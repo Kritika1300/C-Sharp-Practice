@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace Classes
 {
 
-    public  class Singleton 
+    public sealed class Singleton 
     {
         private static int counter = 0;
         private static Singleton instance = null;
@@ -33,7 +33,7 @@ namespace Classes
 
         public class DerivedSingleton : Singleton
         {
-            //without sealed keyword DerivedSingleton can derive from Singleton class and can create new instance
+            // DerivedSingleton cannot derive from Singleton class
         }
     }
 
