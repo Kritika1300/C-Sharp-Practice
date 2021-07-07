@@ -16,15 +16,18 @@ namespace Classes
         {
             get
             {
-                lock (obj)
+                if(instance == null)
                 {
-                    if (instance == null)
+                    lock (obj)
                     {
-                        instance = new Singleton();
+                        if (instance == null)
+                        {
+                            instance = new Singleton();
+                        }
+                       
                     }
-                    return instance;
                 }
-             
+                return instance;
             }
         }
         private Singleton()
