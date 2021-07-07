@@ -9,25 +9,14 @@ namespace Classes
     public sealed class Singleton 
     {
         private static int counter = 0;
-        private static Singleton instance = null;
-        private static object obj = new object();
+        private static readonly Lazy<Singleton> instance = new Lazy<Singleton>(new Singleton());
+      
 
         public static Singleton GetInstance
         {
             get
             {
-                if(instance == null)
-                {
-                    lock (obj)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Singleton();
-                        }
-                       
-                    }
-                }
-                return instance;
+                return instance.Value;
             }
         }
         private Singleton()
