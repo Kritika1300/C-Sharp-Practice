@@ -8,7 +8,20 @@ namespace Classes
     public class Singleton 
     {
         private static int counter = 0;
-        public Singleton()
+        private static Singleton instance = null;
+
+        public static Singleton GetInstance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Singleton(); 
+                }
+                return instance;
+            }
+        }
+        private Singleton()
         {
             counter++;
             Console.WriteLine("Instance number:" + counter);
@@ -23,10 +36,10 @@ namespace Classes
     {
         public static void Main(string[] args)
         {
-            Singleton fromEmployee = new Singleton();
+            Singleton fromEmployee = Singleton.GetInstance;
             fromEmployee.PrintDetails("Employee dets");
 
-            Singleton fromStudent = new Singleton();
+            Singleton fromStudent = Singleton.GetInstance;
             fromStudent.PrintDetails("Student dets");
 
         }
