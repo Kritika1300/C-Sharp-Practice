@@ -21,14 +21,14 @@ namespace Classes
 
             Customer c2 = new Customer()
             {
-                ID = 2,
+                ID = 25,
                 Name = "Arti",
                 Salary = 35000
             };
 
             Customer c3 = new Customer()
             {
-                ID = 3,
+                ID = 13,
                 Name = "Ritika",
                 Salary = 45000
             };
@@ -37,50 +37,37 @@ namespace Classes
             customerList.Add(c1);
             customerList.Add(c2);
             customerList.Add(c3);
-            
+
+            Comparison<Customer> comparison = new Comparison<Customer>(ComparisonCustomer);
+
+            static int ComparisonCustomer(Customer x, Customer y)
+            {
+                return x.ID.CompareTo(y.ID);
+            }
 
             foreach (var d in customerList)
             {
-                Console.WriteLine(d.ID + " " + d.Name + " "+  d.Salary);
+                Console.WriteLine(d.ID);
             }
 
-            SortByName sortByName = new SortByName();
-            SortByID sortByID = new SortByID();
-            customerList.Sort(sortByID);
+            customerList.Sort(comparison);
         
             foreach (var d in customerList)
             {
-                Console.WriteLine( d.Name);
+                Console.WriteLine( d.ID);
             }
 
         }
     }
-    public class SortByName : IComparer<Customer>
-    {
-        public int Compare(Customer x, Customer y)
-        {
-            return x.Name.CompareTo(y.Name);
-        }
-    }
 
-    public class SortByID : IComparer<Customer>
-    {
-        public int Compare(Customer x, Customer y)
-        {
-            return x.ID.CompareTo(y.ID);
-        }
-    }
-
-    public class Customer : IComparable<Customer>
+    
+    
+    public class Customer
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public float Salary { get; set; }
 
-        public int CompareTo(Customer other)
-        {
-            return this.Name.CompareTo(other.Name);
-        }
     }
 
 
