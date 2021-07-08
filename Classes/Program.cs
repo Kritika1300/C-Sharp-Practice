@@ -33,16 +33,17 @@ namespace Classes
                 Salary = 45000
             };
 
-            Dictionary<int, Customer> dictOfEmployees = new Dictionary<int, Customer>();
-            dictOfEmployees.Add(c1.ID,c1);
-            dictOfEmployees.Add(c2.ID, c2);
-            dictOfEmployees.Add(c3.ID, c3);
+            Customer[] customerArray = new Customer[3];
+            customerArray[0] = c1;
+            customerArray[1] = c2;
+            customerArray[2] = c3;
 
-            dictOfEmployees.Remove(2);
-            dictOfEmployees.Clear();
-            Console.WriteLine(dictOfEmployees.Count); //no. of items in dictionary
-            
-            Console.WriteLine(dictOfEmployees.Count(kvp => kvp.Value.Salary < 53500)); // Dictionary with LINQ
+            Dictionary<int,Customer> dict = customerArray.ToDictionary(customerArray => customerArray.ID, customerArray => customerArray);
+
+            foreach(var d in dict)
+            {
+                Console.WriteLine(d.Value.ID + " " + d.Value.Name);
+            }
 
         }
     }
