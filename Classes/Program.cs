@@ -37,22 +37,15 @@ namespace Classes
             dictOfEmployees.Add(c2.ID, c2);
             dictOfEmployees.Add(c3.ID, c3);
 
-            Console.WriteLine(dictOfEmployees[3].Name + " " + dictOfEmployees[3].ID); // retrieving items in dictionary
-
-            foreach(int cust in dictOfEmployees.Keys) //iterating through keys
+            Customer cust;
+            if(dictOfEmployees.TryGetValue(1,out cust))
             {
-                Console.WriteLine(cust);
+                Console.WriteLine(cust.Name);
             }
+            else 
+                Console.WriteLine("No key");
 
-            foreach(Customer cust in dictOfEmployees.Values) //iterating through values
-            {
-                Console.WriteLine(cust.ID + " " + cust.Name + " " + cust.Salary);
-            }
-
-            foreach(KeyValuePair<int,Customer> keyValuePair in dictOfEmployees)
-            {
-                Console.WriteLine(keyValuePair.Key + " " + keyValuePair.Value.Name);
-            }
+           
         }
     }
 
