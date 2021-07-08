@@ -44,18 +44,34 @@ namespace Classes
                 Console.WriteLine(d.ID + " " + d.Name + " "+  d.Salary);
             }
 
-            customerList.Sort();
-            customerList.Reverse();
-
+            SortByName sortByName = new SortByName();
+            SortByID sortByID = new SortByID();
+            customerList.Sort(sortByID);
+        
             foreach (var d in customerList)
             {
-                Console.WriteLine( d.Salary);
+                Console.WriteLine( d.Name);
             }
 
         }
     }
+    public class SortByName : IComparer<Customer>
+    {
+        public int Compare(Customer x, Customer y)
+        {
+            return x.Name.CompareTo(y.Name);
+        }
+    }
 
-    class Customer : IComparable<Customer>
+    public class SortByID : IComparer<Customer>
+    {
+        public int Compare(Customer x, Customer y)
+        {
+            return x.ID.CompareTo(y.ID);
+        }
+    }
+
+    public class Customer : IComparable<Customer>
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -63,7 +79,7 @@ namespace Classes
 
         public int CompareTo(Customer other)
         {
-            return this.Salary.CompareTo(other.Salary);
+            return this.Name.CompareTo(other.Name);
         }
     }
 
