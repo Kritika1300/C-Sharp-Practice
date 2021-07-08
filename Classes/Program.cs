@@ -1,59 +1,67 @@
 ﻿using System;
-using System.Collections;
+using System.Threading;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace Classes
 {
-
-    public sealed class Singleton 
-    {
-        private static int counter = 0;
-        private static readonly Lazy<Singleton> instance = new Lazy<Singleton>(new Singleton());
-      
-
-        public static Singleton GetInstance
-        {
-            get
-            {
-                return instance.Value;
-            }
-        }
-        private Singleton()
-        {
-            counter++;
-            Console.WriteLine("Instance number:" + counter);
-        }
-        public void PrintDetails(string message)
-        {
-            Console.WriteLine(message);
-        }
-
-    }
-
     class Program
     {
-        public static void Main(string[] args)
-        {
-            Parallel.Invoke(
-                () => EmployeeDetails(),
-                () => StudenDetails()
-            );
 
-        }
-
-        private static void StudenDetails()
+        static void Main(string[] args)
         {
-            Singleton fromStudent = Singleton.GetInstance;
-            fromStudent.PrintDetails("Student dets");
-        }
+            Customer c1 = new Customer()
+            {
+                ID = 1,
+                Name = "Kritika",
+                Salary = 55000
+            };
 
-        private static void EmployeeDetails()
-        {
-            Singleton fromEmployee = Singleton.GetInstance;
-            fromEmployee.PrintDetails("Employee dets");
+            Customer c2 = new Customer()
+            {
+                ID = 2,
+                Name = "Kriti",
+                Salary = 35000
+            };
+
+            Customer c3 = new Customer()
+            {
+                ID = 3,
+                Name = "Ritika",
+                Salary = 45000
+            };
+
+            Dictionary<int, Customer> dictOfEmployees = new Dictionary<int, Customer>();
+            dictOfEmployees.Add(c1.ID,c1);
+            dictOfEmployees.Add(c2.ID, c2);
+            dictOfEmployees.Add(c3.ID, c3);
+
+            Console.WriteLine(dictOfEmployees[3].Name + " " + dictOfEmployees[3].ID); // retrieving items in dictionary
+
+            foreach(int cust in dictOfEmployees.Keys) //iterating through keys
+            {
+                Console.WriteLine(cust);
+            }
+
+            foreach(Customer cust in dictOfEmployees.Values) //iterating through values
+            {
+                Console.WriteLine(cust.ID + " " + cust.Name + " " + cust.Salary);
+            }
+
+            foreach(KeyValuePair<int,Customer> keyValuePair in dictOfEmployees)
+            {
+                Console.WriteLine(keyValuePair.Key + " " + keyValuePair.Value.Name);
+            }
         }
     }
-}
 
-   
+    class Customer
+    {
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public float Salary { get; set; }
+    }
+
+
+}
