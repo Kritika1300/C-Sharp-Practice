@@ -49,7 +49,7 @@ namespace Classes
 
             foreach (var d in customerList)
             {
-                Console.WriteLine(d.ID + " " + d.Name + " " + d.Salary);
+                Console.WriteLine( d.Salary);
             }
 
         }
@@ -63,9 +63,7 @@ namespace Classes
 
         public int CompareTo(Customer other)
         {
-            if (this.Salary < other.Salary) return -1;
-            else if (this.Salary > other.Salary) return 1;
-            else return 0;
+            return this.Salary.CompareTo(other.Salary);
         }
     }
 
