@@ -38,6 +38,8 @@ namespace Classes
             dictOfEmployees.Add(c2.ID, c2);
             dictOfEmployees.Add(c3.ID, c3);
 
+            dictOfEmployees.Remove(2);
+            dictOfEmployees.Clear();
             Console.WriteLine(dictOfEmployees.Count); //no. of items in dictionary
             
             Console.WriteLine(dictOfEmployees.Count(kvp => kvp.Value.Salary < 53500)); // Dictionary with LINQ
