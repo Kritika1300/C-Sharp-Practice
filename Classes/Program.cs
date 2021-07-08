@@ -33,16 +33,25 @@ namespace Classes
                 Salary = 45000
             };
 
-            Customer[] customerArray = new Customer[3];
-            customerArray[0] = c1;
-            customerArray[1] = c2;
-            customerArray[2] = c3;
+            List<Customer> customerList = new List<Customer>();
+            customerList.Add(c1);
+            customerList.Add(c2);
+            customerList.Add(c3);
+            customerList.Add(c2);
+            customerList.Insert(0, new Customer() { ID = 4, Name = "Kiitu", Salary = 5000 });
+            Console.WriteLine(customerList.IndexOf(c2)); // returns first occurance of c2
+            Console.WriteLine(customerList.IndexOf(c2,3)); // starts searching for c2 from index 3 and thus returns 4
+            Console.WriteLine(customerList.IndexOf(c2, 0,1)); // starts searching for c2 from index 0 to index 1 
+            // contains,find,findall,findlastindex,exists,..
 
-            Dictionary<int,Customer> dict = customerArray.ToDictionary(customerArray => customerArray.ID, customerArray => customerArray);
-
-            foreach(var d in dict)
+            Customer[] arr = customerList.ToArray(); //list to array
+            foreach(var i in arr)
             {
-                Console.WriteLine(d.Value.ID + " " + d.Value.Name);
+                Console.WriteLine(i.Name);
+            }
+            foreach (var d in customerList)
+            {
+                Console.WriteLine(d.ID + " " + d.Name);
             }
 
         }
