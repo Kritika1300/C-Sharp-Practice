@@ -22,7 +22,7 @@ namespace Classes
             Customer c2 = new Customer()
             {
                 ID = 2,
-                Name = "Kriti",
+                Name = "Arti",
                 Salary = 35000
             };
 
@@ -37,31 +37,36 @@ namespace Classes
             customerList.Add(c1);
             customerList.Add(c2);
             customerList.Add(c3);
-            customerList.Add(c2);
-            customerList.Insert(0, new Customer() { ID = 4, Name = "Kiitu", Salary = 5000 });
-            Console.WriteLine(customerList.IndexOf(c2)); // returns first occurance of c2
-            Console.WriteLine(customerList.IndexOf(c2,3)); // starts searching for c2 from index 3 and thus returns 4
-            Console.WriteLine(customerList.IndexOf(c2, 0,1)); // starts searching for c2 from index 0 to index 1 
-            // contains,find,findall,findlastindex,exists,..
+            
 
-            Customer[] arr = customerList.ToArray(); //list to array
-            foreach(var i in arr)
-            {
-                Console.WriteLine(i.Name);
-            }
             foreach (var d in customerList)
             {
-                Console.WriteLine(d.ID + " " + d.Name);
+                Console.WriteLine(d.ID + " " + d.Name + " "+  d.Salary);
+            }
+
+            customerList.Sort();
+            customerList.Reverse();
+
+            foreach (var d in customerList)
+            {
+                Console.WriteLine(d.ID + " " + d.Name + " " + d.Salary);
             }
 
         }
     }
 
-    class Customer
+    class Customer : IComparable<Customer>
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public float Salary { get; set; }
+
+        public int CompareTo(Customer other)
+        {
+            if (this.Salary < other.Salary) return -1;
+            else if (this.Salary > other.Salary) return 1;
+            else return 0;
+        }
     }
 
 
