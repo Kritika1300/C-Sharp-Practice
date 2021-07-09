@@ -5,81 +5,68 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
 
+enum color : int
+{
+    red,
+    green,
+    blue
+}
+
 namespace Classes
 {
 
-    public enum Gender
+    class A
     {
-        Unknown,
-        Female,
-        Male
-    }
-    class Program
-    {
-
-        static void Main(string[] args)
+       
+        public  void  abc(float q)
         {
-            Customer c1 = new Customer()
-            {
-                ID = 1,
-                Name = "Kritika",
-                Salary = 55000,
-                Gender = Gender.Female
+            Console.WriteLine("abc from A");
+        }
 
-            };
+       
+    }
 
-            Customer c2 = new Customer()
-            {
-                ID = 25,
-                Name = "Arif",
-                Salary = 35000,
-                Gender = Gender.Male
-            };
+    class B : A
+    {
+        public  void abc(int p)
+        {
+            Console.WriteLine("abc from B");
+        }
 
-            Customer c3 = new Customer()
-            {
-                ID = 13,
-                Name = "Ritika",
-                Salary = 45000,
-                Gender = Gender.Unknown
-            };
+        public void abc(double p)
+        {
+            Console.WriteLine("abc from B double");
+        }
 
-            Customer[] cust = new Customer[3]
-            {
-                c1,
-                c2,
-                c3
-            };
-
-            foreach (var customer in cust)
-            {
-                Console.WriteLine(GetGender(customer.Gender));
-            }
+        public void abc(float p)
+        {
+            Console.WriteLine("abc from B float");
+        }
 
 
-            static string GetGender(Gender gender)
-            {
-                switch (gender)
-                {
-                    case Gender.Unknown: return "Unknown";
-                    case Gender.Female: return "Female";
-                    case Gender.Male: return "Male";
-                    default: return "Invalid";
-                }
+    }
 
-            }
-
+    class C : B
+    {
+        public void abc(byte q)
+        {
+            Console.WriteLine("abc from C byte");
         }
     }
 
-    public class Customer
+    class Program 
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public float Salary { get; set; }
-        public Gender Gender { get; set; }
+        static void Main(string[] args)
+        {
+            C b = new C();
+            b.abc(256.0f);
 
+            Console.ReadLine();
+        }
     }
+
+   
+
 
 
 }
