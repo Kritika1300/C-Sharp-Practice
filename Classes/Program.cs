@@ -7,6 +7,13 @@ using System.Linq;
 
 namespace Classes
 {
+
+    public enum Gender
+    {
+        Unknown,
+        Female,
+        Male
+    }
     class Program
     {
 
@@ -16,57 +23,61 @@ namespace Classes
             {
                 ID = 1,
                 Name = "Kritika",
-                Salary = 55000
+                Salary = 55000,
+                Gender = Gender.Female
+
             };
 
             Customer c2 = new Customer()
             {
                 ID = 25,
-                Name = "Arti",
-                Salary = 35000
+                Name = "Arif",
+                Salary = 35000,
+                Gender = Gender.Male
             };
 
             Customer c3 = new Customer()
             {
                 ID = 13,
                 Name = "Ritika",
-                Salary = 45000
+                Salary = 45000,
+                Gender = Gender.Unknown
             };
 
-            List<Customer> customerList = new List<Customer>();
-            customerList.Add(c1);
-            customerList.Add(c2);
-            customerList.Add(c3);
-
-            Comparison<Customer> comparison = new Comparison<Customer>(ComparisonCustomer);
-
-            static int ComparisonCustomer(Customer x, Customer y)
+            Customer[] cust = new Customer[3]
             {
-                return x.ID.CompareTo(y.ID);
+                c1,
+                c2,
+                c3
+            };
+
+            foreach (var customer in cust)
+            {
+                Console.WriteLine(GetGender(customer.Gender));
             }
 
-            foreach (var d in customerList)
-            {
-                Console.WriteLine(d.ID);
-            }
 
-            customerList.Sort(comparison);
-        
-            foreach (var d in customerList)
+            static string GetGender(Gender gender)
             {
-                Console.WriteLine( d.ID);
+                switch (gender)
+                {
+                    case Gender.Unknown: return "Unknown";
+                    case Gender.Female: return "Female";
+                    case Gender.Male: return "Male";
+                    default: return "Invalid";
+                }
+
             }
 
         }
     }
 
-    
-    
     public class Customer
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public float Salary { get; set; }
+        public Gender Gender { get; set; }
 
     }
 
