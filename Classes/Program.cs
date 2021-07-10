@@ -16,8 +16,8 @@ namespace Classes
         static void Main(string[] args)
         {
             int[] arr = { 34, 21, 1, 6, 4 };
-            
-            Sorting.BubbleSort(arr, delegate(int x,int y) { return x > y; }); //anonymous method
+
+            Sorting.BubbleSort(arr, (x,y) => x > y);//Lambda function
             foreach(int i in arr)
 
             {
