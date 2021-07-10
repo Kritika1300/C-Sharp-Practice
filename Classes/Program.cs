@@ -9,17 +9,15 @@ using System.Linq;
 
 namespace Classes
 {
-    public delegate bool MyDelegate(int x, int y);
+  
     class Program 
     {
       
         static void Main(string[] args)
         {
-
-            MyDelegate del = new MyDelegate(AscendingSortingLogic);
             int[] arr = { 34, 21, 1, 6, 4 };
-            Sorting.BubbleSort(arr,del);
-            Sorting.BubbleSort(arr, DescendingSortingLogic);
+            
+            Sorting.BubbleSort(arr, delegate(int x,int y) { return x > y; }); //anonymous method
             foreach(int i in arr)
 
             {
@@ -27,21 +25,13 @@ namespace Classes
             }
 
         }
-
-        public static bool DescendingSortingLogic(int x, int y)
-        {
-            return x < y;
-        }
-
-        public static bool AscendingSortingLogic(int x, int y)
-        {
-            return x > y;
-        }
-
+       
+    
     }
 
     public class Sorting 
     {
+        public delegate bool MyDelegate(int x, int y);
         public static void BubbleSort(int[] arr,MyDelegate del)
         {
             for (int i = 0; i < arr.Length; i++)
