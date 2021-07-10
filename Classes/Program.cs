@@ -5,68 +5,60 @@ using System.IO;
 using System.Threading.Tasks;
 using System.Linq;
 
-enum color : int
-{
-    red,
-    green,
-    blue
-}
+
 
 namespace Classes
 {
-
-    class A
-    {
-       
-        public  void  abc(float q)
-        {
-            Console.WriteLine("abc from A");
-        }
-
-       
-    }
-
-    class B : A
-    {
-        public  void abc(int p)
-        {
-            Console.WriteLine("abc from B");
-        }
-
-        public void abc(double p)
-        {
-            Console.WriteLine("abc from B double");
-        }
-
-        public void abc(float p)
-        {
-            Console.WriteLine("abc from B float");
-        }
-
-
-    }
-
-    class C : B
-    {
-        public void abc(byte q)
-        {
-            Console.WriteLine("abc from C byte");
-        }
-    }
-
+    public delegate bool MyDelegate(int x, int y);
     class Program 
     {
+      
         static void Main(string[] args)
         {
-            C b = new C();
-            b.abc(256.0f);
 
-            Console.ReadLine();
+            MyDelegate del = new MyDelegate(AscendingSortingLogic);
+            int[] arr = { 34, 21, 1, 6, 4 };
+            Sorting.BubbleSort(arr,del);
+            Sorting.BubbleSort(arr, DescendingSortingLogic);
+            foreach(int i in arr)
+
+            {
+                Console.Write(i + " ");
+            }
+
+        }
+
+        public static bool DescendingSortingLogic(int x, int y)
+        {
+            return x < y;
+        }
+
+        public static bool AscendingSortingLogic(int x, int y)
+        {
+            return x > y;
+        }
+
+    }
+
+    public class Sorting 
+    {
+        public static void BubbleSort(int[] arr,MyDelegate del)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (del(arr[i],arr[j]))
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
         }
     }
 
-   
 
 
-
-}
+ }
