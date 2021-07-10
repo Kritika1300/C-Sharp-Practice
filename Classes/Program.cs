@@ -17,7 +17,7 @@ namespace Classes
         {
             int[] arr = { 34, 21, 1, 6, 4 };
 
-            Sorting.BubbleSort(arr, (x,y) => x > y);//Lambda function
+            Sorting.BubbleSort(arr,(x,y) => x > y);//FUNC delegate
             foreach(int i in arr)
 
             {
@@ -28,12 +28,13 @@ namespace Classes
        
     
     }
-
+             
     public class Sorting 
     {
-        public delegate bool MyDelegate(int x, int y);
-        public static void BubbleSort(int[] arr,MyDelegate del)
+        
+        public static void BubbleSort(int[] arr, Func<int,int,bool> del)   
         {
+
             for (int i = 0; i < arr.Length; i++)
             {
                 for (int j = i + 1; j < arr.Length; j++)
