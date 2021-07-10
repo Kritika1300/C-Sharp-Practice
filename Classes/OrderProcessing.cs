@@ -10,9 +10,9 @@ namespace Restraunt
 
     public class OrderProcessing
     {
-       public delegate void OrderProcessedEventHandler(object sender, OrderArgs e);
+    
 
-       public  event OrderProcessedEventHandler OrderProcessed;
+       public  event EventHandler<OrderArgs> OrderProcessed;
        public void ProcessOrder(Order order)
        {
 
