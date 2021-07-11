@@ -10,41 +10,40 @@ namespace Classes
 
     namespace Classes
     {
-        class Vehicle
+        class MobilePhone
         {
-            public string BrandName;
+            public string BrandName = "Nokia";
 
-            public string ModelName;
+            public string ModelName = "Asha";
 
-           
-            protected Vehicle(string bname, string mname)
+            public virtual void Call(string phonenumber)
             {
-                BrandName = bname;
-                ModelName = mname;
-
-                Console.WriteLine(BrandName + ":" + ModelName);
+               
+                Console.WriteLine("Calling... " + phonenumber);
 
             }
 
         }
 
-        class Truck 
+        class FiveGMobilePhone : MobilePhone
         {
-
-            private string _month;
-            public int year;
-            public Truck(string month,int year)
+            public override void Call(string phonenumber)
             {
-                this._month = month;
-                this.year = year;
+
+                Console.WriteLine("Calling via 5G... " + phonenumber);
+
             }
 
-            public Truck(Truck t)
+        }
+
+        class FourGMobilePhone : MobilePhone
+        {
+            public override void Call(string phonenumber)
             {
-                this._month = t._month;
-                this.year = t.year;
+
+                Console.WriteLine("Calling via 4G... " + phonenumber);
+
             }
-            
 
         }
 
@@ -52,12 +51,13 @@ namespace Classes
         {
             static void Main(string[] args)
             {
+                FiveGMobilePhone five = new FiveGMobilePhone();
+                FourGMobilePhone four = new FourGMobilePhone();
+                MobilePhone m = new MobilePhone();
 
-                Truck t = new Truck("May", 2020);
-                Truck t1 = new Truck(t);
-
-
-
+                five.Call("43322222222222");
+                four.Call("42111111111111");
+                m.Call("23444444444");
 
             }
         }
