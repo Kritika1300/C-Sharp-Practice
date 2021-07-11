@@ -24,25 +24,36 @@ namespace Classes
 
     }
 
-    class Truck : Vehicle 
+    class ElectricCar : Car 
     {
-        public int NoOfWheels()
+        public int mileage = 400;
+
+        public void recharge()
         {
-            return 10;
+            Console.WriteLine("Recharging...");
         }
 
-
     }
+
+    class FuelCar : Car
+    {
+        public int mileage = 300;
+        public void refuel()
+        {
+            Console.WriteLine("Refuelling...");
+        }
+    }
+
 
     class Program
     {
         static void Main(string[] args)
         {
-            Car c = new Car();
+            FuelCar c = new FuelCar();
             Console.WriteLine(c.BrandName +" "+ c.NoOfWheels());
-           
-            Truck t = new Truck();
-            Console.WriteLine(t.BrandName + " " + t.NoOfWheels());
+
+            ElectricCar e = new ElectricCar();
+            
 
 
         }
