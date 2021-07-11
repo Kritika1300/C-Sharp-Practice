@@ -1,34 +1,71 @@
-﻿using System;
+﻿
 
-namespace Restraunt
+using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+
+namespace Classes
 {
-    public class OrderArgs : EventArgs 
+    class BankAccount 
     {
-        public int OrderId{ get; set; }
-    }
+        private  int _accountNumber;
 
+        private double _balance;
 
-    public class OrderProcessing
-    {
-    
+        private string _accountHolderName;
 
-       public  event EventHandler<OrderArgs> OrderProcessed;
-       public void ProcessOrder(Order order)
-       {
+        private string _password;
 
+        public int AccountNumber { get { return _accountNumber; } }
 
-            Console.WriteLine("Processing order");
+        public string AccountHolderName{ get { return _accountHolderName; } }
 
-            OnOrderProcessed(order.OrderId);
+        public BankAccount(int anumber, string aholder, string password)
+        {
+            this._accountNumber = anumber;
+            this._accountHolderName = aholder;
+            this._password = password;
+            this._balance = 0;
 
-       }
-       protected virtual void OnOrderProcessed(int OrderId)
-       {
-            if(OrderProcessed != null)
+        }
+        
+      
+        public double GetBalance(string aholder, string password)
+        {
+            if(aholder == this._accountHolderName && password == _password)
             {
-                OrderProcessed(this, new OrderArgs() { OrderId = OrderId});
+                return _balance;
             }
-       }
+            else
+            {
+                Console.WriteLine("Invalid credentials");
+                return 0;
+            }
+        }
+
+        public void AddBalance(string aholder, string password, double addbalance)
+        {
+            if (aholder == this._accountHolderName && password == _password)
+            {
+                _balance += addbalance;
+            }
+        }
 
     }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            BankAccount b = new BankAccount(234,"Kritika", "#abc");
+            Console.WriteLine(b.AccountHolderName);
+            Console.WriteLine(b.AccountNumber);
+            Console.WriteLine(b.GetBalance("Kritika", "#abc"));
+            b.AddBalance("Kritika", "#abc", 3232423);
+            Console.WriteLine(b.GetBalance("Kritika", "#abc"));
+       
+     
+
+        }
+    }
+
 }
