@@ -4,54 +4,53 @@ using System.Runtime.InteropServices;
 
 namespace Classes
 {
-    class Vehicle
+    using System;
+    using System.Collections.Generic;
+    using System.Runtime.InteropServices;
+
+    namespace Classes
     {
-        public string BrandName;
-
-        public string ModelName;
-
-        public Vehicle() : this("Tata","Nano")
+        class Vehicle
         {
-         
-        }
-        public Vehicle(string bname) : this(bname,"Nano")
-        {
-          
-        }
-        public Vehicle(string bname,string mname)
-        {
-            BrandName = bname;
-            ModelName = mname;
+            public string BrandName;
 
-            Console.WriteLine(BrandName + ":" + ModelName);
-         
-        }
+            public string ModelName;
 
-
-    }
-
-    class Car : Vehicle
-    {
-        public Car() : base()
-        {
-
-        }
-
-        public Car(string bname) : base(bname)
-        {
-
-        }
-
-    }
-    class Program
-    {
-        static void Main(string[] args)
-        {
-
-            Car c1 = new Car("honda");
            
+            protected private Vehicle(string bname, string mname)
+            {
+                BrandName = bname;
+                ModelName = mname;
+
+                Console.WriteLine(BrandName + ":" + ModelName);
+
+            }
+
+
         }
+
+        class Car : Vehicle
+        {
+
+            public Car(string bname, string mname) : base(bname, mname)
+            {
+
+            }
+
+        }
+
+        class Program
+        {
+            static void Main(string[] args)
+            {
+
+               Car c1 = new Car("honda","psa");
+
+            }
+        }
+
     }
+
 
 }
 
