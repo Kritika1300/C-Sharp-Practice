@@ -1,43 +1,49 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace Classes
 {
-    class Mathematics 
+    class Vehicle
     {
-        //public int Add(int a, int b)
-        //{
-        //    Console.WriteLine(a + b + "int - int");
-        //    return a + b;
+        public string BrandName = "Tata";
 
-        //}
-
-        public void Add(int a, double b)
+        public void Honk()
         {
-            Console.WriteLine(a + b + " int - double");
-        }
-
-        //public void Add(double a, int b)
-        //{
-        //    Console.WriteLine(a + b + "double - int");
-        //}
-
-        public double Add(double a, double b)
-        {
-            Console.WriteLine(a + b + "double - double");
-            return a + b;
+            Console.WriteLine("Peep..peep !");
         }
 
     }
+
+    class Car : Vehicle
+    {
+        public int NoOfWheels()
+        {
+            return 4;
+        }
+
+    }
+
+    class Truck : Vehicle 
+    {
+        public int NoOfWheels()
+        {
+            return 10;
+        }
+
+
+    }
+
     class Program
     {
         static void Main(string[] args)
         {
-            Mathematics m = new Mathematics();
-            m.Add(38,5);
+            Car c = new Car();
+            Console.WriteLine(c.BrandName +" "+ c.NoOfWheels());
+           
+            Truck t = new Truck();
+            Console.WriteLine(t.BrandName + " " + t.NoOfWheels());
+
 
         }
     }
