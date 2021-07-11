@@ -10,45 +10,45 @@ namespace Classes
 
     namespace Classes
     {
-        class MobilePhone
+        
+        abstract class Shape
         {
-            public string BrandName = "Nokia";
+            public string Color { get; set; }
 
-            public string ModelName = "Asha";
+            public int Size { get; set; }
 
-            public virtual void Call(string phonenumber)
-            {
-               
-                Console.WriteLine("Connecting to tower");
+            public abstract void Draw();
 
-            }
-
-        }
-
-        class FiveGMobilePhone : MobilePhone
-        {
-            public override void Call(string phonenumber)
-            {
-                base.Call(phonenumber);
-
-                Console.WriteLine("Calling");
-
-            }
+            public abstract double CalculateCost();
 
 
         }
 
-        class FourGMobilePhone : MobilePhone
+        abstract class Circle : Shape
         {
-          
+
+            public override void Draw()
+            {
+                Console.WriteLine("Drawing circle.....");
+            }
+        }
+
+        class RedCircle : Circle
+        {
+            public override double CalculateCost()
+            {
+                return 3.14;
+            }
+
 
         }
         class Program
         {
             static void Main(string[] args)
             {
-                FiveGMobilePhone five = new FiveGMobilePhone();
-                five.Call("2311111111111");
+                RedCircle r = new RedCircle();
+                r.Draw();
+
             }
         }
 
