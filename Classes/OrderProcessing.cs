@@ -17,7 +17,7 @@ namespace Classes
             public string ModelName;
 
            
-            protected private Vehicle(string bname, string mname)
+            protected Vehicle(string bname, string mname)
             {
                 BrandName = bname;
                 ModelName = mname;
@@ -26,16 +26,25 @@ namespace Classes
 
             }
 
-
         }
 
-        class Car : Vehicle
+        class Truck 
         {
 
-            public Car(string bname, string mname) : base(bname, mname)
+            private string _month;
+            public int year;
+            public Truck(string month,int year)
             {
-
+                this._month = month;
+                this.year = year;
             }
+
+            public Truck(Truck t)
+            {
+                this._month = t._month;
+                this.year = t.year;
+            }
+            
 
         }
 
@@ -44,7 +53,11 @@ namespace Classes
             static void Main(string[] args)
             {
 
-               Car c1 = new Car("honda","psa");
+                Truck t = new Truck("May", 2020);
+                Truck t1 = new Truck(t);
+
+
+
 
             }
         }
