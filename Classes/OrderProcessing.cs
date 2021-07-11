@@ -6,42 +6,27 @@ namespace Classes
 {
     class Vehicle
     {
-        public string BrandName = "Tata";
+        public string BrandName;
 
-        public void Honk()
+        public Vehicle(string bname)
         {
-            Console.WriteLine("Peep..peep !");
+            BrandName = bname;
         }
+
 
     }
 
     class Car : Vehicle
     {
-        public int NoOfWheels()
+        public string model;
+        public Car(string m) : base("tata")  // explicit call to the base constructor is reqd if its not parameterless otherwise => compilation error.
         {
-            return 4;
+           
+            model = m;
+
         }
-
-    }
-
-    class ElectricCar : Car 
-    {
-        public int mileage = 400;
-
-        public void recharge()
-        {
-            Console.WriteLine("Recharging...");
-        }
-
-    }
-
-    class FuelCar : Car
-    {
-        public int mileage = 300;
-        public void refuel()
-        {
-            Console.WriteLine("Refuelling...");
-        }
+        
+        
     }
 
 
@@ -49,13 +34,10 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            FuelCar c = new FuelCar();
-            Console.WriteLine(c.BrandName +" "+ c.NoOfWheels());
 
-            ElectricCar e = new ElectricCar();
-            
-
-
+            Car c1 = new Car("ge");
+           
+            Console.WriteLine(c1.model + " " + c1.BrandName);
         }
     }
 
