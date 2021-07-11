@@ -29,27 +29,29 @@ namespace Classes
 
 
     }
+
+    class Car : Vehicle
+    {
+        public Car() : base()
+        {
+
+        }
+
+        public Car(string bname) : base(bname)
+        {
+
+        }
+
+    }
     class Program
     {
         static void Main(string[] args)
         {
 
-            Vehicle c1 = new Vehicle("honda");
+            Car c1 = new Car("honda");
            
         }
     }
 
 }
 
-//class Car : Vehicle
-//{
-//    public string model;
-//    public Car(string m) : base("tata")  // explicit call to the base constructor is reqd if its not parameterless otherwise => compilation error.
-//    {
-
-//        model = m;
-
-//    }
-
-
-//}
