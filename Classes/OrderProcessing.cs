@@ -6,49 +6,29 @@ using System.Runtime.InteropServices;
 
 namespace Classes
 {
-    class BankAccount 
+    class Mathematics 
     {
-        private  int _accountNumber;
+        //public int Add(int a, int b)
+        //{
+        //    Console.WriteLine(a + b + "int - int");
+        //    return a + b;
 
-        private double _balance;
+        //}
 
-        private string _accountHolderName;
-
-        private string _password;
-
-        public int AccountNumber { get { return _accountNumber; } }
-
-        public string AccountHolderName{ get { return _accountHolderName; } }
-
-        public BankAccount(int anumber, string aholder, string password)
+        public void Add(int a, double b)
         {
-            this._accountNumber = anumber;
-            this._accountHolderName = aholder;
-            this._password = password;
-            this._balance = 0;
-
-        }
-        
-      
-        public double GetBalance(string aholder, string password)
-        {
-            if(aholder == this._accountHolderName && password == _password)
-            {
-                return _balance;
-            }
-            else
-            {
-                Console.WriteLine("Invalid credentials");
-                return 0;
-            }
+            Console.WriteLine(a + b + " int - double");
         }
 
-        public void AddBalance(string aholder, string password, double addbalance)
+        //public void Add(double a, int b)
+        //{
+        //    Console.WriteLine(a + b + "double - int");
+        //}
+
+        public double Add(double a, double b)
         {
-            if (aholder == this._accountHolderName && password == _password)
-            {
-                _balance += addbalance;
-            }
+            Console.WriteLine(a + b + "double - double");
+            return a + b;
         }
 
     }
@@ -56,14 +36,8 @@ namespace Classes
     {
         static void Main(string[] args)
         {
-            BankAccount b = new BankAccount(234,"Kritika", "#abc");
-            Console.WriteLine(b.AccountHolderName);
-            Console.WriteLine(b.AccountNumber);
-            Console.WriteLine(b.GetBalance("Kritika", "#abc"));
-            b.AddBalance("Kritika", "#abc", 3232423);
-            Console.WriteLine(b.GetBalance("Kritika", "#abc"));
-       
-     
+            Mathematics m = new Mathematics();
+            m.Add(38,5);
 
         }
     }
