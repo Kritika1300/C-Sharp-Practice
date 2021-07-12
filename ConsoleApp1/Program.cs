@@ -13,7 +13,12 @@ namespace ConsoleApp1
             
             p.OpenFacebook();
             p.AsyncWork();
-            Console.WriteLine("Some other work");
+            for (int i = 0; i < 20; i++)
+            { 
+              Console.WriteLine("Some other work");
+              Thread.Sleep(100);
+            }
+              
             Thread.Sleep(7000);
         }
 
@@ -25,6 +30,7 @@ namespace ConsoleApp1
 
         public async Task CreatePost()
         {
+            await Task.Delay(1000);
             Console.WriteLine("Creating Post...");
             await Task.Delay(5000);
             Console.WriteLine("Post Created");
@@ -38,7 +44,7 @@ namespace ConsoleApp1
         public async Task AsyncWork()
         {
             await CreatePost();
-          
+            
             LikePost();
         }
 
