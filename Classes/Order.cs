@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Restraunt
 {
-     public class Order
+    class Program
     {
-        public int OrderId { get; set; }
-      
     }
 }
