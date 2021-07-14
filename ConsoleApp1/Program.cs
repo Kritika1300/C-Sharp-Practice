@@ -1,38 +1,34 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-
-    class Node 
+    class Node
     {
-        public int data;
+        public int value;
+        public string key;
         public Node next;
-
-        public Node(int data)          
+        public Node(string key, int value)
         {
-            this.data = data;
+            this.key = key;
+            this.value = value;
         }
-
     }
-
-    class LinkedList 
+    class HashMap
     {
-        Node head;
-
-        public void Insert(int data)
+        public Node head;
+        public Dictionary<string, int> dict = new Dictionary<string, int>();
+        public void Insert(string key, int value)
         {
-            Node newNode = new Node(data);
-
-            if(head == null)
+            Node newNode = new Node(key, value);
+            if (head == null)
             {
                 head = newNode;
             }
             else
             {
                 Node n = head;
-                while(n.next != null)
+                while (n.next != null)
                 {
                     n = n.next;
                 }
@@ -40,118 +36,34 @@ namespace ConsoleApp1
             }
         }
 
-        public void InsertAtBeginning(int data)
-        {
-            Node newNode = new Node(data);
-
-            if (head == null)
-            {
-                head = newNode;
-            }
-            else
-            {
-                newNode.next = head;
-                head = newNode;
-            }
-        }
-
-        public void InsertAtIndex(int index,int data)
-        {
-           
-            
-            Node newNode = new Node(data);
-
-            if (head == null)
-            {
-                head = newNode;
-            }
-
-            else if (index == 0)
-            {
-                InsertAtBeginning(data);
-            }
-          
-            else
-            {
-                Node n = head;
-                for (int i = 0; i < index - 1 && n != null; i++)
-                {
-                    n = n.next;
-                }
-                if(n != null)
-                {
-                    newNode.next = n.next;
-                    n.next = newNode;
-                }
-                else
-                {
-                    Insert(data);
-                }
-                
-            }
-        }
-
-        public void Traverse()
+        public void PrintList()
         {
             Node n = head;
             while (n != null)
             {
-                Console.Write(n.data + "->");
+                Console.WriteLine(n.key + " " + n.value);
                 n = n.next;
             }
-        } 
-
-        public int DeleteAtBeginning()
-        {
-            int res = head.data;
-            head = head.next;
-            return res;
-        }
-        public int DeleteAtEnd()
-        {
-            
-            Node n = head;
-            if(head == null)
-            {
-                return -1;
-            }
-            if(head.next == null)
-            {
-                int res = head.data;
-                head = null;
-                return res;
-        
-            }
-            else
-            {
-                while (n.next.next != null)
-                {
-                    n = n.next;
-                }
-                int res = n.next.data;
-                n.next = null;
-                return res;
-            }
-          
         }
     }
-
-    class Program
+    class HelloWorld
+    {
+        static void Main()
         {
-
-            public static void Main(string[] args)
+            HashMap hmap = new HashMap();
+            int N = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < N; i++)
             {
-                LinkedList l = new LinkedList();
-                l.Insert(3);
-                l.Insert(4);
-                l.Insert(5);
-                l.InsertAtBeginning(7);
-                l.InsertAtIndex(14,10);
-                Console.WriteLine(l.DeleteAtEnd());
-                l.Traverse();
-
+                string[] input = Console.ReadLine().Split(" ");
+                if (!hmap.dict.ContainsKey(input[0]))
+                {
+                    hmap.Insert(input[0], Convert.ToInt32(input[1]));
+                    hmap.dict.Add(input[0], Convert.ToInt32(input[1]));
+                }
             }
+            hmap.PrintList();
         }
+    }
 
 
 }
