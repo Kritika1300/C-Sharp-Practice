@@ -6,20 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public partial class PartialCustomer
+    public  class Test
     {
-        private string _firstName;
-        private string _lastName;
 
-        public string FirstName
+        public static int Add(int a,int b, params int[] arr)
         {
-            get { return _firstName; }
-            set { this._firstName = value; }
+            int result = a + b;
+            if(arr != null)
+            {
+                foreach(var i in arr) 
+                {
+                    result += i;
+                }
+            }
+            return result;
         }
-        public string LastName
+        static void Main()
         {
-            get { return _lastName; }
-            set { this._lastName = value; }
+            Console.WriteLine(Add(2,3,5,6,7,8));
         }
     }
 }

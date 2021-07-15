@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Customer
+    public partial class Customer
     {
         private string _firstName;
         private string _lastName;
@@ -21,8 +21,9 @@ namespace ConsoleApp1
             get { return _lastName; }
             set { this._lastName = value; }
         }
-       
-        public void FullName()
+
+        public partial void FullName();
+        public partial void FullName()
         {
             Console.WriteLine(_firstName + " " + _lastName);
         }
