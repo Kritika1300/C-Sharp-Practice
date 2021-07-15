@@ -8,23 +8,30 @@ namespace ConsoleApp1
 {
     public  class Test
     {
-
-        public static int Add(int a, int b, [Optional] int[] arr)
+        [Obsolete("USE Add(List<int> list) METHOD",true)]
+        public static int Add(int a, int b)
         {
-            int result = a + b;
-
-            if(arr != null)
-            {
-                foreach (var i in arr)
-                    result += i;
-            }
-     
-            return result;
+            return a + b;
         }
+
+    
+        public static int Add(List<int> list)
+        {
+            int res = 0;
+            foreach(var i in list)
+            {
+                res += i;
+            }
+            return res;
+        }
+
+
+
         static void Main()
         {
             
-            Console.WriteLine(Add(2,3, new int[] { 1, 2, 3 })); 
+            Console.WriteLine(Add(2,3));
+            Console.WriteLine(Add(new List<int>() { 1, 2, 3, 56, 6, 78, 89 }));
         }
     }
 }
