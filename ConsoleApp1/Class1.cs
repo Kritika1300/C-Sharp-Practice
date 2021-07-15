@@ -9,7 +9,7 @@ namespace ConsoleApp1
     public  class Test
     {
 
-        public static int Add(int a,int b, params int[] arr)
+        public static int Add(int a,int b, int[] arr = null)
         {
             int result = a + b;
             if(arr != null)
@@ -23,7 +23,7 @@ namespace ConsoleApp1
         }
         static void Main()
         {
-            Console.WriteLine(Add(2,3,5,6,7,8));
+            Console.WriteLine(Add(2,3));
         }
     }
 }
