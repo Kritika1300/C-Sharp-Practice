@@ -1,0 +1,16 @@
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.exe
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.deps.json
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.runtimeconfig.json
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.runtimeconfig.dev.json
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.dll
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ref\ConsoleApp.dll
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\ConsoleApp.pdb
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.AssemblyInfo.cs
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.dll
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ref\ConsoleApp.dll
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.pdb
+C:\Users\Hp\Desktop\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.genruntimeconfig.cache
