@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj": {}
+    "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj": {
+    "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
+        "projectUniqueName": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
         "projectName": "ConsoleApp",
-        "projectPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
+        "projectPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ConsoleApp\\obj\\",
+        "outputPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",

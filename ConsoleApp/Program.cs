@@ -3,78 +3,77 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
+    //interface IPrinter 
+    //{
+    //    public void Print();
+    //    public void Scan();
+    //    public void Fax();
+    //    public void PrintDuplexContent();
+    //}
 
-    class MovieTicket
+    interface IPrinter
     {
-        public double Price { get; set; }
-        public string MovieName { get; set; }
-
+        public void Print();
+        public void Scan();
+        public void Fax();
     }
 
-    class MovieArgs : EventArgs 
+    interface IPrintDuplexContent
     {
-      
-        public double MPrice { get; set; }
-        public string MName { get; set; }
-
+        public void PrintDuplexContent();
     }
-    class TicketProcessing
-    {
-        public delegate void TicketsBookingHandler(object source, MovieArgs e);
 
-        public event TicketsBookingHandler TicketBooked;
-        public void BookTickets(MovieTicket mt)
+
+    class HPLaserPrinter : IPrinter, IPrintDuplexContent
+    {
+        public void Fax()
         {
-            Console.WriteLine("Ticket Booked");
-
-            OnTicketBooked(mt);
+            Console.WriteLine("Fax");
         }
 
-        protected virtual void OnTicketBooked(MovieTicket mt)
+        public void Print()
         {
-            if(TicketBooked != null)
-            {
-                TicketBooked(this, new MovieArgs() { MName = mt.MovieName, MPrice = mt.Price }); 
-            }
+            Console.WriteLine("Print");
+
         }
-    
-    
+
+        public void PrintDuplexContent()
+        {
+            Console.WriteLine("Duplex");
+
+        }
+
+        public void Scan()
+        {
+            Console.WriteLine("Scan");
+
+        }
     }
 
-    class Email
+    class HPPrinter : IPrinter
     {
-        public void SendEmail(object sender, MovieArgs e)
+        public void Fax()
         {
-            Console.WriteLine("Sending Email......" + e.MName);
+            throw new NotImplementedException();
         }
 
-    }
-
-    class Text
-    {
-        public void SendText(object sender, MovieArgs e)
+        public void Print()
         {
-            Console.WriteLine("Sending Text......"  + e.MName);
+            throw new NotImplementedException();
         }
 
+        public void Scan()
+        {
+            throw new NotImplementedException();
+        }
     }
+
 
     class HelloWorld
     {
         public static void Main()
         {
-            Email e = new Email();
-            Text t = new Text();
-            TicketProcessing m = new TicketProcessing();
-
-            MovieTicket mt = new MovieTicket() { MovieName = "Soul", Price = 3 };
-            MovieTicket mt1 = new MovieTicket() { MovieName = "Soul 2", Price = 4 };
-
-            m.TicketBooked += e.SendEmail;
-            m.TicketBooked += t.SendText;
-
-            m.BookTickets(mt);
-            m.BookTickets(mt1);
+           
         }
 
     }
