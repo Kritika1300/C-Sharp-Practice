@@ -4,53 +4,75 @@ using System.Collections.Generic;
 namespace ConsoleApp1
 {
 
-    class Vehicle
+    //class OrderProcessor  A single class having 3 responsibilities...
+    //{
+    //    public void Validate()
+    //    {
+
+    //    }
+    //    public void Save()
+    //    {
+
+    //    }
+    //    public void SendNotification()
+    //    {
+
+    //    }
+
+    //}
+
+    class OrderProcessor
     {
-        //common functionality
+        private readonly ValidateOrder validateOrder;
+        private readonly SaveOrder saveOrder;
+        private readonly SendOrderNotification sendNotificationOrder;
+
+        public OrderProcessor(ValidateOrder validateOrder, SaveOrder saveOrder, SendOrderNotification sendNotificationOrder)
+        {
+            this.validateOrder = validateOrder;
+            this.saveOrder = saveOrder;
+            this.sendNotificationOrder = sendNotificationOrder;
+        }
+
+        public void Process()
+        {
+            validateOrder.Validate();
+            saveOrder.Save();
+            sendNotificationOrder.SendNotification();
+        }
+
     }
 
-    //class Car : Vehicle
-    //{
-    //    public override void StartEngine()
-    //    {
-    //        Console.WriteLine("starting...");
-    //    }
-    //}
-
-    //class Cycle : Vehicle 
-    //{
-    //    public override void StartEngine()
-    //    {
-    //        throw new Exception("Engine not found");
-    //    }
-
-    //}
-
-    class VehicleWithEngine : Vehicle {
-        public virtual void StartEngine()
+    public class ValidateOrder
+    {
+        public void Validate()
         {
-            Console.WriteLine("Engine starting...");
+            Console.WriteLine("Validating...");
+        }
+    }
+    public class SaveOrder
+    {
+        public void Save()
+        {
+            Console.WriteLine("Saving...");
+        }
+
+    }
+    public class SendOrderNotification
+    {
+        public void SendNotification()
+        {
+            Console.WriteLine("Sending notification....");
         }
     }
 
-    class VehicleWithoutEngine : Vehicle { }
-
-    class Car : VehicleWithEngine { }
-
-    class Cycle : VehicleWithoutEngine { }
-
-    class HelloWorld
+    public class HelloWorld
     {
         public static void Main()
         {
-            List<Vehicle> vehicles = new List<Vehicle>();
-            vehicles.Add(new Car());
-            vehicles.Add(new Cycle());
+            OrderProcessor o = new OrderProcessor(new ValidateOrder(),new SaveOrder(), new SendOrderNotification());
+            o.Process();
 
-            foreach(var vehicle in vehicles)
-            {
-                vehicle.StartEngine();
-            }
         }
 
     }
