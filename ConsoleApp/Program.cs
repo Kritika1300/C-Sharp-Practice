@@ -3,58 +3,54 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    //public class Calculate
+
+    class Vehicle
+    {
+        //common functionality
+    }
+
+    //class Car : Vehicle
     //{
-    //    public int CalculateMethod(int a, int b, string choice)
+    //    public override void StartEngine()
     //    {
-    //        switch (choice)
-    //        {
-    //            case "+":
-    //                Console.WriteLine(a + b);
-    //                return a + b;
-                
+    //        Console.WriteLine("starting...");
+    //    }
+    //}
 
-    //            case "*":
-    //                Console.WriteLine(a * b);
-    //                return a + b;
-
-    //        }
-    //        return 0;
+    //class Cycle : Vehicle 
+    //{
+    //    public override void StartEngine()
+    //    {
+    //        throw new Exception("Engine not found");
     //    }
 
-    //}  
-     
-    interface Calculate
-    {
-        public int CalculateMethod(int a, int b);
+    //}
+
+    class VehicleWithEngine : Vehicle {
+        public virtual void StartEngine()
+        {
+            Console.WriteLine("Engine starting...");
+        }
     }
 
-    class Add : Calculate
-    {
-        public int CalculateMethod(int a, int b)
-        {
-            Console.WriteLine(a + b);
-            return a + b;
-        }
-    }
-    class Subtract : Calculate
-    {
-        public int CalculateMethod(int a, int b)
-        {
-            Console.WriteLine(a - b);
-            return a - b;
-        }
-    }
+    class VehicleWithoutEngine : Vehicle { }
+
+    class Car : VehicleWithEngine { }
+
+    class Cycle : VehicleWithoutEngine { }
+
     class HelloWorld
     {
         public static void Main()
         {
-            Add a = new Add();
-            a.CalculateMethod(5,4);
+            List<Vehicle> vehicles = new List<Vehicle>();
+            vehicles.Add(new Car());
+            vehicles.Add(new Cycle());
 
-            Subtract s = new Subtract();
-            s.CalculateMethod(5,4);
-
+            foreach(var vehicle in vehicles)
+            {
+                vehicle.StartEngine();
+            }
         }
 
     }
