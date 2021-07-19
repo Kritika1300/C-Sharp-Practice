@@ -3,77 +3,58 @@ using System.Collections.Generic;
 
 namespace ConsoleApp1
 {
-    //interface IPrinter 
+    //public class Calculate
     //{
-    //    public void Print();
-    //    public void Scan();
-    //    public void Fax();
-    //    public void PrintDuplexContent();
-    //}
+    //    public int CalculateMethod(int a, int b, string choice)
+    //    {
+    //        switch (choice)
+    //        {
+    //            case "+":
+    //                Console.WriteLine(a + b);
+    //                return a + b;
+                
 
-    interface IPrinter
+    //            case "*":
+    //                Console.WriteLine(a * b);
+    //                return a + b;
+
+    //        }
+    //        return 0;
+    //    }
+
+    //}  
+     
+    interface Calculate
     {
-        public void Print();
-        public void Scan();
-        public void Fax();
+        public int CalculateMethod(int a, int b);
     }
 
-    interface IPrintDuplexContent
+    class Add : Calculate
     {
-        public void PrintDuplexContent();
-    }
-
-
-    class HPLaserPrinter : IPrinter, IPrintDuplexContent
-    {
-        public void Fax()
+        public int CalculateMethod(int a, int b)
         {
-            Console.WriteLine("Fax");
-        }
-
-        public void Print()
-        {
-            Console.WriteLine("Print");
-
-        }
-
-        public void PrintDuplexContent()
-        {
-            Console.WriteLine("Duplex");
-
-        }
-
-        public void Scan()
-        {
-            Console.WriteLine("Scan");
-
+            Console.WriteLine(a + b);
+            return a + b;
         }
     }
-
-    class HPPrinter : IPrinter
+    class Subtract : Calculate
     {
-        public void Fax()
+        public int CalculateMethod(int a, int b)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Print()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Scan()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine(a - b);
+            return a - b;
         }
     }
-
-
     class HelloWorld
     {
         public static void Main()
         {
-           
+            Add a = new Add();
+            a.CalculateMethod(5,4);
+
+            Subtract s = new Subtract();
+            s.CalculateMethod(5,4);
+
         }
 
     }
