@@ -1,52 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
+using System.Threading;
+using System.Threading.Tasks;
 
-namespace Classes
+namespace ConsoleApp1
 {
-
-
- 
+    public delegate bool SortingDelegate(int x,int y);
     class Program
     {
-
-        class Shape
-        {
-
-        }
-
-        class Circle : Shape
-        {
-            public void Draw()
-            {
-
-            }
-        }
-        class Car { }
-
         static void Main(string[] args)
         {
-            Shape s = new Circle();
-            Circle c = (Circle)s;
-            object c1 = s;
-            Circle c2 = c1 as Circle;
-            if(c is Car)
+            int[] arr = { 1, 2, 93, 5,40,34};
+            Sort.BubbleSort(arr, new SortingDelegate(SortingLogic));
+            
+            foreach(int val in arr)
             {
-                Console.WriteLine("Yes");
+                Console.Write(val + " ");
             }
-            else
-            {
-                Console.WriteLine("No");
-            }
-            c.Draw();
+           
         }
-
-
-
+        public static bool SortingLogic(int x, int y)
+        {
+            return x < y;
+        }
 
     }
 
+    class Sort
+    {
+        public static void BubbleSort(int[] arr, SortingDelegate del)
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                for(int j = i + 1; j < arr.Length; j++)
+                {
+                    if(del(arr[i],arr[j]))
+                    {
+                        int temp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        }
+    }
 
-
-
+   
 }
