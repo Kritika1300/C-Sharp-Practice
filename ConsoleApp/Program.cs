@@ -1,63 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
-namespace ConsoleApp1
+namespace Classes
 {
-    //public class DataAccessLayer 
-    //{
-    //    public void GetCustomerNameDAL()
-    //    {
-    //        Console.WriteLine("Name");
-    //    }
-    //}
-    //public class BusinessLayer
-    //{
-    //    public void GetCustomerNameBL()
-    //    {
-    //        DataAccessLayer obj = new DataAccessLayer(); Higher level module dependent on Lower Level module
-    //        obj.GetCustomerNameDAL();
 
-    //    }
-    //}
-    public class DataAccessLayer : IGetCustomerName
+
+ 
+    class Program
     {
-        public void GetCustomerNameDAL()
+        static void Main(string[] args)
         {
-            Console.WriteLine("Name");
-        }
-    }
+            //var i = 10;
+            //i = "Sting";
 
-    public interface IGetCustomerName 
-    {
-        public void GetCustomerNameDAL();
-        
-    }
-
-    public class BusinessLayer
-    {
-        public void GetCustomerNameBL()
-        {
-            IGetCustomerName obj = new DataAccessLayer();
-            obj.GetCustomerNameDAL();
-
-        }
-    }
-    public class HelloWorld
-    {
-        public static void Main()
-        {
-            BusinessLayer b = new BusinessLayer();
-            b.GetCustomerNameBL();
+            dynamic i1 = 10;
+            i1 = "String";
+            Console.WriteLine(i1);
 
         }
 
+
+
+
     }
+
+
+
 
 }
-
-
-
-
-
-
-
