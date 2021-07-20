@@ -30,7 +30,7 @@ namespace Classes
             Circle c = (Circle)s;
             object c1 = s;
             Circle c2 = c1 as Circle;
-            if(c2 != null)
+            if(c is Car)
             {
                 Console.WriteLine("Yes");
             }
