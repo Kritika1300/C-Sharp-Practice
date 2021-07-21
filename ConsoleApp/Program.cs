@@ -4,40 +4,80 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ConsoleApp1
 {
 
-    class Program
+
+    class Test
     {
         static void Main(string[] args)
         {
-            int i = 8;
-            string s = "Factorial is";
-            int fact = i.Factorial(s);
-            Console.WriteLine(fact);
+            DbMigrator db = new DbMigrator(new FileLogger());
+            db.Migrate();
+
+            Installer ins = new Installer(new FileLogger());
+            ins.Install();
+            
 
         }
 
     }
 
-    public static class Int32Extension 
+    interface ILogger
     {
-         public static int Factorial(this Int32 x,string s)
+        public void Log(string message);
+    }
+    class ConsoleLogger  : ILogger
+    { 
+        public void Log(string message)
         {
-            Console.WriteLine(s);
-            if (x == 0) return 1;
-            else
+            Console.WriteLine(message);
+        }
+    }
+
+    class FileLogger : ILogger
+    {
+        public void Log(string message)
+        {
+            using (var sw = new StreamWriter(@"D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\Test.txt", true))
             {
-                int res = 1;
-                for(int i = x; i >  0 ; i--)
-                {
-                    res = res * i;
-                }
-               
-                return res;
+                sw.WriteLine(message);
             }
         }
     }
+    class DbMigrator
+    {
+        private readonly ILogger _logger;
+        public DbMigrator(ILogger logger)
+        {
+            _logger = logger;
+        }
+        public void Migrate()
+        {
+            _logger.Log("Migrating....");
+        }
+    }
+
+    class Installer 
+    {
+        private readonly ILogger _logger;
+        public Installer(ILogger logger)
+        {
+            _logger = logger;
+        }
+        public void Install()
+        {
+            _logger.Log("Installing....");
+        }
+    }
+
+
 
 }
+
+
+
+
+
