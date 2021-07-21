@@ -12,21 +12,18 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            int[][] arr = new int[4][];
+            arr[0] = new int[] { 1, 2, 34, 5 };
+            arr[1] = new int[] { 1, 2 };
+            arr[2] = new int[] { 2, 4, 56, 7, 0, 98, 7, 8 };
+            arr[3] = new int[] { 2, 4, 56, 7, 0, 98, 7, 8 ,7,8,89};
 
-            int[,] arr = new int[2,2];
-            for(int i = 0; i < 2; i++)
-            {
-                for(int j = 0; j < 2; j++)
-                {
-                    arr[i, j] = Convert.ToInt32(Console.ReadLine());
-                }
-            }
 
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < arr[i].Length; j++)
                 {
-                    Console.Write(arr[i,j] + " ");
+                    Console.Write(arr[i][j] + " ");
                 }
                 Console.WriteLine();
             }
