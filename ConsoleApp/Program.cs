@@ -17,15 +17,15 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Compare<Season> c = new Compare<Season>();
+            Compare<int> c = new Compare<int>();
             Season s = new Season();
         
-            Console.WriteLine(c.CompareStrings(s,s));
+            Console.WriteLine(c.CompareStrings(5,4));
           
         }
     }
 
-    class Compare<T> where T : class
+    class Compare<T> where T : struct
     {
         public bool CompareStrings(T a,T b) 
         {
