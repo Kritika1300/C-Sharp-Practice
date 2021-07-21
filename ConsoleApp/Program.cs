@@ -9,23 +9,28 @@ using System.IO;
 namespace ConsoleApp1
 {
 
+    class Season
+    {
 
+    }
     class Test
     {
         static void Main(string[] args)
         {
-            Compare<int> c = new Compare<int>();
-            Console.WriteLine(c.Max(5,13));
+            Compare<Season> c = new Compare<Season>();
+            Season s = new Season();
+        
+            Console.WriteLine(c.CompareStrings(s,s));
           
         }
     }
 
-    class Compare<T> where T : IComparable
+    class Compare<T> where T : class
     {
-        public  T Max(T a,T b) 
+        public bool CompareStrings(T a,T b) 
         {
-            if (a.CompareTo(b) > 0) return a;
-            else return b;
+            bool res = a.Equals(b);
+            return res;
         }
     }
    
