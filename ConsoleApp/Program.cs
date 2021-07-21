@@ -15,7 +15,16 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Multithreading mt = new Multithreading();
-            mt.Method1();
+            Console.WriteLine("Main started");
+            Thread t1 = new Thread(mt.Method1);
+            t1.Start();
+            t1.Join();
+            Console.WriteLine("t1 Ended");
+            Thread t2 = new Thread(mt.Method2);
+            t2.Start();
+            t2.Join();
+            Console.WriteLine("t2 Ended");
+            Console.WriteLine("Main Ended");
         }
 
     }
@@ -23,35 +32,18 @@ namespace ConsoleApp1
     {
         public void Method1()
         {
-            Console.WriteLine("Started work1....");
-            int target = Convert.ToInt32(Console.ReadLine());
-            Helper helper = new Helper(target);
-            Thread t = new Thread(new ThreadStart(helper.Method2));
-            t.Start();
-            Console.WriteLine("Continue with other work.....");
-
-            Console.WriteLine("Work1 Ended....");
-        }   
-
-    }
-
-    class Helper
-    {
-        private readonly int _target;
-        public Helper(int target)
-        {
-            _target = target;
+            Console.WriteLine("t1 Started");
+            
         }
+
         public void Method2()
         {
-     
-            Thread.Sleep(3000);
-            for (int i = 0; i <= _target; i++)
-            {
-                Console.WriteLine("3");
-            }
+            Console.WriteLine("t2 Started");
         }
+
     }
+
+   
 
 
 
