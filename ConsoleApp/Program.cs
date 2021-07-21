@@ -25,25 +25,32 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Started work1....");
             int target = Convert.ToInt32(Console.ReadLine());
-            Thread t = new Thread(new ParameterizedThreadStart(Method2));
-            t.Start(target);
+            Helper helper = new Helper(target);
+            Thread t = new Thread(new ThreadStart(helper.Method2));
+            t.Start();
             Console.WriteLine("Continue with other work.....");
-            
-            Console.WriteLine("Work1 Ended....");
-        }
 
-        public void Method2(object target)
+            Console.WriteLine("Work1 Ended....");
+        }   
+
+    }
+
+    class Helper
+    {
+        private readonly int _target;
+        public Helper(int target)
         {
-            string t = target.ToString();
-            int t1 = int.Parse(t);
+            _target = target;
+        }
+        public void Method2()
+        {
+     
             Thread.Sleep(3000);
-            for(int i = 0; i <= t1; i++)
+            for (int i = 0; i <= _target; i++)
             {
-                Console.WriteLine("1");
+                Console.WriteLine("3");
             }
         }
-        
-
     }
 
 
