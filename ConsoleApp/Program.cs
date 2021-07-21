@@ -1,60 +1,37 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    public class Logger
-    {
-        public void Log(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
-
-    public class DBMigrator 
-    {
-
-        private readonly Logger _logger;
-
-        public DBMigrator(Logger logger)
-        {
-            _logger = logger;
-        }
-
-        public void Migrate()
-        {
-            _logger.Log("We are migrating.....");
-        }
-
-    }
-
-    public class Installer
-    {
-        private readonly Logger _logger;
-        public Installer(Logger logger)
-        {
-            _logger = logger;
-        }
-
-        public void Install()
-        {
-            _logger.Log("We are installing.......");
-        }
-    
-    
-    }
 
     class Program
     {
         static void Main(string[] args)
         {
-            DBMigrator db = new DBMigrator(new Logger());
-            db.Migrate();
 
-            Installer ins = new Installer(new Logger());
-            ins.Install();
-            
+            int[,] arr = new int[2,2];
+            for(int i = 0; i < 2; i++)
+            {
+                for(int j = 0; j < 2; j++)
+                {
+                    arr[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.Write(arr[i,j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+
         }
 
     
