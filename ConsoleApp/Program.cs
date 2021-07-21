@@ -14,52 +14,43 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            ExceptionHandling e = new ExceptionHandling();
-            e.Divide(6, 0);
+            AmusementParkRides a = new AmusementParkRides();
+            a.AgeCheck(12);
+            
         }
 
     }
-    class ExceptionHandling
+    class AgeInvalidException : Exception
     {
-     
-        public void Divide(int num, int den)
+
+        public AgeInvalidException(string message) : base(message)
         {
-          try
-            {
-                try
-                {
-                    int res = num / den;
-                }
-                catch (Exception e)
-                {
-                    string path = @"D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\Test.txt";
-                    if (File.Exists(path))
-                    {
-                        Console.WriteLine(e.Message);
-                        using (var sw = new StreamWriter(path))
-                        {
-                            sw.WriteLine(e.Message);
-                        }
-                    }
-                    else
-                    {
-                        throw new FileNotFoundException("File not found ", e);
-                    }
-
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Inner exception: " + ex.InnerException.GetType().Name );
-                Console.WriteLine("Current exception: " + ex.GetType().Name);
-
-            }
+            Console.WriteLine(message);
 
         }
 
     }
+
+    class AmusementParkRides
+    { 
+        public void AgeCheck(int age)
+        {
+            if(age > 18)
+            {
+                Console.WriteLine("You are allowed on the Roler Coaster");
+            }
+            else
+            {
+                throw new AgeInvalidException("You should be 18 yrs old");
+            }
+        }
     
-   
+    
+    
+    }
+
+
+
 }
 
 
