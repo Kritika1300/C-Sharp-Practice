@@ -14,39 +14,36 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            AmusementParkRides a = new AmusementParkRides();
-            a.AgeCheck(12);
-            
+            Multithreading mt = new Multithreading();
+            mt.Method1();
         }
 
     }
-    class AgeInvalidException : Exception
+    class Multithreading
     {
-
-        public AgeInvalidException(string message) : base(message)
+        public void Method1()
         {
-            Console.WriteLine(message);
-
+            Console.WriteLine("Started work1....");
+            int target = Convert.ToInt32(Console.ReadLine());
+            Thread t = new Thread(new ParameterizedThreadStart(Method2));
+            t.Start(target);
+            Console.WriteLine("Continue with other work.....");
+            
+            Console.WriteLine("Work1 Ended....");
         }
 
-    }
-
-    class AmusementParkRides
-    { 
-        public void AgeCheck(int age)
+        public void Method2(object target)
         {
-            if(age > 18)
+            string t = target.ToString();
+            int t1 = int.Parse(t);
+            Thread.Sleep(3000);
+            for(int i = 0; i <= t1; i++)
             {
-                Console.WriteLine("You are allowed on the Roler Coaster");
-            }
-            else
-            {
-                throw new AgeInvalidException("You should be 18 yrs old");
+                Console.WriteLine("1");
             }
         }
-    
-    
-    
+        
+
     }
 
 
