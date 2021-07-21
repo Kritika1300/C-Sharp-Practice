@@ -12,31 +12,32 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            int[][] arr = new int[4][];
-            arr[0] = new int[] { 1, 2, 34, 5 };
-            arr[1] = new int[] { 1, 2 };
-            arr[2] = new int[] { 2, 4, 56, 7, 0, 98, 7, 8 };
-            arr[3] = new int[] { 2, 4, 56, 7, 0, 98, 7, 8 ,7,8,89};
-
-
-            for (int i = 0; i < arr.Length; i++)
-            {
-                for (int j = 0; j < arr[i].Length; j++)
-                {
-                    Console.Write(arr[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-
+            int i = 8;
+            string s = "Factorial is";
+            int fact = i.Factorial(s);
+            Console.WriteLine(fact);
 
         }
 
-    
-       
-
     }
 
-  
+    public static class Int32Extension 
+    {
+         public static int Factorial(this Int32 x,string s)
+        {
+            Console.WriteLine(s);
+            if (x == 0) return 1;
+            else
+            {
+                int res = 1;
+                for(int i = x; i >  0 ; i--)
+                {
+                    res = res * i;
+                }
+               
+                return res;
+            }
+        }
+    }
 
-   
 }
