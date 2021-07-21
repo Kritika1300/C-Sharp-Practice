@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO;
+using System.IO; 
 
 namespace ConsoleApp1
 {
@@ -14,67 +14,52 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            DbMigrator db = new DbMigrator(new FileLogger());
-            db.Migrate();
-
-            Installer ins = new Installer(new FileLogger());
-            ins.Install();
-            
-
+            ExceptionHandling e = new ExceptionHandling();
+            e.Divide(6, 0);
         }
 
     }
-
-    interface ILogger
+    class ExceptionHandling
     {
-        public void Log(string message);
-    }
-    class ConsoleLogger  : ILogger
-    { 
-        public void Log(string message)
+     
+        public void Divide(int num, int den)
         {
-            Console.WriteLine(message);
-        }
-    }
-
-    class FileLogger : ILogger
-    {
-        public void Log(string message)
-        {
-            using (var sw = new StreamWriter(@"D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\Test.txt", true))
+          try
             {
-                sw.WriteLine(message);
+                try
+                {
+                    int res = num / den;
+                }
+                catch (Exception e)
+                {
+                    string path = @"D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\Test.txt";
+                    if (File.Exists(path))
+                    {
+                        Console.WriteLine(e.Message);
+                        using (var sw = new StreamWriter(path))
+                        {
+                            sw.WriteLine(e.Message);
+                        }
+                    }
+                    else
+                    {
+                        throw new FileNotFoundException("File not found ", e);
+                    }
+
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Inner exception: " + ex.InnerException.GetType().Name );
+                Console.WriteLine("Current exception: " + ex.GetType().Name);
+
+            }
+
         }
+
     }
-    class DbMigrator
-    {
-        private readonly ILogger _logger;
-        public DbMigrator(ILogger logger)
-        {
-            _logger = logger;
-        }
-        public void Migrate()
-        {
-            _logger.Log("Migrating....");
-        }
-    }
-
-    class Installer 
-    {
-        private readonly ILogger _logger;
-        public Installer(ILogger logger)
-        {
-            _logger = logger;
-        }
-        public void Install()
-        {
-            _logger.Log("Installing....");
-        }
-    }
-
-
-
+    
+   
 }
 
 
