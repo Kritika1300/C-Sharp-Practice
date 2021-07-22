@@ -1,53 +1,37 @@
 ﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.IO;
 
-namespace Classes
+namespace Composition
 {
-    interface IFile
+    class Compressor
     {
-        void OpenFile();
-    }
-
-    interface IBinaryFile
-    {
-        void OpenBinaryFile();
- 
-    }
-
-    class FileInfo : IFile, IBinaryFile
-    {
-        public void OpenFile()
+        public void Cooling()
         {
-            Console.WriteLine("Opening Text File");
+            Console.WriteLine("Cooling...");
         }
-
-        public void OpenBinaryFile()
-        {
-            Console.WriteLine("Opening Binary File");
-
-        }
-        public void Search(string text)
-        {
-            Console.WriteLine("Searching in File");
-        }
+            
     }
-
-    public class Program
+    class AirConditioner 
     {
-        public static void Main()
+        private Compressor _compressor;
+        public AirConditioner(Compressor compressor)
         {
-            IFile file1 = new FileInfo();
-     
+            _compressor = compressor;
+        }
+        public void PowerOn()
+        {
+            _compressor.Cooling();
+        }     
+
+    }
+    class MainClass
+    {
+            
+        static void Main(string[] args)
+        {
+            AirConditioner airConditioner = new AirConditioner(new Compressor());
+            airConditioner.PowerOn(); 
 
         }
     }
-
-
-
 
 }
