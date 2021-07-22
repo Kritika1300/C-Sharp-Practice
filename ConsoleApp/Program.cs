@@ -1,66 +1,53 @@
 ﻿using System;
+using System.Linq;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
-namespace ConsoleApp1
+namespace Classes
 {
-    class Program
+    interface IFile
     {
-        static void Main(string[] args)
-        {
-            Mobile2 m = new Mobile2();
-           
-
-        }
-            
-        
-    }
-    public abstract class MobilePhone
-    {
-        public abstract void Calling();
-        public abstract void SendSMS();
-       
+        void OpenFile();
     }
 
-    public class Mobile1 : MobilePhone
+    interface IBinaryFile
     {
-        public override void  Calling()
-        {
-            Console.WriteLine("Calling");
-        }
-        public override void SendSMS()
-        {
-            Console.WriteLine("SMS");
-        }
+        void OpenBinaryFile();
+ 
     }
 
-    public class Mobile2 : MobilePhone
+    class FileInfo : IFile, IBinaryFile
     {
-        public override void Calling()
+        public void OpenFile()
         {
-            Console.WriteLine("Calling");
+            Console.WriteLine("Opening Text File");
         }
-        public override void SendSMS()
+
+        public void OpenBinaryFile()
         {
-            Console.WriteLine("SMS");
+            Console.WriteLine("Opening Binary File");
+
         }
-        public void FMRadio()
+        public void Search(string text)
         {
-            Console.WriteLine("FM");
-        }
-        public void Camera()
-        {
-            Console.WriteLine("Camera");
-        }
-        public void Recording()
-        {
-            Console.WriteLine("Recording");
-        }
-        public void ReadAndSendEmails()
-        {
-            Console.WriteLine("Emails");
+            Console.WriteLine("Searching in File");
         }
     }
 
-  
+    public class Program
+    {
+        public static void Main()
+        {
+            IFile file1 = new FileInfo();
+     
+
+        }
+    }
+
+
+
+
 }
