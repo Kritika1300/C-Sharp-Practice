@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Composition
+namespace Aggreagation
 {
-    class Touchpad
+    class USBMouse
     {
         public void Navigate()
         {
@@ -13,14 +13,14 @@ namespace Composition
 
     class Laptop
     {
-        private Touchpad _touchpad;
-        public Laptop(Touchpad touchpad)
+        private USBMouse _mouse;
+        public Laptop(USBMouse mouse)
         {
-            _touchpad = touchpad;
+            _mouse = mouse;
         }
         public void Operate()
         {
-            _touchpad.Navigate();
+            _mouse.Navigate();
         }
        
     }
@@ -31,8 +31,9 @@ namespace Composition
         static void Main(string[] args)
         {
 
-            Laptop laptop = new Laptop(new Touchpad());
+            Laptop laptop = new Laptop(new USBMouse());
             laptop.Operate();
+            
         }
     }
 
