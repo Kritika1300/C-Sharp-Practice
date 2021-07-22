@@ -2,35 +2,37 @@
 
 namespace Composition
 {
-    class Compressor
+    class Touchpad
     {
-        public void Cooling()
+        public void Navigate()
         {
-            Console.WriteLine("Cooling...");
+            Console.WriteLine("Scrolling...");
         }
-            
-    }
-    class AirConditioner 
-    {
-        private Compressor _compressor;
-        public AirConditioner(Compressor compressor)
-        {
-            _compressor = compressor;
-        }
-        public void PowerOn()
-        {
-            _compressor.Cooling();
-        }     
 
     }
+
+    class Laptop
+    {
+        private Touchpad _touchpad;
+        public Laptop(Touchpad touchpad)
+        {
+            _touchpad = touchpad;
+        }
+        public void Operate()
+        {
+            _touchpad.Navigate();
+        }
+       
+    }
+
     class MainClass
     {
             
         static void Main(string[] args)
         {
-            AirConditioner airConditioner = new AirConditioner(new Compressor());
-            airConditioner.PowerOn(); 
 
+            Laptop laptop = new Laptop(new Touchpad());
+            laptop.Operate();
         }
     }
 
