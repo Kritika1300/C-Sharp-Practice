@@ -1,47 +1,51 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.Text;
+﻿
+
+
+
+
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.IO; 
 
 namespace ConsoleApp1
 {
-
-    class Season
+    class Program
     {
-
-    }
-    class Test
-    {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Compare<int> c = new Compare<int>();
-            Season s = new Season();
-        
-            Console.WriteLine(c.CompareStrings(5,4));
-          
-        }
-    }
 
-    class Compare<T> where T : struct
-    {
-        public bool CompareStrings(T a,T b) 
+            Program p = new Program();
+
+            p.OpenFacebook();
+            await p.AsyncWork();
+            
+        }
+
+        public void OpenFacebook()
         {
-            bool res = a.Equals(b);
-            return res;
+            Console.WriteLine("Welcome to Facebook");
+
         }
+
+        public async Task CreatePost()
+        {
+            Console.WriteLine("Creating Post...");
+            await Task.Delay(5000);
+            Console.WriteLine("Post Created");
+        }
+
+        public void LikePost()
+        {
+            Console.WriteLine("Liked");
+        }
+
+        public async Task AsyncWork()
+        {
+            await CreatePost();
+
+            LikePost();
+        }
+
+
     }
-   
-
-   
-
-
-
 }
-
-
-
-
-
