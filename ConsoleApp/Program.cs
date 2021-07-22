@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-using System;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,41 +6,61 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
+            Mobile2 m = new Mobile2();
+           
 
-            Program p = new Program();
-
-            p.OpenFacebook();
-            await p.AsyncWork();
+        }
             
-        }
-
-        public void OpenFacebook()
-        {
-            Console.WriteLine("Welcome to Facebook");
-
-        }
-
-        public async Task CreatePost()
-        {
-            Console.WriteLine("Creating Post...");
-            await Task.Delay(5000);
-            Console.WriteLine("Post Created");
-        }
-
-        public void LikePost()
-        {
-            Console.WriteLine("Liked");
-        }
-
-        public async Task AsyncWork()
-        {
-            await CreatePost();
-
-            LikePost();
-        }
-
-
+        
     }
+    public abstract class MobilePhone
+    {
+        public abstract void Calling();
+        public abstract void SendSMS();
+       
+    }
+
+    public class Mobile1 : MobilePhone
+    {
+        public override void  Calling()
+        {
+            Console.WriteLine("Calling");
+        }
+        public override void SendSMS()
+        {
+            Console.WriteLine("SMS");
+        }
+    }
+
+    public class Mobile2 : MobilePhone
+    {
+        public override void Calling()
+        {
+            Console.WriteLine("Calling");
+        }
+        public override void SendSMS()
+        {
+            Console.WriteLine("SMS");
+        }
+        public void FMRadio()
+        {
+            Console.WriteLine("FM");
+        }
+        public void Camera()
+        {
+            Console.WriteLine("Camera");
+        }
+        public void Recording()
+        {
+            Console.WriteLine("Recording");
+        }
+        public void ReadAndSendEmails()
+        {
+            Console.WriteLine("Emails");
+        }
+    }
+
+  
 }
