@@ -21,7 +21,9 @@
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://contoso.com/packages": {}
         },
         "frameworks": {
           "net5.0": {
@@ -38,6 +40,20 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Net.Http.Formatting.Extension": {
+              "target": "Package",
+              "version": "[5.2.3, )"
+            },
+            "XPlat.Device.Geolocation": {
+              "target": "Package",
+              "version": "[1.7.20109.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

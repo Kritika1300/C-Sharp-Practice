@@ -1,40 +1,66 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Http.Formatting;
+using Newtonsoft.Json.Linq;
 
-namespace Aggreagation
+namespace ConsoleProgram
 {
-    class USBMouse
+    public class DataObject
     {
-        public void Navigate()
-        {
-            Console.WriteLine("Scrolling...");
-        }
-
+        public string Key{ get; set; }
+        public string LocalizedName { get; set; }
+        public CountryObject Country { get; set; }
     }
 
-    class Laptop
+    public class CountryObject
     {
-        private USBMouse _mouse;
-        public Laptop(USBMouse mouse)
-        {
-            _mouse = mouse;
-        }
-        public void Operate()
-        {
-            _mouse.Navigate();
-        }
-       
+        public string ID{ get; set; }
+        public string LocalizedName { get; set; }
     }
 
-    class MainClass
+    public class Class1
     {
-            
+        private const string URL = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
+        private static string urlParameters = "?apikey=Lgv6KAAwYhtu6CrUclX2uSHhenZMfdth&q=chandigarh";
+
         static void Main(string[] args)
         {
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
 
-            Laptop laptop = new Laptop(new USBMouse());
-            laptop.Operate();
-            
+            // Add an Accept header for JSON format.
+            client.DefaultRequestHeaders.Accept.Add(
+            new MediaTypeWithQualityHeaderValue("application/json"));
+
+            // List data response.
+            HttpResponseMessage response = client.GetAsync(urlParameters).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+            if (response.IsSuccessStatusCode)
+            {
+                // Parse the response body.
+                //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
+                //foreach (var d in dataObjects)
+                //{
+                //    Console.WriteLine("{0}", d.Country.LocalizedName);
+                //}
+                var content = response.Content.ReadAsStringAsync().Result;
+                dynamic stuff = JArray.Parse(content);
+                foreach (var d in stuff)
+                {
+                   Console.WriteLine("{0}", d.Country);
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+            }
+
+            // Make any other calls using HttpClient here.
+
+            // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
+            client.Dispose();
         }
     }
-
 }

@@ -30,3 +30,11 @@ D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.dll
 D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ref\ConsoleApp.dll
 D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.pdb
 D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.genruntimeconfig.cache
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\System.Net.Http.Extensions.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\System.Net.Http.Formatting.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\System.Net.Http.Primitives.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\XPlat.Core.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\XPlat.Device.Geolocation.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\XPlat.Foundation.dll
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\obj\Debug\net5.0\ConsoleApp.csproj.CopyComplete
+D:\Persnal\C#\C-Sharp-Practice\ConsoleApp\bin\Debug\net5.0\Newtonsoft.Json.dll
