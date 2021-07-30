@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O+Gtj1CcYY8ScOuCn7JoU5MWRv8q1V/bOSa4wr2RpYDfTEEruwt8gSGxPlPiQL/C9icbeIY6tnhVQpmKKAn9ZQ==",
+  "dgSpecHash": "dBQCz3jIx49f5q8efY45nB0j/Yqr0ybLbYLLYbdyOk5d5IW+UGTGyPvsRJUikEkrsqEZ7Jka/HcI2FXjIiaiVA==",
   "success": true,
-  "projectFilePath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
+  "projectFilePath": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hp\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\Hp\\.nuget\\packages\\system.net.http.formatting.extension\\5.2.3\\system.net.http.formatting.extension.5.2.3.nupkg.sha512",

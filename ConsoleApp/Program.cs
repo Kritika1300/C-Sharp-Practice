@@ -4,63 +4,45 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace ConsoleProgram
 {
-    public class DataObject
+    public class Data
     {
-        public string Key{ get; set; }
-        public string LocalizedName { get; set; }
-        public CountryObject Country { get; set; }
+        public string Login { get; set; }
+        public string  Followers_Url{ get; set; }
     }
 
-    public class CountryObject
+    class Test
     {
-        public string ID{ get; set; }
-        public string LocalizedName { get; set; }
-    }
 
-    public class Class1
-    {
-        private const string URL = "http://dataservice.accuweather.com/locations/v1/cities/autocomplete";
-        private static string urlParameters = "?apikey=Lgv6KAAwYhtu6CrUclX2uSHhenZMfdth&q=chandigarh";
-
-        static void Main(string[] args)
+        public static void Main()
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(URL);
+            HttpClient httpClient = new HttpClient();
+            httpClient.BaseAddress = new Uri("https://api.github.com");
+            var requestheader = httpClient.DefaultRequestHeaders.ToString();
+            Console.WriteLine(requestheader);
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            httpClient.DefaultRequestHeaders.Add("User-Agent", "anything");
+            requestheader = httpClient.DefaultRequestHeaders.ToString();
+            Console.WriteLine(requestheader);
 
-            // Add an Accept header for JSON format.
-            client.DefaultRequestHeaders.Accept.Add(
-            new MediaTypeWithQualityHeaderValue("application/json"));
-
-            // List data response.
-            HttpResponseMessage response = client.GetAsync(urlParameters).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
-            if (response.IsSuccessStatusCode)
+            HttpResponseMessage response = httpClient.GetAsync("/users/Kritika1300/followers").Result; // synchronous because of .Result as it blocks the execution thread (similar to Wait method)
+            var header = response.Headers; // response headers
+            var content = response.Content.ReadAsStringAsync().Result; //response content
+            List<Data> followers = JsonConvert.DeserializeObject<List<Data>>(content);
+            foreach (var i in followers)
             {
-                // Parse the response body.
-                //var dataObjects = response.Content.ReadAsAsync<IEnumerable<DataObject>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
-                //foreach (var d in dataObjects)
-                //{
-                //    Console.WriteLine("{0}", d.Country.LocalizedName);
-                //}
-                var content = response.Content.ReadAsStringAsync().Result;
-                dynamic stuff = JArray.Parse(content);
-                foreach (var d in stuff)
-                {
-                   Console.WriteLine("{0}", d.Country);
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
+                Console.WriteLine("Follower Name : " + i.Login + i.Followers_Url);
             }
 
-            // Make any other calls using HttpClient here.
-
-            // Dispose once all HttpClient calls are complete. This is not necessary if the containing object will be disposed of; for example in this case the HttpClient instance will be disposed automatically when the application terminates so the following call is superfluous.
-            client.Dispose();
         }
+        // ReadAsStringAsync returns Task<string> // .Result 
+        // GetAsync returns Task<HttpResponseMessage>
+        // DefaultRequestHeaders returns HttpRequestHeaders
     }
+
+  
 }

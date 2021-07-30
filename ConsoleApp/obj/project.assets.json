@@ -172,11 +172,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
+      "projectUniqueName": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
       "projectName": "ConsoleApp",
-      "projectPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
+      "projectPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp\\ConsoleApp.csproj",
       "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-      "outputPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp\\obj\\",
+      "outputPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
