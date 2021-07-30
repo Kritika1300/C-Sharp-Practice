@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj": {}
+    "D:\\Personal\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj": {
+    "D:\\Personal\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj",
+        "projectUniqueName": "D:\\Personal\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj",
         "projectName": "ApiCallPractice",
-        "projectPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj",
+        "projectPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ApiCallPractice\\ApiCallPractice.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hp\\Desktop\\C#\\C-Sharp-Practice\\ApiCallPractice\\obj\\",
+        "outputPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ApiCallPractice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -41,6 +41,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"

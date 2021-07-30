@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using Newtonsoft.Json;
 
 namespace ApiCallPractice
@@ -40,17 +42,19 @@ namespace ApiCallPractice
         static void Main(string[] args)
         {
             HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://jsonplaceholder.typicode.com/");
+            httpClient.BaseAddress = new Uri("http://localhost:3000");
             httpClient.DefaultRequestHeaders.Accept.Clear();
             httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = httpClient.GetAsync("/users").Result;
+            User user = new User() { Name = "Kiri" };
+            HttpResponseMessage response = httpClient.PostAsJsonAsync("/data", user).Result;
             string content = response.Content.ReadAsStringAsync().Result;
-            List<User> data = JsonConvert.DeserializeObject<List<User>>(content);
-            foreach(User d in data)
-            {
-                Console.WriteLine(d.Id +" "+ d.Name + " " + d.address.City + " " + d.address.geo.lat + " " + d.company.Name);
-            }
+            Console.WriteLine(content);
+            //List<User> data = JsonConvert.DeserializeObject<List<User>>(content);
+            //foreach(User d in data)
+            //{
+            //    Console.WriteLine(d.Id +" "+ d.Name + " " + d.address.City + " " + d.address.geo.lat + " " + d.company.Name);
+            //}
        
         }
     }
