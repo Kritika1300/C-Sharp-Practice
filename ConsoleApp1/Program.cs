@@ -4,22 +4,26 @@ using System.Collections.Generic;
 namespace ConsoleApp1
 {
     
-    class HelloWorld
+    
+class HelloWorld
     {
-        public delegate int MyDelegate(int x, int y);
-        
-        public static int Add(int a,int b)
+        static void Main()
         {
-            return a + b;
-        }
-
-        public static void Main()
-        {
-            MyDelegate del = delegate (int x, int y) { return x + y; };
-            del(2, 3);
+            int[] arr = { 5, 3, 2, 1, 1, 4, 3, 3, 3 };
+            int answer = 2;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] < arr[j])
+                    {
+                        answer = Math.Max(answer, j - i + 1);
+                    }
+                }
+            }
+            Console.WriteLine(answer);
         }
     }
-
 
 
 }

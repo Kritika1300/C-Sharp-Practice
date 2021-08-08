@@ -1,12 +1,38 @@
 ﻿<!DOCTYPE html>
-
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <style>
+        div{
+            border: 1px solid black;
+            height:490px;
+            overflow:hidden;
+            position:relative;
+            width:560px;
+        }
+        iframe{
+            height: 580px;
+            position:absolute;
+            right: -3px;
+            top: -90px;
+            width : 560px;
+            bottom: -20px;
+           
+        }
+    </style>
 </head>
 <body>
     <h1>I -Frame</h1>
-    <iframe width="560" height="315" src= "https://accountmanager.staging.watchguard.com/Login/StartRegistration" allowfullscreen></iframe>
+    <div id="div1">
+        <iframe id="frame" scrolling="no" sandbox="allow-same-origin allow-scripts" src="https://accountmanager.staging.watchguard.com/Login/StartRegistration"></iframe>
+    </div>
+    <script>
+        var i = document.getElementById("Username");
+        console.log(i);
+
+    </script>
+
 </body>
+
 </html>

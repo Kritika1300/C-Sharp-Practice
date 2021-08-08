@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\Hp\\.nuget\\packages\\",
-        "outputPath": "D:\\Persnal\\C#\\C-Sharp-Practice\\ConsoleApp1\\obj\\",
+        "outputPath": "D:\\Personal\\C#\\C-Sharp-Practice\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -21,7 +21,9 @@
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://contoso.com/packages": {}
         },
         "frameworks": {
           "net5.0": {
