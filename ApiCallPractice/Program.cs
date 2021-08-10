@@ -1,61 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
-using System.Net.Http.Json;
+using System.Net.Http.Formatting;
+using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
+using Refit;
+using System.Threading.Tasks;
 
-namespace ApiCallPractice
+namespace ConsoleProgram
 {
-    class User 
+    public class Data
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public Address address { get; set; }
-        public Company company { get; set; }
+        public string Login { get; set; }
+        public string Followers_Url { get; set; }
+    }
+
+    public interface IGitHubAPI
+    {
+        [Headers("User-Agent: Awesome Octocat App")]
+        [Get("/users/Kritika1300/followers")]
+        Task<List<Data>> GetData();
+
+        [Headers("User-Agent: Awesome Octocat App")]
+        [Get("/users/{uname}/followers")]
+        Task<List<Data>> GetData(string uname);
 
     }
 
-    class Address 
-    {
-        public string City { get; set; }
-        public Geo geo { get; set; }
-    }
-
-    class Geo 
-    {
-        public string lat { get; set; }
-        public string lng { get; set; }
-
-    }
-
-    class Company
+    class Test
     {
 
-        public string Name { get; set; }
-        public string Bs { get; set; }
-        public string CatchPhrase { get; set; }
-    }
-    class Program
-    {
-        static void Main(string[] args)
+        public static async Task Main()
         {
-            HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("http://localhost:3000");
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                var git = RestService.For<IGitHubAPI>("https://api.github.com");
+                var followers = await git.GetData("Kritika1300");
 
-            User user = new User() { Name = "Kiri" };
-            HttpResponseMessage response = httpClient.PostAsJsonAsync("/data", user).Result;
-            string content = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(content);
-            //List<User> data = JsonConvert.DeserializeObject<List<User>>(content);
-            //foreach(User d in data)
-            //{
-            //    Console.WriteLine(d.Id +" "+ d.Name + " " + d.address.City + " " + d.address.geo.lat + " " + d.company.Name);
-            //}
-       
+                foreach (var i in followers)
+                {
+                    Console.WriteLine("Follower Name : " + i.Login + i.Followers_Url);
+                }
+
         }
+   
     }
+
+
 }
+

@@ -36,3 +36,13 @@ D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\obj\Debug\net5.0\ApiCallPractice
 D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\obj\Debug\net5.0\ApiCallPractice.genruntimeconfig.cache
 D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\System.Net.Http.Formatting.dll
 D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.Http.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.Logging.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Refit.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Refit.HttpClientFactory.dll
+D:\Personal\C#\C-Sharp-Practice\ApiCallPractice\bin\Debug\net5.0\Refit.Newtonsoft.Json.dll
