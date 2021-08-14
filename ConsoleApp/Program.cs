@@ -3,33 +3,32 @@ using System.Linq;
 
 namespace ConsoleProgram
 {
-   
+
     class Program
     {
+        
+        delegate int AdditionDelegate(int a, int b); // Delegate definition
+
+        public static int Add(int a,int b) // the function to which AdditionDelegate points
+        {
+            return a + b;
+        }
 
         public static void Main()
         {
-            int[] arr = { 1, 23, 4, 56, 67, 2, 4, 5 }; 
-
-            var res = arr.Where(num => num % 2 == 0); //Method syntax
-
-            foreach(var number in res)
-            {
-                Console.Write(number + " ");
-               
-            }
-
-            Console.WriteLine();
-
-            var res1 = from n in arr where n % 2 != 0 select n; //Query Syntax
-
-            foreach (var number in res1)
-            {
-                Console.Write(number + " ");
-            }
-
+            AdditionDelegate ad = Program.Add; // Instantiation
+            int res = ad(3,4); // Invocation
+            Console.WriteLine(res);
+            ad = Subtract; // Compile time error
         }
+
+        // delegate is type safe function pointer
+        public static void Subtract(int a, int b)
+        {
+            Console.WriteLine(a - b);
+        }
+
     }
+}
 
   
-}
