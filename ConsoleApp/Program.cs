@@ -1,47 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Formatting;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json;
+using System.Linq;
 
 namespace ConsoleProgram
 {
-    public class Data
-    {
-        public string Login { get; set; }
-        public string  Followers_Url{ get; set; }
-    }
-
-    class Test
+   
+    class Program
     {
 
         public static void Main()
         {
-            HttpClient httpClient = new HttpClient();
-            httpClient.BaseAddress = new Uri("https://api.github.com");
-            var requestheader = httpClient.DefaultRequestHeaders.ToString();
-            Console.WriteLine(requestheader);
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-            httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "anything");
-            requestheader = httpClient.DefaultRequestHeaders.ToString();
-            Console.WriteLine(requestheader);
+            int[] arr = { 1, 23, 4, 56, 67, 2, 4, 5 }; 
 
-            HttpResponseMessage response = httpClient.GetAsync("/users/Kritika1300/followers").Result; // synchronous because of .Result as it blocks the execution thread (similar to Wait method)
-            var header = response.Headers; // response headers
-            var content = response.Content.ReadAsStringAsync().Result; //response content
-            List<Data> followers = JsonConvert.DeserializeObject<List<Data>>(content);
-            foreach (var i in followers)
+            var res = arr.Where(num => num % 2 == 0); //Method syntax
+
+            foreach(var number in res)
             {
-                Console.WriteLine("Follower Name : " + i.Login + i.Followers_Url);
+                Console.Write(number + " ");
+               
+            }
+
+            Console.WriteLine();
+
+            var res1 = from n in arr where n % 2 != 0 select n; //Query Syntax
+
+            foreach (var number in res1)
+            {
+                Console.Write(number + " ");
             }
 
         }
-        // ReadAsStringAsync returns Task<string> // .Result 
-        // GetAsync returns Task<HttpResponseMessage>
-        // DefaultRequestHeaders returns HttpRequestHeaders
     }
 
   

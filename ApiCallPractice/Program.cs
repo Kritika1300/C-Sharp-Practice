@@ -30,7 +30,6 @@ namespace ConsoleProgram
 
     class Test
     {
-
         public static async Task Main()
         {
                 var git = RestService.For<IGitHubAPI>("https://api.github.com");
