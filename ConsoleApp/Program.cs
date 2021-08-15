@@ -18,22 +18,26 @@ namespace AsyncCSharp
                 {
                     int den = Convert.ToInt32(Console.ReadLine());
                     int res = 100 / den;
+                    Console.WriteLine("print");
                 }
                 catch (Exception ex)
                 {
 
                     Console.WriteLine(ex.Message);
-                    throw (new MissingFieldException());
+                    //throw (new MissingFieldException());
                 }
                 finally
                 {
                     Console.WriteLine("Finally");
+                    throw (new MissingFieldException());
+
                 }
+                Console.WriteLine("Ok");
             }
-            catch(FileNotFoundException ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                throw new FieldAccessException();
+            
             }
             finally
             {
