@@ -1,59 +1,46 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
+using System.Text;
+using System.Net;
+using System.Threading.Tasks;
+using System.IO;
 
-namespace ConsoleProgram
+namespace AsyncCSharp
 {
-
     class Program
     {
-        public static void Main()
+        static void Main(string[] args)
         {
-            Thread t1 = new Thread(Task1);
-            Thread t2 = new Thread(Task2);
-            Thread t3 = new Thread(Task3);
-
-            t1.Start();
-            t2.Start();
-            t3.Start();
-       
-        }
-
-        public static void Task1()
-        {
-           Console.WriteLine("Task1 started using Thread t1");
-           for(int i = 1; i <= 5; i++)
+            try
             {
-                Console.WriteLine("Task1 " + i);
-            }
-            Console.WriteLine("Task1 ended using Thread t1");
-        }
+                try
+                {
+                    int den = Convert.ToInt32(Console.ReadLine());
+                    int res = 100 / den;
+                }
+                catch (Exception ex)
+                {
 
-        public static void Task2()
-        {
-            Console.WriteLine("Time consuming task started using Thread t2");
-            for (int i = 1; i <=5 ; i++)
+                    Console.WriteLine(ex.Message);
+                    throw (new MissingFieldException());
+                }
+                finally
+                {
+                    Console.WriteLine("Finally");
+                }
+            }
+            catch(FileNotFoundException ex)
             {
-                Console.WriteLine("Task2 " + i);
-                Thread.Sleep(100);
+                Console.WriteLine(ex.Message);
+                throw new FieldAccessException();
             }
-            Console.WriteLine("Time consuming task ended using Thread t2");
-        }
-
-        public static void Task3()
-        {
-            Console.WriteLine("Task3 started using Thread t3");
-            for (int i = 1; i <= 5; i++)
+            finally
             {
-                Console.WriteLine("Task3 " + i);
-                Thread.Sleep(50);
+                Console.WriteLine("Finally 2");
             }
-            Console.WriteLine("Task3 ended using Thread t3");
-        }
 
-        
+        }
 
     }
 }
-
-  
